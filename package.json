@@ -6,6 +6,7 @@
   "dependencies": {
     "debug": "4.3.4",
     "js-yaml": "4.1.0",
+    "jsdom": "^24.0.0",
     "strip-json-comments": "3.1.1",
     "yargs": "16.2.0",
     "yargs-parser": "20.2.4",
@@ -30,8 +31,8 @@
     "test": "mocha",
     "lint": "standard bin/* lib/**/*.js test/**/*.js",
     "lfet:UI": "export $(cat .env | xargs) && exec java -classpath \"${LFET_TOOL_DIR}/lib/*\" lohrfink.lfet.Application &",
-    "lfet:GenSrc": "export $(cat .env | xargs) && exec java -classpath \"\"${LFET_TOOL_DIR}/lib/*\" lohrfink.lfet.Application -gs \"$INIT_CWD/lfet/\" -rec -fnp \"*.lfet\" -sku -src \"JavaScript\"",
-    "lfet:GenTest": "export $(cat .env | xargs) && exec java -classpath \"\"${LFET_TOOL_DIR}/lib/*\" lohrfink.lfet.Application -GenTest -Directory \"$INIT_CWD/lfet/\" -Recursive -FileNamePattern \"*.lfet\" -intags \"cucumber\" -OutputRootfolder \"$INIT_CWD/test/features\" -ContinueOnError"
+    "lfet:GenSrc": "export $(cat .env | xargs) && exec java -classpath \"${LFET_TOOL_DIR}/lib/*\" lohrfink.lfet.Application -gs \"$INIT_CWD/lfet/\" -rec -fnp \"*.lfet\" -sku -src \"JavaScript\"",
+    "lfet:GenTest": "export $(cat .env | xargs) && exec java -classpath \"${LFET_TOOL_DIR}/lib/*\" lohrfink.lfet.Application -GenTest -Directory \"$INIT_CWD/lfet/\" -Recursive -FileNamePattern \"*.lfet\" -intags \"cucumber\" -OutputRootfolder \"$INIT_CWD/test/features\" -ContinueOnError"
   },
   "authors": [
     "Constantin Krüger (https://github.com/uniqueck)"
