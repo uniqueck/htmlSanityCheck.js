@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
-const debug = require('debug')('htmlsanitycheck:test:integration:helpers');
+const debug = require('debug')('htmlSanityCheck.js:test:integration:helpers')
 
 /**
  * Path to `mocha` executable
  */
-const HTMLSANITYCHECK_EXECUTABLE = require.resolve('../../bin/htmlsanitycheck');
+const HTMLSANITYCHECK_EXECUTABLE = require.resolve('../../bin/htmlsanitycheck')
 
 /**
  * Invoke `mocha` with default arguments. Calls `done` upon exit. Does _not_ accept a fixture path.
@@ -18,11 +18,11 @@ const HTMLSANITYCHECK_EXECUTABLE = require.resolve('../../bin/htmlsanitycheck');
  * @param {Object} [opts] - Options
  * @returns {ChildProcess}
  */
-function invokeHtmlSanityCheck(args, done, opts = {}) {
+function invokeHtmlSanityCheck (args, done, opts = {}) {
   if (typeof args === 'function') {
-    opts = done;
-    done = args;
-    args = [];
+    opts = done
+    done = args
+    args = []
   }
   return createSubprocess(
     defaultArgs([HTMLSANITYCHECK_EXECUTABLE].concat(args)),
@@ -42,14 +42,14 @@ function invokeHtmlSanityCheck(args, done, opts = {}) {
  * @param {boolean} [opts.fork] - If `true`, use `child_process.fork` instead
  * @returns {import('child_process').ChildProcess}
  */
-function createSubprocess(args, done, opts = {}) {
-  let output = '';
+function createSubprocess (args, done, opts = {}) {
+  let output = ''
 
   if (opts === 'pipe') {
-    opts = {stdio: ['inherit', 'pipe', 'pipe']};
+    opts = { stdio: ['inherit', 'pipe', 'pipe'] }
   }
 
-  const env = {...process.env};
+  const env = { ...process.env }
   // prevent DEBUG from borking STDERR when piping, unless explicitly set via `opts`
   delete env.DEBUG;
 
@@ -58,37 +58,37 @@ function createSubprocess(args, done, opts = {}) {
     stdio: ['inherit', 'pipe', 'inherit'],
     env,
     ...opts
-  };
+  }
 
   /**
    * @type {import('child_process').ChildProcess}
    */
-  let htmlsanitycheck;
+  let htmlsanitycheck
   if (opts.fork) {
-    const {fork} = require('child_process');
+    const { fork } = require('child_process')
     // to use ipc, we need a fourth item in `stdio` array.
     // opts.stdio is usually an array of length 3, but it could be smaller
     // (pad with `null`)
     for (let i = opts.stdio.length; i < 4; i++) {
-      opts.stdio.push(i === 3 ? 'ipc' : null);
+      opts.stdio.push(i === 3 ? 'ipc' : null)
     }
-    debug('forking: %s', args.join(' '));
-    htmlsanitycheck = fork(args[0], args.slice(1), opts);
+    debug('forking: %s', args.join(' '))
+    htmlsanitycheck = fork(args[0], args.slice(1), opts)
   } else {
-    const {spawn} = require('child_process');
-    debug('spawning: %s', [process.execPath].concat(args).join(' '));
-    htmlsanitycheck = spawn(process.execPath, args, opts);
+    const {spawn} = require('child_process')
+    debug('spawning: %s', [process.execPath].concat(args).join(' '))
+    htmlsanitycheck = spawn(process.execPath, args, opts)
   }
 
   const listener = data => {
-    output += data;
-  };
-
-  htmlsanitycheck.stdout.on('data', listener);
-  if (mocha.stderr) {
-    htmlsanitycheck.stderr.on('data', listener);
+    output += data
   }
-  htmlsanitycheck.on('error', done);
+
+  htmlsanitycheck.stdout.on('data', listener)
+  if (mocha.stderr) {
+    htmlsanitycheck.stderr.on('data', listener)
+  }
+  htmlsanitycheck.on('error', done)
 
   htmlsanitycheck.on('close', code => {
     done(null, {
@@ -96,8 +96,8 @@ function createSubprocess(args, done, opts = {}) {
       code,
       args,
       command: args.join(' ')
-    });
-  });
+    })
+  })
 
-  return htmlsanitycheck;
+  return htmlsanitycheck
 }
