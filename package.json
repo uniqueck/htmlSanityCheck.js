@@ -29,9 +29,9 @@
   "scripts": {
     "test": "mocha",
     "lint": "standard bin/* lib/**/*.js test/**/*.js",
-    "lfet:UI": "export $(cat .env | xargs) && exec java -classpath \"${LFET_TOOL_DIR}/lib/*\" lohrfink.lfet.Application",
-    "lfet:GenSrc": "export $(cat .env | xargs) && exec java -classpath \"/opt/lfet/lib/*\" lohrfink.lfet.Application -gs \"$INIT_CWD/lfet/\" -rec -fnp \"*.lfet\" -sku -src \"JavaScript\"",
-    "lfet:GenTest": "export $(cat .env | xargs) && exec java -classpath \"/opt/lfet/lib/*\" lohrfink.lfet.Application -GenTest -Directory \"$INIT_CWD/lfet/\" -Recursive -FileNamePattern \"*.lfet\" -intags \"cucumber\" -OutputRootfolder \"$INIT_CWD/test/features\" -ContinueOnError"
+    "lfet:UI": "export $(cat .env | xargs) && exec java -classpath \"${LFET_TOOL_DIR}/lib/*\" lohrfink.lfet.Application &",
+    "lfet:GenSrc": "export $(cat .env | xargs) && exec java -classpath \"\"${LFET_TOOL_DIR}/lib/*\" lohrfink.lfet.Application -gs \"$INIT_CWD/lfet/\" -rec -fnp \"*.lfet\" -sku -src \"JavaScript\"",
+    "lfet:GenTest": "export $(cat .env | xargs) && exec java -classpath \"\"${LFET_TOOL_DIR}/lib/*\" lohrfink.lfet.Application -GenTest -Directory \"$INIT_CWD/lfet/\" -Recursive -FileNamePattern \"*.lfet\" -intags \"cucumber\" -OutputRootfolder \"$INIT_CWD/test/features\" -ContinueOnError"
   },
   "authors": [
     "Constantin Krüger (https://github.com/uniqueck)"
