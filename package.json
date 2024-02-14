@@ -1,0 +1,44 @@
+{
+  "name": "htmlSanityCheck.js",
+  "description": "This module provides some basic sanity checks on html files",
+  "version": "1.0.0",
+  "main": "./lib/cli.js",
+  "dependencies": {
+    "debug": "4.3.4",
+    "js-yaml": "4.1.0",
+    "strip-json-comments": "3.1.1",
+    "yargs": "16.2.0",
+    "yargs-parser": "20.2.4",
+    "yargs-unparser": "2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uniqueck/htmlSanityCheck.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uniqueck/htmlSanityiCheck.js/issues/"
+  },
+  "devDependencies": {
+    "chai": "4.2.0",
+    "dirty-chai": "2.0.1",
+    "mocha": "9.2.2",
+    "rewiremock": "^3.14.3",
+    "sinon": "^14.0.0",
+    "standard": "^17.0.0"
+  },
+  "scripts": {
+    "test": "mocha",
+    "lint": "standard bin/* lib/**/*.js test/**/*.js",
+    "lfet:UI": "export $(cat .env | xargs) && exec java -classpath \"${LFET_TOOL_DIR}/lib/*\" lohrfink.lfet.Application",
+    "lfet:GenSrc": "export $(cat .env | xargs) && exec java -classpath \"/opt/lfet/lib/*\" lohrfink.lfet.Application -gs \"$INIT_CWD/lfet/\" -rec -fnp \"*.lfet\" -sku -src \"JavaScript\"",
+    "lfet:GenTest": "export $(cat .env | xargs) && exec java -classpath \"/opt/lfet/lib/*\" lohrfink.lfet.Application -GenTest -Directory \"$INIT_CWD/lfet/\" -Recursive -FileNamePattern \"*.lfet\" -intags \"cucumber\" -OutputRootfolder \"$INIT_CWD/test/features\" -ContinueOnError"
+  },
+  "authors": [
+    "Constantin Krüger (https://github.com/uniqueck)"
+  ],
+  "license": "MIT",
+  "bin": {
+    "htmlsanitycheck": "bin/htmlsanitycheck",
+    "htmlsanitycheck.js": "bin/htmlsanitycheck"
+  }
+}
