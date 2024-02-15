@@ -37,7 +37,7 @@ describe('cli/config', () => {
         const filepath = 'foo.yaml'
 
         it('should use the YAML parser', function () {
-          let conf = loadConfig(filepath)
+          const conf = loadConfig(filepath)
           expect(parsers.yaml.calledOnce).to.be.true
           expect(conf).to.be.eq(phonyConfigObject)
         })
@@ -47,7 +47,7 @@ describe('cli/config', () => {
         const filepath = 'foo.yml'
 
         it('should use the YAML parser', function () {
-          let conf = loadConfig(filepath)
+          const conf = loadConfig(filepath)
           expect(conf).to.be.eq(phonyConfigObject)
           expect(parsers.yaml.calledWith(filepath)).to.be.true
           expect(parsers.yaml.calledOnce).to.be.true
@@ -58,7 +58,7 @@ describe('cli/config', () => {
         const filepath = 'foo.js'
 
         it('should use the JS parser', function () {
-          let conf = loadConfig(filepath)
+          const conf = loadConfig(filepath)
           expect(conf).to.be.eq(phonyConfigObject)
           expect(parsers.js.calledWith(filepath)).to.be.true
           expect(parsers.js.calledOnce).to.be.true
@@ -69,7 +69,7 @@ describe('cli/config', () => {
         const filepath = 'foo.json'
 
         it('should use the JSON parser', function () {
-          let conf = loadConfig(filepath)
+          const conf = loadConfig(filepath)
           expect(conf).to.be.eq(phonyConfigObject)
           expect(parsers.json.calledWith(filepath)).to.be.true
           expect(parsers.json.calledOnce).to.be.true

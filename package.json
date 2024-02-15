@@ -6,7 +6,7 @@
   "dependencies": {
     "debug": "4.3.4",
     "js-yaml": "4.1.0",
-    "jsdom": "^24.0.0",
+    "node-html-parser": "^6.1",
     "strip-json-comments": "3.1.1",
     "yargs": "16.2.0",
     "yargs-parser": "20.2.4",
@@ -25,11 +25,14 @@
     "mocha": "9.2.2",
     "rewiremock": "^3.14.3",
     "sinon": "^14.0.0",
-    "standard": "^17.0.0"
+    "eslint": "^8.56.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-config-ideal": "^1.0.0"
   },
   "scripts": {
     "test": "mocha",
-    "lint": "standard bin/* lib/**/*.js test/**/*.js",
+    "lint": "eslint \"./lib/**/*.js\" \"./test/**/*.js\"",
+    "lint:fix": "eslint \"./lib/**/*.js\" \"./test/**/*.js\" --fix",
     "lfet:UI": "export $(cat .env | xargs) && exec java -classpath \"${LFET_TOOL_DIR}/lib/*\" lohrfink.lfet.Application &",
     "lfet:GenSrc": "export $(cat .env | xargs) && exec java -classpath \"${LFET_TOOL_DIR}/lib/*\" lohrfink.lfet.Application -gs \"$INIT_CWD/lfet/\" -rec -fnp \"*.lfet\" -sku -src \"JavaScript\"",
     "lfet:GenTest": "export $(cat .env | xargs) && exec java -classpath \"${LFET_TOOL_DIR}/lib/*\" lohrfink.lfet.Application -GenTest -Directory \"$INIT_CWD/lfet/\" -Recursive -FileNamePattern \"*.lfet\" -intags \"cucumber\" -OutputRootfolder \"$INIT_CWD/test/features\" -ContinueOnError"

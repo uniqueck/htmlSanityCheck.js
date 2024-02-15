@@ -28,7 +28,7 @@ function invokeHtmlSanityCheck (args, done, opts = {}) {
     defaultArgs([HTMLSANITYCHECK_EXECUTABLE].concat(args)),
     done,
     opts
-  );
+  )
 }
 
 /**
@@ -51,7 +51,7 @@ function createSubprocess (args, done, opts = {}) {
 
   const env = { ...process.env }
   // prevent DEBUG from borking STDERR when piping, unless explicitly set via `opts`
-  delete env.DEBUG;
+  delete env.DEBUG
 
   opts = {
     cwd: process.cwd(),
@@ -75,7 +75,7 @@ function createSubprocess (args, done, opts = {}) {
     debug('forking: %s', args.join(' '))
     htmlsanitycheck = fork(args[0], args.slice(1), opts)
   } else {
-    const {spawn} = require('child_process')
+    const { spawn } = require('child_process')
     debug('spawning: %s', [process.execPath].concat(args).join(' '))
     htmlsanitycheck = spawn(process.execPath, args, opts)
   }
