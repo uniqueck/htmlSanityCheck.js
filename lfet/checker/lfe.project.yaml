@@ -1,0 +1,28 @@
+lfet:
+
+  BackupHistory:
+    Version: V02
+    Length: 10
+    Zip: true
+
+  ide:
+    default: JavaScript
+    JavaScript:
+      enabled: true
+
+      Comments:
+        FilePaths:
+          RemoveAllBefore: /lfet_gensrc_javascript/
+
+      src:
+        encoding: UTF-8
+        CreateMissingFolders: true
+        path: ${project.root}huho
+
+      Interface:
+        Enabled: true
+        language: en
+        Name: ${dt.name}Iface
+
+      InterfaceRulesClass:
+        Name: ${dt.name}RulesEngine

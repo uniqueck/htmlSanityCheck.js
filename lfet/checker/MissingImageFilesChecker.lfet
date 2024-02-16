@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<LFET version="LF-ET 2.3.0 (240214a)" language="German" saveDate="2024.02.17 at 00:30:09 CET" saveUser="constantin">
+  <Conditions>
+    <Condition uId="11446800829457960">
+      <Title language="German" value="Titel für Bedingung 1"/>
+    </Condition>
+  </Conditions>
+  <Actions>
+    <Action uId="11446800828767967">
+      <Title language="German" value="Titel für Aktion 1"/>
+    </Action>
+    <Action uId="11446800829627977">
+      <Title language="German" value="Titel für Aktion 2"/>
+    </Action>
+  </Actions>
+  <Rules lastId="4">
+    <Rule id="3">
+      <ConditionLink link="11446800829457960" conditionState="true"/>
+      <ActionLink link="11446800828767967"/>
+    </Rule>
+    <Rule id="4">
+      <ConditionLink link="11446800829457960" conditionState="false"/>
+      <ActionLink link="11446800829627977"/>
+    </Rule>
+  </Rules>
+  <Title language="German" value="MissingImageFilesChecker"/>
+  <UrlsOut>
+    <Url title="Ordner" url="file:///./"/>
+  </UrlsOut>
+</LFET>
