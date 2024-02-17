@@ -25,7 +25,7 @@ LFET:
         Language: en
         Name: I${dt.name}
         VarName: iface
-        RuleGroups: iface
+        #RuleGroups: iface
         RuleID: true
         TraceAfterRule: true
 
