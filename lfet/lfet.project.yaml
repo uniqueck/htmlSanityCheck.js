@@ -1,0 +1,33 @@
+LFET:
+
+  BackupHistory:
+    Version: V02
+    Length: 10
+    Zip: true
+
+  IDE:
+
+    Default: JavaScript
+
+    JavaScript:
+      Enabled: true
+      Comments:
+        FilePaths:
+          RemoveAllBefore: /htmlSanityCheck.js/
+
+      Source:
+        Encoding: UTF-8
+        CreateMissingFolders: false
+        Path: ${project.root}/../lib
+
+      Interface:
+        Enabled: true
+        Language: en
+        Name: I${dt.name}
+        VarName: iface
+        RuleGroups: iface
+        RuleID: true
+        TraceAfterRule: true
+
+      InterfaceRulesClass:
+        Name: ${dt.name}DecisionLogic

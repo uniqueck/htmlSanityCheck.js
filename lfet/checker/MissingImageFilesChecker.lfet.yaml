@@ -1,0 +1,42 @@
+# Zusätzliche Einstellungen für alle ET's in dieser Unter-Ordnerstruktur
+# Überschreiben/Übersteuern ggf. Parameter von übergeordneten Project.ini-Dateien
+
+LFET:
+
+  NestedProjectIni: true
+
+  IDE:
+    JavaScript:
+
+      Source:
+        Path: ${project.root}../lib/checker/lfet
+
+      InterfaceEnum:
+
+        Default:
+          MethodName: Prefix
+          EnumValueName:
+            - Symbol
+            - UpperCase
+
+        10:
+          IncludeTagsTitle:
+            - Anforderung erfüllt
+
+        20:
+          IncludeTagsTitle:
+            - Anzahl Zeichen
+          Symbol: Interval
+
+        22:
+          IncludeTagsTitle:
+            - Anzahl verschiedene
+          Symbol: Interval
+          CA: Text
+
+        30:
+          IncludeTagsTitle:
+            - Anforderung
+          ExcludeTagsTitle:
+            - erfüllt
+          Title: ""
