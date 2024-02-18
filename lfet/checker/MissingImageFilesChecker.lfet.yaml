@@ -9,7 +9,8 @@ LFET:
     JavaScript:
 
       Source:
-        Path: ${project.root}../lib/checker/lfet
+        CreateMissingFolders: true
+        Path: ${project.root}../lib/checker/lfet/currentState
 
       InterfaceEnum:
 
@@ -21,22 +22,5 @@ LFET:
 
         10:
           IncludeTagsTitle:
-            - set currentDir to ...
-
-        20:
-          IncludeTagsTitle:
-            - Anzahl Zeichen
-          Symbol: Interval
-
-        22:
-          IncludeTagsTitle:
-            - Anzahl verschiedene
-          Symbol: Interval
+            - inc number of checks
           CA: Text
-
-        30:
-          IncludeTagsTitle:
-            - Anforderung
-          ExcludeTagsTitle:
-            - erfüllt
-          Title: ""

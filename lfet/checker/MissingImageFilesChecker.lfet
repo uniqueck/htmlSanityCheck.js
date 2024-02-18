@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<LFET version="LF-ET 2.3.0 (240216a)" language="English" saveDate="2024.02.18 at 00:41:34 CET" saveUser="constantin">
+<LFET version="LF-ET 2.3.0 (240216a)" language="English" saveDate="2024.02.18 at 22:54:45 CET" saveUser="constantin">
   <Conditions>
-    <Condition uId="11446800829457960">
-      <Title language="English" value="Step"/>
-      <ConditionOccurrences>
-        <ConditionOccurrence uId="17082096556803892">
-          <Symbol language="English" value="1"/>
-          <Title language="English" value="Init"/>
-        </ConditionOccurrence>
-        <ConditionOccurrence uId="17082096556823894">
-          <Symbol language="English" value="2"/>
-          <Title language="English" value="Nein"/>
-        </ConditionOccurrence>
-      </ConditionOccurrences>
-    </Condition>
-    <Condition uId="17082097029944109">
-      <Title language="English" value="pageToCheck file defined"/>
-    </Condition>
-    <Condition uId="17082101213552918">
-      <Title language="English" value="one more image tag to check available"/>
-    </Condition>
     <Condition uId="17082129871143184">
       <Title language="English" value="image src is data uri"/>
     </Condition>
@@ -31,115 +12,66 @@
       <Title language="English" value="image src contains data"/>
     </Condition>
     <Condition uId="17082132544823810">
-      <Title language="English" value="image file exists"/>
+      <Title language="English" value="local image file exists"/>
     </Condition>
   </Conditions>
   <Actions>
-    <Action uId="11446800828767967">
-      <Title language="English" value="set currentDir to ..."/>
+    <Action uId="17082519831533059">
+      <Title language="English" value="create finding"/>
       <ActionOccurrences>
-        <ActionOccurrence uId="17082100142052314">
-          <Symbol language="English" value="PTC"/>
-          <Title language="English" value="Page to check parent directory"/>
+        <ActionOccurrence uId="17082931666803327">
+          <Symbol language="English" value="DATA"/>
+          <Title language="English" value="data-uri image missing"/>
         </ActionOccurrence>
-        <ActionOccurrence uId="17082100449722320">
-          <Symbol language="English" value="CONF"/>
-          <Title language="English" value="base directory from configuration"/>
+        <ActionOccurrence uId="17082932301833333">
+          <Symbol language="English" value="FILE"/>
+          <Title language="English" value="image\&quot;$relativePathToImageFile\&quot; missing"/>
         </ActionOccurrence>
       </ActionOccurrences>
     </Action>
-    <Action uId="17082100672542372">
-      <Title language="English" value="get all image tags"/>
-    </Action>
-    <Action uId="17082102010532925">
-      <Title language="English" value="next image tag"/>
-    </Action>
     <Action uId="17082131412313206">
       <Title language="English" value="inc number of checks"/>
-    </Action>
-    <Action uId="11446800829627977">
-      <Title language="English" value="next Step"/>
       <ActionOccurrences>
-        <ActionOccurrence uId="17082100835632446">
-          <Symbol language="English" value="+"/>
-          <Title language="English" value="next step"/>
+        <ActionOccurrence uId="17082900044953125">
+          <Symbol language="English" value="+1"/>
+          <Title language="English" value="one check"/>
         </ActionOccurrence>
-        <ActionOccurrence uId="17082096856563980">
-          <Symbol language="English" value="Ex"/>
-          <Title language="English" value="Exit"/>
-        </ActionOccurrence>
-        <ActionOccurrence uId="17082102165542932">
-          <Symbol language="English" value="2"/>
-          <Title language="English" value="Nein"/>
+        <ActionOccurrence uId="17082900264723134">
+          <Symbol language="English" value="0"/>
+          <Title language="English" value="0 checks"/>
         </ActionOccurrence>
       </ActionOccurrences>
     </Action>
   </Actions>
-  <Rules lastId="23">
-    <Rule id="11">
-      <ConditionOccurrenceLink link="17082096556803892"/>
-      <ConditionLink link="17082097029944109" conditionState="true"/>
-      <ActionOccurrenceLink link="17082100142052314"/>
-      <ActionLink link="17082100672542372"/>
-      <ActionOccurrenceLink link="17082100835632446"/>
-    </Rule>
-    <Rule id="12">
-      <ConditionOccurrenceLink link="17082096556803892"/>
-      <ConditionLink link="17082097029944109" conditionState="false"/>
-      <ActionOccurrenceLink link="17082100449722320"/>
-      <ActionLink link="17082100672542372"/>
-      <ActionOccurrenceLink link="17082100835632446"/>
-    </Rule>
-    <Rule id="20">
-      <ConditionOccurrenceLink link="17082096556823894"/>
-      <ActionOccurrenceLink link="17082102165542932"/>
-      <ConditionLink link="17082101213552918" conditionState="true"/>
-      <ActionLink link="17082102010532925"/>
+  <Rules lastId="35">
+    <Rule id="29">
       <ConditionLink link="17082129871143184" conditionState="true"/>
-      <ActionLink link="17082131412313206"/>
       <ConditionLink link="17082131927203809" conditionState="true"/>
+      <ActionOccurrenceLink link="17082900044953125"/>
     </Rule>
-    <Rule id="21">
-      <ConditionOccurrenceLink link="17082096556823894"/>
-      <ActionOccurrenceLink link="17082102165542932"/>
-      <ConditionLink link="17082101213552918" conditionState="true"/>
-      <ActionLink link="17082102010532925"/>
+    <Rule id="34">
       <ConditionLink link="17082129871143184" conditionState="true"/>
-      <ActionLink link="17082131412313206"/>
       <ConditionLink link="17082131927203809" conditionState="false"/>
+      <ActionOccurrenceLink link="17082900044953125"/>
+      <ActionOccurrenceLink link="17082931666803327"/>
     </Rule>
-    <Rule id="19">
-      <ConditionOccurrenceLink link="17082096556823894"/>
-      <ActionOccurrenceLink link="17082102165542932"/>
-      <ConditionLink link="17082101213552918" conditionState="true"/>
-      <ActionLink link="17082102010532925"/>
+    <Rule id="31">
       <ConditionLink link="17082129871143184" conditionState="false"/>
       <ConditionLink link="17082130718933195" conditionState="true"/>
+      <ActionOccurrenceLink link="17082900264723134"/>
     </Rule>
-    <Rule id="22">
-      <ConditionOccurrenceLink link="17082096556823894"/>
-      <ActionOccurrenceLink link="17082102165542932"/>
-      <ConditionLink link="17082101213552918" conditionState="true"/>
-      <ActionLink link="17082102010532925"/>
+    <Rule id="32">
       <ConditionLink link="17082129871143184" conditionState="false"/>
       <ConditionLink link="17082130718933195" conditionState="false"/>
-      <ActionLink link="17082131412313206"/>
       <ConditionLink link="17082132544823810" conditionState="true"/>
+      <ActionOccurrenceLink link="17082900044953125"/>
     </Rule>
-    <Rule id="23">
-      <ConditionOccurrenceLink link="17082096556823894"/>
-      <ActionOccurrenceLink link="17082102165542932"/>
-      <ConditionLink link="17082101213552918" conditionState="true"/>
-      <ActionLink link="17082102010532925"/>
+    <Rule id="35">
       <ConditionLink link="17082129871143184" conditionState="false"/>
       <ConditionLink link="17082130718933195" conditionState="false"/>
-      <ActionLink link="17082131412313206"/>
       <ConditionLink link="17082132544823810" conditionState="false"/>
-    </Rule>
-    <Rule id="14">
-      <ConditionOccurrenceLink link="17082096556823894"/>
-      <ActionOccurrenceLink link="17082096856563980"/>
-      <ConditionLink link="17082101213552918" conditionState="false"/>
+      <ActionOccurrenceLink link="17082900044953125"/>
+      <ActionOccurrenceLink link="17082932301833333"/>
     </Rule>
   </Rules>
   <Title language="English" value="MissingImageFilesChecker"/>

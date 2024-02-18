@@ -25,9 +25,17 @@ LFET:
         Language: en
         Name: I${dt.name}
         VarName: iface
-        #RuleGroups: iface
-        RuleID: true
-        TraceAfterRule: true
+        RuleGroups: iface
+        #RuleID: true
+        Trace:
+          AfterRule: false
+          BeforeRule: false
+        Stateless: true
 
-      InterfaceRulesClass:
-        Name: ${dt.name}DecisionLogic
+        RulesClass:
+          Name: ${dt.name}DecisionLogic
+          Trace:
+            BeforeRule: |
+              console.log(`$$dtName - $$Version - $$Rule / $$Rules - ${JSON.stringify(model)}`)
+            AfterRule: |
+              console.log(`$$dtName - $$Version - $$Rule / $$Rules - ${JSON.stringify(model)}`)
