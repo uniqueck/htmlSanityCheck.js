@@ -10,7 +10,7 @@ LFET:
 
       Source:
         CreateMissingFolders: true
-        Path: ${project.root}../lib/checker/lfet/currentState
+        Path: ${project.root}../lib/checker/lfet
 
       InterfaceEnum:
 
@@ -23,4 +23,11 @@ LFET:
         10:
           IncludeTagsTitle:
             - inc number of checks
+          Symbol: Integer
+
+        20:
+          IncludeTagsTitle:
+            - create finding
+          Symbol: ""
           CA: Text
+          Title: ""

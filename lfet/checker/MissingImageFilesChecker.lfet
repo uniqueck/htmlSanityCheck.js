@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<LFET version="LF-ET 2.3.0 (240216a)" language="English" saveDate="2024.02.18 at 22:54:45 CET" saveUser="constantin">
+<LFET version="LF-ET 2.3.0 (240218a)" language="English" saveDate="2024.02.21 at 00:07:40 CET" saveUser="constantin">
   <Conditions>
     <Condition uId="17082129871143184">
       <Title language="English" value="image src is data uri"/>
@@ -25,7 +25,7 @@
         </ActionOccurrence>
         <ActionOccurrence uId="17082932301833333">
           <Symbol language="English" value="FILE"/>
-          <Title language="English" value="image\&quot;$relativePathToImageFile\&quot; missing"/>
+          <Title language="English" value="image &quot;$relativePathToImageFile&quot; missing"/>
         </ActionOccurrence>
       </ActionOccurrences>
     </Action>
