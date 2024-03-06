@@ -11,8 +11,9 @@ LFET:
 
     # the global unique project id
     Url:
-        - git@github.com:uniqueck/htmlSanityCheck.js.git
-        - https://github.com/uniqueck/htmlSanityCheck.js.git
+      - git@github.com:uniqueck/htmlSanityCheck.js.git
+      - https://github.com/uniqueck/htmlSanityCheck.js.git
+      - https://github.com/uniqueck/htmlSanityCheck.js/
 
     DecisionTables:
 
