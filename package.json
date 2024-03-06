@@ -24,7 +24,7 @@
     "dirty-chai": "2.0.1",
     "mocha": "10.1.0",
     "rewiremock": "^3.14.3",
-    "sinon": "^14.0.0",
+    "sinon": "^16",
     "eslint": "^8.56.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-config-ideal": "^1.0.0"
@@ -33,11 +33,11 @@
     "test": "mocha",
     "lint": "eslint \"./lib/**/*.js\" \"./test/**/*.js\"",
     "lint:fix": "eslint \"./lib/**/*.js\" \"./test/**/*.js\" --fix",
-    "lfet:UI": "export $(cat .env | xargs) && exec java -classpath \"$INIT_CWD/.lfet/tool/lib/*\" lohrfink.lfet.Application &",
+    "lfet:UI": "exec java -classpath \"$INIT_CWD/.lfet/tool/lib/*\" lohrfink.lfet.Application &",
     "lfet:install": "mkdir -p \"$INIT_CWD/.lfet/tool\" && cd \"$INIT_CWD/.lfet/tool\" && curl -fsSLO https://www.lohrfink.de/lfet.latest.inst && unzip -o lfet.latest.inst",
     "lfet:update": "cd \"$INIT_CWD/.lfet/tool/lib\" && curl -fsSLO https://www.lohrfink.de/lfet.latest.upd && unzip -o lfet.latest.upd",
-    "lfet:GenSrc": "export $(cat .env | xargs) && exec java -classpath \"$INIT_CWD/.lfet/tool/lib/*\" lohrfink.lfet.Application -gs \"$INIT_CWD/lfet/\" -Recursive -FileNamePattern \"*.lfet\" -SkipUnchanged -SourceCode \"JavaScript\"",
-    "lfet:GenTest": "export $(cat .env | xargs) && exec java -classpath \"$INIT_CWD/.lfet/tool/lib/*\" lohrfink.lfet.Application -GenTest -Directory \"$INIT_CWD/lfet/\" -Recursive -FileNamePattern \"*.lfet\" -intags \"cucumber\" -OutputRootfolder \"$INIT_CWD/test/features\" -ContinueOnError"
+    "lfet:GenSrc": "exec java -classpath \"$INIT_CWD/.lfet/tool/lib/*\" lohrfink.lfet.Application -gs \"$INIT_CWD/lfet/\" -Recursive -FileNamePattern \"*.lfet\" -SkipUnchanged -SourceCode \"JavaScript\"",
+    "lfet:GenTest": "exec java -classpath \"$INIT_CWD/.lfet/tool/lib/*\" lohrfink.lfet.Application -GenTest -Directory \"$INIT_CWD/lfet/\" -Recursive -FileNamePattern \"*.lfet\" -intags \"cucumber\" -OutputRootfolder \"$INIT_CWD/test/features\" -ContinueOnError"
   },
   "authors": [
     "Constantin Krüger (https://github.com/uniqueck)"
