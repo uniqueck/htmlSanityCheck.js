@@ -8,12 +8,7 @@ LFET:
   IDE:
     JavaScript:
 
-      Source:
-        CreateMissingFolders: true
-        Path: ${project.root}../lib/checker/lfet
-
       InterfaceEnum:
-
         Default:
           MethodName: Prefix
           EnumValueName:
