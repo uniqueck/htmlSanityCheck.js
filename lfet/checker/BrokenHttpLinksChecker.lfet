@@ -1,128 +1,176 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<LFET version="LF-ET 2.3.0 (240305a)" language="German" saveDate="2024.03.06 at 17:06:36 CET" saveUser="shoelzle">
+<LFET version="LF-ET 2.3.0 (240306a)" language="English" saveDate="2024.03.07 at 00:24:46 CET" saveUser="constantin">
   <Conditions>
     <Condition uId="17097392870007787">
-      <Title language="German" value="step"/>
+      <Title language="English" value="step"/>
       <ConditionOccurrences>
         <ConditionOccurrence uId="17097393067277856">
-          <Symbol language="German" value="1"/>
-          <Title language="German" value="1"/>
+          <Symbol language="English" value="1"/>
+          <Title language="English" value="1"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="17097393067297858">
-          <Symbol language="German" value="2"/>
-          <Title language="German" value="2"/>
+          <Symbol language="English" value="2"/>
+          <Title language="English" value="2"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="17097393144487863">
-          <Symbol language="German" value="3"/>
-          <Title language="German" value="3"/>
+          <Symbol language="English" value="3"/>
+          <Title language="English" value="3"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="17097393261727866">
-          <Symbol language="German" value="4"/>
-          <Title language="German" value="4"/>
+          <Symbol language="English" value="4"/>
+          <Title language="English" value="4"/>
         </ConditionOccurrence>
-        <ConditionOccurrence uId="17097411025679031">
-          <Symbol language="German" value="5"/>
-          <Title language="German" value="5"/>
+        <ConditionOccurrence uId="17097664775431227">
+          <Symbol language="English" value="5"/>
+          <Title language="English" value="5"/>
         </ConditionOccurrence>
       </ConditionOccurrences>
     </Condition>
     <Condition uId="17097390055967771">
-      <Title language="German" value="ignore localhost check"/>
+      <Title language="English" value="ignore localhost check"/>
     </Condition>
     <Condition uId="11446800829457960">
-      <Title language="German" value="check if localhost"/>
+      <Title language="English" value="check if localhost"/>
       <ConditionOccurrences>
         <ConditionOccurrence uId="17097388591077642">
-          <Symbol language="German" value="localhost"/>
-          <Title language="German" value="localhost"/>
+          <Symbol language="English" value="localhost"/>
+          <Title language="English" value="localhost"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="17097388591097644">
-          <Symbol language="German" value="127.0.0.x"/>
-          <Title language="German" value="127.0.0.x"/>
+          <Symbol language="English" value="127.0.0.x"/>
+          <Title language="English" value="127.0.0."/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="17097389043857651">
-          <Symbol language="German" value="*"/>
-          <Title language="German" value="other"/>
+          <Symbol language="English" value="*"/>
+          <Title language="English" value="other"/>
         </ConditionOccurrence>
       </ConditionOccurrences>
     </Condition>
     <Condition uId="17097391188817782">
-      <Title language="German" value="ignore ip address check"/>
+      <Title language="English" value="ignore ip address check"/>
     </Condition>
     <Condition uId="17097391404327784">
-      <Title language="German" value="check if ip address"/>
+      <Title language="English" value="check if ip address"/>
     </Condition>
-    <Condition uId="17097396839488401">
-      <Title language="German" value="check http status code"/>
+    <Condition uId="17097666854991554">
+      <Title language="English" value="check http status code in configured success range"/>
       <ConditionOccurrences>
-        <ConditionOccurrence uId="17097407247828759">
-          <Symbol language="German" value="30x"/>
-          <Title language="German" value="301, 302, 303, 307, 308"/>
+        <ConditionOccurrence uId="17097668201072111">
+          <Symbol language="English" value="SUCCESS"/>
+          <Title language="English" value="configured success status code range"/>
         </ConditionOccurrence>
-        <ConditionOccurrence uId="17097407247848761">
-          <Symbol language="German" value="20x"/>
-          <Title language="German" value="20x"/>
+        <ConditionOccurrence uId="17097668201092113">
+          <Symbol language="English" value="*"/>
+          <Title language="English" value="*"/>
         </ConditionOccurrence>
-        <ConditionOccurrence uId="17097407577098766">
-          <Symbol language="German" value="*"/>
+      </ConditionOccurrences>
+    </Condition>
+    <Condition uId="17097671994542322">
+      <Title language="English" value="check http status code in configured warning range"/>
+      <ConditionOccurrences>
+        <ConditionOccurrence uId="17097671996462325">
+          <Symbol language="English" value="WARN"/>
+          <Title language="English" value="configured warn status code range"/>
+        </ConditionOccurrence>
+        <ConditionOccurrence uId="17097671996502329">
+          <Symbol language="English" value="*"/>
+          <Title language="English" value="*"/>
+        </ConditionOccurrence>
+      </ConditionOccurrences>
+    </Condition>
+    <Condition uId="17097672176282332">
+      <Title language="English" value="check http status code in configured error range"/>
+      <ConditionOccurrences>
+        <ConditionOccurrence uId="17097672178102335">
+          <Symbol language="English" value="ERROR"/>
+          <Title language="English" value="configured error status code range"/>
+        </ConditionOccurrence>
+        <ConditionOccurrence uId="17097672178142339">
+          <Symbol language="English" value="*"/>
+          <Title language="English" value="*"/>
+        </ConditionOccurrence>
+      </ConditionOccurrences>
+    </Condition>
+    <Condition uId="17097667490661562">
+      <Title language="English" value="check http status code in redirect range"/>
+      <ConditionOccurrences>
+        <ConditionOccurrence uId="17097667732011745">
+          <Symbol language="English" value="30x"/>
+          <Title language="English" value="[301:308]"/>
+        </ConditionOccurrence>
+        <ConditionOccurrence uId="17097667732031747">
+          <Symbol language="English" value="*"/>
+          <Title language="English" value="*"/>
         </ConditionOccurrence>
       </ConditionOccurrences>
     </Condition>
     <Condition uId="17097411482909162">
-      <Title language="German" value="check if header contains location"/>
+      <Title language="English" value="check if header contains location"/>
     </Condition>
   </Conditions>
   <Actions>
     <Action uId="11446800828767967">
-      <Title language="German" value="create finding"/>
+      <Title language="English" value="create finding"/>
+      <ActionOccurrences>
+        <ActionOccurrence uId="17097658412538008">
+          <Symbol language="English" value="REDIRECT"/>
+          <Title language="English" value="create a finding with information about redirect location"/>
+        </ActionOccurrence>
+        <ActionOccurrence uId="17097663974570260">
+          <Symbol language="English" value="NUMERIC_IP"/>
+        </ActionOccurrence>
+        <ActionOccurrence uId="17097662705819794">
+          <Symbol language="English" value="LOCALHOST"/>
+        </ActionOccurrence>
+      </ActionOccurrences>
     </Action>
     <Action uId="17097397318848402">
-      <Title language="German" value="execute http request"/>
+      <Title language="English" value="execute http request"/>
       <ActionOccurrences>
         <ActionOccurrence uId="17097397557358517">
-          <Symbol language="German" value="HEAD"/>
-          <Title language="German" value="head request"/>
+          <Symbol language="English" value="HEAD"/>
+          <Title language="English" value="head request"/>
         </ActionOccurrence>
         <ActionOccurrence uId="17097397728668521">
-          <Symbol language="German" value="GET"/>
-          <Title language="German" value="get request"/>
+          <Symbol language="English" value="GET"/>
+          <Title language="English" value="get request"/>
         </ActionOccurrence>
       </ActionOccurrences>
     </Action>
     <Action uId="11446800829627977">
-      <Title language="German" value="next step"/>
+      <Title language="English" value="next step"/>
       <ActionOccurrences>
         <ActionOccurrence uId="17097393384658014">
-          <Symbol language="German" value="+"/>
-          <Title language="German" value="next step"/>
+          <Symbol language="English" value="+"/>
+          <Title language="English" value="next step"/>
         </ActionOccurrence>
         <ActionOccurrence uId="17097393483508019">
-          <Symbol language="German" value="exit"/>
-          <Title language="German" value="exit"/>
+          <Symbol language="English" value="Ex"/>
+          <Title language="English" value="exit"/>
         </ActionOccurrence>
       </ActionOccurrences>
     </Action>
   </Actions>
-  <Rules lastId="16">
+  <Rules lastId="38">
     <Rule id="6">
       <ConditionLink link="17097390055967771" conditionState="true"/>
       <ActionOccurrenceLink link="17097393384658014"/>
       <ConditionOccurrenceLink link="17097393067277856"/>
     </Rule>
-    <Rule id="7">
+    <Rule id="25">
       <ConditionOccurrenceLink link="17097388591077642"/>
       <ConditionLink link="17097390055967771" conditionState="false"/>
-      <ActionLink link="11446800828767967"/>
       <ActionOccurrenceLink link="17097393384658014"/>
       <ConditionOccurrenceLink link="17097393067277856"/>
+      <ActionOccurrenceLink link="17097662705819794"/>
     </Rule>
-    <Rule id="8">
+    <Rule id="26">
       <ConditionOccurrenceLink link="17097388591097644"/>
       <ConditionLink link="17097390055967771" conditionState="false"/>
-      <ActionLink link="11446800828767967"/>
       <ActionOccurrenceLink link="17097393384658014"/>
       <ConditionOccurrenceLink link="17097393067277856"/>
+      <ActionOccurrenceLink link="17097662705819794"/>
     </Rule>
     <Rule id="9">
       <ConditionOccurrenceLink link="17097389043857651"/>
@@ -135,11 +183,12 @@
       <ConditionLink link="17097391188817782" conditionState="true"/>
       <ActionOccurrenceLink link="17097393384658014"/>
     </Rule>
-    <Rule id="11">
+    <Rule id="27">
       <ConditionOccurrenceLink link="17097393067297858"/>
       <ConditionLink link="17097391188817782" conditionState="false"/>
       <ConditionLink link="17097391404327784" conditionState="true"/>
       <ActionOccurrenceLink link="17097393384658014"/>
+      <ActionOccurrenceLink link="17097663974570260"/>
     </Rule>
     <Rule id="12">
       <ConditionOccurrenceLink link="17097393067297858"/>
@@ -152,24 +201,60 @@
       <ActionOccurrenceLink link="17097397557358517"/>
       <ActionOccurrenceLink link="17097393384658014"/>
     </Rule>
-    <Rule id="14">
+    <Rule id="31">
       <ConditionOccurrenceLink link="17097393261727866"/>
-      <ConditionOccurrenceLink link="17097407247848761"/>
       <ActionOccurrenceLink link="17097393483508019"/>
+      <ConditionOccurrenceLink link="17097668201072111"/>
     </Rule>
-    <Rule id="15">
-      <ConditionOccurrenceLink link="17097411025679031"/>
-      <ConditionOccurrenceLink link="17097407247828759"/>
+    <Rule id="32">
+      <ConditionOccurrenceLink link="17097393261727866"/>
+      <ActionOccurrenceLink link="17097393483508019"/>
+      <ConditionOccurrenceLink link="17097668201092113"/>
+      <ConditionOccurrenceLink link="17097667732011745"/>
       <ConditionLink link="17097411482909162" conditionState="true"/>
-      <ActionLink link="11446800828767967"/>
+      <ActionOccurrenceLink link="17097658412538008"/>
     </Rule>
-    <Rule id="16">
-      <ConditionOccurrenceLink link="17097411025679031"/>
-      <ConditionOccurrenceLink link="17097407247828759"/>
+    <Rule id="33">
+      <ConditionOccurrenceLink link="17097393261727866"/>
+      <ActionOccurrenceLink link="17097393483508019"/>
+      <ConditionOccurrenceLink link="17097668201092113"/>
+      <ConditionOccurrenceLink link="17097667732011745"/>
       <ConditionLink link="17097411482909162" conditionState="false"/>
     </Rule>
+    <Rule id="34">
+      <ConditionOccurrenceLink link="17097393261727866"/>
+      <ActionOccurrenceLink link="17097393384658014"/>
+      <ConditionOccurrenceLink link="17097668201092113"/>
+      <ConditionOccurrenceLink link="17097667732031747"/>
+      <ActionOccurrenceLink link="17097397728668521"/>
+    </Rule>
+    <Rule id="35">
+      <ConditionOccurrenceLink link="17097664775431227"/>
+      <ActionOccurrenceLink link="17097393483508019"/>
+      <ConditionOccurrenceLink link="17097668201072111"/>
+    </Rule>
+    <Rule id="36">
+      <ConditionOccurrenceLink link="17097664775431227"/>
+      <ActionOccurrenceLink link="17097393483508019"/>
+      <ConditionOccurrenceLink link="17097668201092113"/>
+      <ConditionOccurrenceLink link="17097671996462325"/>
+    </Rule>
+    <Rule id="37">
+      <ConditionOccurrenceLink link="17097664775431227"/>
+      <ActionOccurrenceLink link="17097393483508019"/>
+      <ConditionOccurrenceLink link="17097668201092113"/>
+      <ConditionOccurrenceLink link="17097671996502329"/>
+      <ConditionOccurrenceLink link="17097672178102335"/>
+    </Rule>
+    <Rule id="38">
+      <ConditionOccurrenceLink link="17097664775431227"/>
+      <ActionOccurrenceLink link="17097393483508019"/>
+      <ConditionOccurrenceLink link="17097668201092113"/>
+      <ConditionOccurrenceLink link="17097671996502329"/>
+      <ConditionOccurrenceLink link="17097672178142339"/>
+    </Rule>
   </Rules>
-  <Title language="German" value="Hier doppel-klicken um den Titel für die Entscheidungstabelle einzugeben"/>
+  <Title language="English" value="BrokenHttpLinksChecker"/>
   <UrlsOut>
     <Url title="Ordner" url="file:///./"/>
   </UrlsOut>

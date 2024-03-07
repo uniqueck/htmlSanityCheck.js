@@ -33,11 +33,13 @@
     "test": "mocha",
     "lint": "eslint \"./lib/**/*.js\" \"./test/**/*.js\"",
     "lint:fix": "eslint \"./lib/**/*.js\" \"./test/**/*.js\" --fix",
-    "lfet:UI": "exec java -classpath \"$INIT_CWD/.lfet/tool/lib/*\" lohrfink.lfet.Application &",
-    "lfet:install": "mkdir -p \"$INIT_CWD/.lfet/tool\" && cd \"$INIT_CWD/.lfet/tool\" && curl -fsSLO https://www.lohrfink.de/lfet.latest.inst && unzip -o lfet.latest.inst",
-    "lfet:update": "cd \"$INIT_CWD/.lfet/tool/lib\" && curl -fsSLO https://www.lohrfink.de/lfet.latest.upd && unzip -o lfet.latest.upd",
-    "lfet:GenSrc": "exec java -classpath \"$INIT_CWD/.lfet/tool/lib/*\" lohrfink.lfet.Application -gs \"$INIT_CWD/lfet/\" -Recursive -FileNamePattern \"*.lfet\" -SkipUnchanged -SourceCode \"JavaScript\"",
-    "lfet:GenTest": "exec java -classpath \"$INIT_CWD/.lfet/tool/lib/*\" lohrfink.lfet.Application -GenTest -Directory \"$INIT_CWD/lfet/\" -Recursive -FileNamePattern \"*.lfet\" -intags \"cucumber\" -OutputRootfolder \"$INIT_CWD/test/features\" -ContinueOnError"
+    "lfet:UI": "exec java -classpath \"$INIT_CWD/.lfet/tool/*\" lohrfink.lfet.Application &",
+    "prelfet:install": "cd \"$INIT_CWD/.lfet\" && rm -rf tool",
+    "lfet:install": "mkdir -p \"$INIT_CWD/.lfet/tool\" && curl -fsSLO https://www.lohrfink.de/lfet.latest.inst && unzip -qj lfet.latest.inst \"lib/*.jar\" -d \"$INIT_CWD/.lfet/tool\" && rm lfet.latest.inst",
+    "postlfet:install": "npm run lfet:update",
+    "lfet:update": "curl -fsSLO https://www.lohrfink.de/lfet.latest.upd && unzip -qjo lfet.latest.upd \"*.jar\" -d \"$INIT_CWD/.lfet/tool\" && rm lfet.latest.upd",
+    "lfet:GenSrc": "exec java -classpath \"$INIT_CWD/.lfet/tool/*\" lohrfink.lfet.Application -gs \"$INIT_CWD/lfet/\" -Recursive -FileNamePattern \"*.lfet\" -SkipUnchanged -SourceCode \"JavaScript\"",
+    "lfet:GenTest": "exec java -classpath \"$INIT_CWD/.lfet/tool/*\" lohrfink.lfet.Application -GenTest -Directory \"$INIT_CWD/lfet/\" -Recursive -FileNamePattern \"*.lfet\" -intags \"cucumber\" -OutputRootfolder \"$INIT_CWD/test/features\" -ContinueOnError"
   },
   "authors": [
     "Constantin Krüger (https://github.com/uniqueck)"
