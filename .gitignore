@@ -4,3 +4,5 @@ node_modules/
 .lfet/tool/
 lfet/checker/*.$bak
 lfet/checker/*.lfet_$temp
+*.tgz
+reports/

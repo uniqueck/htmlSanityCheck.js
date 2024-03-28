@@ -23,11 +23,6 @@ LFET:
 
         20:
           IncludeTagsTitle:
-            - check http status code
-          Symbol: ""
-          Title: Interval
-
-        30:
-          IncludeTagsTitle:
             - execute http request
           Symbol: ""
+

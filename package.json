@@ -27,19 +27,22 @@
     "sinon": "^16",
     "eslint": "^8.56.0",
     "eslint-config-standard": "^17.1.0",
-    "eslint-config-ideal": "^1.0.0"
+    "eslint-config-ideal": "^1.0.0",
+    "@cucumber/cucumber": "^9.1.2"
   },
   "scripts": {
-    "test": "mocha",
+    "test": "npm run test:node && npm run test:features",
+    "test:node": "mocha test/**.spec.js",
+    "test:features": "cucumber-js",
     "lint": "eslint \"./lib/**/*.js\" \"./test/**/*.js\"",
     "lint:fix": "eslint \"./lib/**/*.js\" \"./test/**/*.js\" --fix",
     "lfet:UI": "exec java -classpath \"$INIT_CWD/.lfet/tool/*\" lohrfink.lfet.Application &",
     "prelfet:install": "cd \"$INIT_CWD/.lfet\" && rm -rf tool",
     "lfet:install": "mkdir -p \"$INIT_CWD/.lfet/tool\" && curl -fsSLO https://www.lohrfink.de/lfet.latest.inst && unzip -qj lfet.latest.inst \"lib/*.jar\" -d \"$INIT_CWD/.lfet/tool\" && rm lfet.latest.inst",
     "postlfet:install": "npm run lfet:update",
-    "lfet:update": "curl -fsSLO https://www.lohrfink.de/lfet.latest.upd && unzip -qjo lfet.latest.upd \"*.jar\" -d \"$INIT_CWD/.lfet/tool\" && rm lfet.latest.upd",
-    "lfet:GenSrc": "exec java -classpath \"$INIT_CWD/.lfet/tool/*\" lohrfink.lfet.Application -gs \"$INIT_CWD/lfet/\" -Recursive -FileNamePattern \"*.lfet\" -SkipUnchanged -SourceCode \"JavaScript\"",
-    "lfet:GenTest": "exec java -classpath \"$INIT_CWD/.lfet/tool/*\" lohrfink.lfet.Application -GenTest -Directory \"$INIT_CWD/lfet/\" -Recursive -FileNamePattern \"*.lfet\" -intags \"cucumber\" -OutputRootfolder \"$INIT_CWD/test/features\" -ContinueOnError"
+    "lfet:update": "curl -fsSLO https://www.lohrfink.de/lfet.latest.beta.upd && unzip -qjo lfet.latest.beta.upd \"*.jar\" -d \"$INIT_CWD/.lfet/tool\" && rm lfet.latest.upd",
+    "lfet:GenSrc": "java -classpath \"$INIT_CWD/.lfet/tool/*\" lohrfink.lfet.Application -gs \"$INIT_CWD/lfet/\" -Recursive -FileNamePattern \"*.lfet\" -SkipUnchanged -SourceCode \"JavaScript\"",
+    "lfet:GenTest": "java -classpath \"$INIT_CWD/.lfet/tool/*\" lohrfink.lfet.Application -GenTest -Directory \"$INIT_CWD/lfet/\" -Recursive -FileNamePattern \"*.lfet\" -intags \"cucumber\" -OutputRootfolder \"$INIT_CWD/test/features\" -ContinueOnError"
   },
   "authors": [
     "Constantin Krüger (https://github.com/uniqueck)"

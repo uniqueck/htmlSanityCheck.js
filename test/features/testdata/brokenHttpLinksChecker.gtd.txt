@@ -1,0 +1,17 @@
+Encoding = UTF-8
+
+*GTD.HtmlFiles
+--------------------------------------------------------------------
+ID; Localhost;  path
+--------------------------------------------------------------------
+1;  Y;          brokenHttpLinksChecker_localhost.html
+2;  Y;          brokenHttpLinksChecker_127_0_0_2.html
+3;  N;          brokenHttpLinksChecker_github.com.html
+
+*Gtd.HttpStatusCodes
+--------------------------------------------------------------------
+Cat;        Status_Code ; Configure_Status_Code_Range
+--------------------------------------------------------------------
+SUCCESS;    200         ; 200,201,203
+WARN;       300         ; 301,302
+ERROR;      404         ; 401,402,403

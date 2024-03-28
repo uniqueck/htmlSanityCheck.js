@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<LFET version="LF-ET 2.3.0 (240306a)" language="English" saveDate="2024.03.07 at 00:24:46 CET" saveUser="constantin">
+<LFET version="LF-ET 2.3.0 (240310a)" language="English" saveDate="2024.03.11 at 23:59:08 CET" saveUser="constantin">
   <Conditions>
     <Condition uId="17097392870007787">
       <Title language="English" value="step"/>
@@ -29,17 +29,31 @@
     </Condition>
     <Condition uId="17097390055967771">
       <Title language="English" value="ignore localhost check"/>
+      <ConditionOccurrences>
+        <ConditionOccurrence uId="17101093180674220">
+          <Symbol language="English" value="Y"/>
+          <Title language="English" value="Yes"/>
+          <TestValue group="cucumber" type="tcpre" value="config option 'ignoreLocalHost' is 'enabled'"/>
+        </ConditionOccurrence>
+        <ConditionOccurrence uId="17101093182384222">
+          <Symbol language="English" value="N"/>
+          <Title language="English" value="No"/>
+          <TestValue group="cucumber" type="tcpre" value="config option 'ignoreLocalHost' is 'disabled'"/>
+        </ConditionOccurrence>
+      </ConditionOccurrences>
     </Condition>
     <Condition uId="11446800829457960">
       <Title language="English" value="check if localhost"/>
       <ConditionOccurrences>
         <ConditionOccurrence uId="17097388591077642">
           <Symbol language="English" value="localhost"/>
-          <Title language="English" value="localhost"/>
+          <Title language="English" value="\/\/localhost"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, HtmlFile, HtmlFiles, Localhost = 'Y'"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="17097388591097644">
           <Symbol language="English" value="127.0.0.x"/>
-          <Title language="English" value="127.0.0."/>
+          <Title language="English" value="\/\/127\.0\.0\.[0-9]*"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, HtmlFile, HtmlFiles, Localhost = 'Y'"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="17097389043857651">
           <Symbol language="English" value="*"/>
@@ -49,9 +63,31 @@
     </Condition>
     <Condition uId="17097391188817782">
       <Title language="English" value="ignore ip address check"/>
+      <ConditionOccurrences>
+        <ConditionOccurrence uId="17101093182474231">
+          <Symbol language="English" value="Y"/>
+          <Title language="English" value="Yes"/>
+          <TestValue group="cucumber" type="tcpre" value="config option 'ignoreIPAddresses' is 'enabled'"/>
+        </ConditionOccurrence>
+        <ConditionOccurrence uId="17101093182494233">
+          <Symbol language="English" value="N"/>
+          <Title language="English" value="No"/>
+          <TestValue group="cucumber" type="tcpre" value="config option 'ignoreIPAddresses' is 'disabled'"/>
+        </ConditionOccurrence>
+      </ConditionOccurrences>
     </Condition>
     <Condition uId="17097391404327784">
       <Title language="English" value="check if ip address"/>
+      <ConditionOccurrences>
+        <ConditionOccurrence uId="17101093182574241">
+          <Symbol language="English" value="Y"/>
+          <Title language="English" value="Yes"/>
+        </ConditionOccurrence>
+        <ConditionOccurrence uId="17101093182594243">
+          <Symbol language="English" value="N"/>
+          <Title language="English" value="No"/>
+        </ConditionOccurrence>
+      </ConditionOccurrences>
     </Condition>
     <Condition uId="17097666854991554">
       <Title language="English" value="check http status code in configured success range"/>
@@ -59,6 +95,7 @@
         <ConditionOccurrence uId="17097668201072111">
           <Symbol language="English" value="SUCCESS"/>
           <Title language="English" value="configured success status code range"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, HttpStatusCode, HttpStatusCodes, Cat = ${*LFET.Symbol}"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="17097668201092113">
           <Symbol language="English" value="*"/>
@@ -72,6 +109,7 @@
         <ConditionOccurrence uId="17097671996462325">
           <Symbol language="English" value="WARN"/>
           <Title language="English" value="configured warn status code range"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, HttpStatusCode, HttpStatusCodes, Cat = ${*LFET.Symbol}"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="17097671996502329">
           <Symbol language="English" value="*"/>
@@ -85,6 +123,7 @@
         <ConditionOccurrence uId="17097672178102335">
           <Symbol language="English" value="ERROR"/>
           <Title language="English" value="configured error status code range"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, HttpStatusCode, HttpStatusCodes, Cat = ${*LFET.Symbol}"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="17097672178142339">
           <Symbol language="English" value="*"/>
@@ -107,6 +146,16 @@
     </Condition>
     <Condition uId="17097411482909162">
       <Title language="English" value="check if header contains location"/>
+      <ConditionOccurrences>
+        <ConditionOccurrence uId="17101093182664250">
+          <Symbol language="English" value="Y"/>
+          <Title language="English" value="Yes"/>
+        </ConditionOccurrence>
+        <ConditionOccurrence uId="17101093182684252">
+          <Symbol language="English" value="N"/>
+          <Title language="English" value="No"/>
+        </ConditionOccurrence>
+      </ConditionOccurrences>
     </Condition>
   </Conditions>
   <Actions>
@@ -116,9 +165,11 @@
         <ActionOccurrence uId="17097658412538008">
           <Symbol language="English" value="REDIRECT"/>
           <Title language="English" value="create a finding with information about redirect location"/>
+          <TestValue group="cucumber" type="tse" value="check finding '${*LFET.Symbol}' is reported"/>
         </ActionOccurrence>
         <ActionOccurrence uId="17097663974570260">
           <Symbol language="English" value="NUMERIC_IP"/>
+          <TestValue group="cucumber" type="tse" value="check finding '${*LFET.Symbol}' is reported"/>
         </ActionOccurrence>
         <ActionOccurrence uId="17097662705819794">
           <Symbol language="English" value="LOCALHOST"/>
@@ -152,49 +203,49 @@
       </ActionOccurrences>
     </Action>
   </Actions>
-  <Rules lastId="38">
-    <Rule id="6">
-      <ConditionLink link="17097390055967771" conditionState="true"/>
+  <Rules lastId="47">
+    <Rule id="39">
       <ActionOccurrenceLink link="17097393384658014"/>
       <ConditionOccurrenceLink link="17097393067277856"/>
+      <ConditionOccurrenceLink link="17101093180674220"/>
     </Rule>
-    <Rule id="25">
+    <Rule id="40">
       <ConditionOccurrenceLink link="17097388591077642"/>
-      <ConditionLink link="17097390055967771" conditionState="false"/>
       <ActionOccurrenceLink link="17097393384658014"/>
       <ConditionOccurrenceLink link="17097393067277856"/>
       <ActionOccurrenceLink link="17097662705819794"/>
+      <ConditionOccurrenceLink link="17101093182384222"/>
     </Rule>
-    <Rule id="26">
+    <Rule id="41">
       <ConditionOccurrenceLink link="17097388591097644"/>
-      <ConditionLink link="17097390055967771" conditionState="false"/>
       <ActionOccurrenceLink link="17097393384658014"/>
       <ConditionOccurrenceLink link="17097393067277856"/>
       <ActionOccurrenceLink link="17097662705819794"/>
+      <ConditionOccurrenceLink link="17101093182384222"/>
     </Rule>
-    <Rule id="9">
+    <Rule id="42">
       <ConditionOccurrenceLink link="17097389043857651"/>
-      <ConditionLink link="17097390055967771" conditionState="false"/>
       <ActionOccurrenceLink link="17097393384658014"/>
       <ConditionOccurrenceLink link="17097393067277856"/>
+      <ConditionOccurrenceLink link="17101093182384222"/>
     </Rule>
-    <Rule id="10">
+    <Rule id="43">
       <ConditionOccurrenceLink link="17097393067297858"/>
-      <ConditionLink link="17097391188817782" conditionState="true"/>
       <ActionOccurrenceLink link="17097393384658014"/>
+      <ConditionOccurrenceLink link="17101093182474231"/>
     </Rule>
-    <Rule id="27">
+    <Rule id="44">
       <ConditionOccurrenceLink link="17097393067297858"/>
-      <ConditionLink link="17097391188817782" conditionState="false"/>
-      <ConditionLink link="17097391404327784" conditionState="true"/>
       <ActionOccurrenceLink link="17097393384658014"/>
       <ActionOccurrenceLink link="17097663974570260"/>
+      <ConditionOccurrenceLink link="17101093182494233"/>
+      <ConditionOccurrenceLink link="17101093182574241"/>
     </Rule>
-    <Rule id="12">
+    <Rule id="45">
       <ConditionOccurrenceLink link="17097393067297858"/>
-      <ConditionLink link="17097391188817782" conditionState="false"/>
-      <ConditionLink link="17097391404327784" conditionState="false"/>
       <ActionOccurrenceLink link="17097393384658014"/>
+      <ConditionOccurrenceLink link="17101093182494233"/>
+      <ConditionOccurrenceLink link="17101093182594243"/>
     </Rule>
     <Rule id="13">
       <ConditionOccurrenceLink link="17097393144487863"/>
@@ -206,20 +257,20 @@
       <ActionOccurrenceLink link="17097393483508019"/>
       <ConditionOccurrenceLink link="17097668201072111"/>
     </Rule>
-    <Rule id="32">
+    <Rule id="46">
       <ConditionOccurrenceLink link="17097393261727866"/>
       <ActionOccurrenceLink link="17097393483508019"/>
       <ConditionOccurrenceLink link="17097668201092113"/>
       <ConditionOccurrenceLink link="17097667732011745"/>
-      <ConditionLink link="17097411482909162" conditionState="true"/>
       <ActionOccurrenceLink link="17097658412538008"/>
+      <ConditionOccurrenceLink link="17101093182664250"/>
     </Rule>
-    <Rule id="33">
+    <Rule id="47">
       <ConditionOccurrenceLink link="17097393261727866"/>
       <ActionOccurrenceLink link="17097393483508019"/>
       <ConditionOccurrenceLink link="17097668201092113"/>
       <ConditionOccurrenceLink link="17097667732011745"/>
-      <ConditionLink link="17097411482909162" conditionState="false"/>
+      <ConditionOccurrenceLink link="17101093182684252"/>
     </Rule>
     <Rule id="34">
       <ConditionOccurrenceLink link="17097393261727866"/>
@@ -258,4 +309,16 @@
   <UrlsOut>
     <Url title="Ordner" url="file:///./"/>
   </UrlsOut>
+  <TestValueGroups selectedGroup="cucumber">
+    <TestValueGroup name="*ti.check.cucumber"/>
+    <TestValueGroup name="*ti.gtd.cucumber"/>
+    <TestValueGroup name="*ti.att.cucumber"/>
+    <TestValueGroup name="cucumber" tvgTiAtt="*ti.att.cucumber" tvgTiCheck="*ti.check.cucumber" tvgTiGTD="*ti.gtd.cucumber">
+      <Config name="cucmber" tags="cucumber" parms="-Group 'cucumber' -GtdDirectory '../../test/features/testdata/' -GtdFileNamePattern '*.txt; *.csv' -SwitchCoverage '1' -NonExecutableRules '50' -RecommendedTestCases -OutGherkin 'BrokenHttpLinksChecker.testcases.feature'"/>
+    </TestValueGroup>
+  </TestValueGroups>
+  <TestValue group="cucumber" type="tcpre" value="#language:en"/>
+  <TestValue group="cucumber" type="isi" value="checker '${*LFET.DT.Name}' with html page '${*Gtd.HtmlFile.path}' is called"/>
+  <TestValue group="*ti.att.cucumber" type="isi" value="sid=100&lt;br/&gt;scope=global"/>
+  <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, HtmlFile, HtmlFiles"/>
 </LFET>
