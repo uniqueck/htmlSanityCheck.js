@@ -36,6 +36,6 @@ LFET:
           Name: ${dt.name}DecisionLogic
           Trace:
             BeforeRule: |
-              console.log(`$$dtName - $$Version - $$Rule / $$Rules - ${JSON.stringify(model)}`)
+              model.log(`$$dtName - $$Version - $$Rule / $$Rules - ${JSON.stringify(model)}`)
             AfterRule: |
-              console.log(`$$dtName - $$Version - $$Rule / $$Rules - ${JSON.stringify(model)}`)
+              model.log(`$$dtName - $$Version - $$Rule / $$Rules - ${JSON.stringify(model)}`)
