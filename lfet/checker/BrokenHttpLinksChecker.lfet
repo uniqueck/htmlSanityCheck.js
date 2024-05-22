@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<LFET version="LF-ET 2.3.0 (240310a)" language="English" saveDate="2024.03.11 at 23:59:08 CET" saveUser="constantin">
+<LFET version="LF-ET 2.3.0 (240526a)" language="English" saveDate="2024.06.04 at 00:06:35 CEST" saveUser="constantin">
   <Conditions>
     <Condition uId="17097392870007787">
       <Title language="English" value="step"/>
@@ -33,12 +33,13 @@
         <ConditionOccurrence uId="17101093180674220">
           <Symbol language="English" value="Y"/>
           <Title language="English" value="Yes"/>
-          <TestValue group="cucumber" type="tcpre" value="config option 'ignoreLocalHost' is 'enabled'"/>
+          <TestValue group="cucumber" type="tcpre" value="config option ignoreLocalHost is enabled"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenHttpLinksChecker, BrokenHttpLinksChecker, Hostname contains not 'localhost'"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="17101093182384222">
           <Symbol language="English" value="N"/>
           <Title language="English" value="No"/>
-          <TestValue group="cucumber" type="tcpre" value="config option 'ignoreLocalHost' is 'disabled'"/>
+          <TestValue group="cucumber" type="tcpre" value="config option ignoreLocalHost is disabled"/>
         </ConditionOccurrence>
       </ConditionOccurrences>
     </Condition>
@@ -48,16 +49,17 @@
         <ConditionOccurrence uId="17097388591077642">
           <Symbol language="English" value="localhost"/>
           <Title language="English" value="\/\/localhost"/>
-          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, HtmlFile, HtmlFiles, Localhost = 'Y'"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenHttpLinksChecker, BrokenHttpLinksChecker, Hostname contains 'localhost'"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="17097388591097644">
           <Symbol language="English" value="127.0.0.x"/>
           <Title language="English" value="\/\/127\.0\.0\.[0-9]*"/>
-          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, HtmlFile, HtmlFiles, Localhost = 'Y'"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenHttpLinksChecker, BrokenHttpLinksChecker, Hostname contains '127.0.0'"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="17097389043857651">
           <Symbol language="English" value="*"/>
           <Title language="English" value="other"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenHttpLinksChecker, BrokenHttpLinksChecker, Hostname not in (127.0.0, localhost)"/>
         </ConditionOccurrence>
       </ConditionOccurrences>
     </Condition>
@@ -67,12 +69,12 @@
         <ConditionOccurrence uId="17101093182474231">
           <Symbol language="English" value="Y"/>
           <Title language="English" value="Yes"/>
-          <TestValue group="cucumber" type="tcpre" value="config option 'ignoreIPAddresses' is 'enabled'"/>
+          <TestValue group="cucumber" type="tcpre" value="config option ignoreIPAddresses is enabled"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="17101093182494233">
           <Symbol language="English" value="N"/>
           <Title language="English" value="No"/>
-          <TestValue group="cucumber" type="tcpre" value="config option 'ignoreIPAddresses' is 'disabled'"/>
+          <TestValue group="cucumber" type="tcpre" value="config option ignoreIPAddresses is disabled"/>
         </ConditionOccurrence>
       </ConditionOccurrences>
     </Condition>
@@ -82,6 +84,7 @@
         <ConditionOccurrence uId="17101093182574241">
           <Symbol language="English" value="Y"/>
           <Title language="English" value="Yes"/>
+          <TestValue group="*ti.att.cucumber" type="tsi" value="tags=ignore"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="17101093182594243">
           <Symbol language="English" value="N"/>
@@ -95,13 +98,15 @@
         <ConditionOccurrence uId="17097668201072111">
           <Symbol language="English" value="SUCCESS"/>
           <Title language="English" value="configured success status code range"/>
-          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, HttpStatusCode, HttpStatusCodes, Cat = ${*LFET.Symbol}"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, HttpStatusCode_Success, HttpStatusCodes, Cat = ${*LFET.Symbol}&lt;br/&gt;Table, BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code in HttpStatusCode_Success.Filter"/>
+          <TestValue group="cucumber" type="tcpre" value="config option httpSuccessCodes is [${*GTD.HttpStatusCode_Success.Configure_Status_Code_Range}]"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="17097668201092113">
           <Symbol language="English" value="*"/>
           <Title language="English" value="*"/>
         </ConditionOccurrence>
       </ConditionOccurrences>
+      <TestValue group="*ti.check.cucumber" type="tspre" value="clear dummyValue"/>
     </Condition>
     <Condition uId="17097671994542322">
       <Title language="English" value="check http status code in configured warning range"/>
@@ -109,7 +114,8 @@
         <ConditionOccurrence uId="17097671996462325">
           <Symbol language="English" value="WARN"/>
           <Title language="English" value="configured warn status code range"/>
-          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, HttpStatusCode, HttpStatusCodes, Cat = ${*LFET.Symbol}"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, HttpStatusCode_Warn, HttpStatusCodes, Cat = ${*LFET.Symbol}&lt;br/&gt;Table, BrokenHttpLinksChecker, BrokenHttpLinksChecker, Get_Status_Code in HttpStatusCode_Warn.Filter"/>
+          <TestValue group="cucumber" type="tcpre" value="config option httpWarningCodes is [${*GTD.HttpStatusCode_Warn.Configure_Status_Code_Range}]"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="17097671996502329">
           <Symbol language="English" value="*"/>
@@ -123,7 +129,8 @@
         <ConditionOccurrence uId="17097672178102335">
           <Symbol language="English" value="ERROR"/>
           <Title language="English" value="configured error status code range"/>
-          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, HttpStatusCode, HttpStatusCodes, Cat = ${*LFET.Symbol}"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, HttpStatusCode_Error, HttpStatusCodes, Cat = ${*LFET.Symbol}&lt;br/&gt;Table, BrokenHttpLinksChecker, BrokenHttpLinksChecker, Get_Status_Code in HttpStatusCode_Error.Filter"/>
+          <TestValue group="cucumber" type="tcpre" value="config option httpErrorCodes is [${*GTD.HttpStatusCode_Error.Configure_Status_Code_Range}]"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="17097672178142339">
           <Symbol language="English" value="*"/>
@@ -137,6 +144,7 @@
         <ConditionOccurrence uId="17097667732011745">
           <Symbol language="English" value="30x"/>
           <Title language="English" value="[301:308]"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenHttpLinksChecker, BrokenHttpLinksCheckers, Head_Status_Code in ${*LFET.Title}"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="17097667732031747">
           <Symbol language="English" value="*"/>
@@ -165,14 +173,25 @@
         <ActionOccurrence uId="17097658412538008">
           <Symbol language="English" value="REDIRECT"/>
           <Title language="English" value="create a finding with information about redirect location"/>
-          <TestValue group="cucumber" type="tse" value="check finding '${*LFET.Symbol}' is reported"/>
+          <TestValue group="cucumber" type="tse" value="check finding 'Warning: numerical urls (ip address) indicates suspicious environment dependency: href=${*GTD.BrokenHttpLinksChecker.Schema}://${*GTD.BrokenHttpLinksChecker.Hostname}${*GTD.BrokenHttpLinksChecker.Path}' is reported"/>
         </ActionOccurrence>
         <ActionOccurrence uId="17097663974570260">
           <Symbol language="English" value="NUMERIC_IP"/>
-          <TestValue group="cucumber" type="tse" value="check finding '${*LFET.Symbol}' is reported"/>
+          <TestValue group="cucumber" type="tse" value="check finding 'Warning: numerical urls (ip address) indicates suspicious environment dependency: href=${*GTD.BrokenHttpLinksChecker.Schema}://${*GTD.BrokenHttpLinksChecker.Hostname}${*GTD.BrokenHttpLinksChecker.Path}' is reported"/>
         </ActionOccurrence>
         <ActionOccurrence uId="17097662705819794">
           <Symbol language="English" value="LOCALHOST"/>
+          <TestValue group="cucumber" type="tse" value="check finding 'Warning: localhost urls indicates suspicious environment dependency: href=${*GTD.BrokenHttpLinksChecker.Schema}://${*GTD.BrokenHttpLinksChecker.Hostname}${*GTD.BrokenHttpLinksChecker.Path}' is reported"/>
+          <TestValue group="*ti.att.cucumber" type="tsi" value="tags=ignore"/>
+        </ActionOccurrence>
+        <ActionOccurrence uId="17174521282297261">
+          <Symbol language="English" value="WARN"/>
+        </ActionOccurrence>
+        <ActionOccurrence uId="17174521408017263">
+          <Symbol language="English" value="ERROR"/>
+        </ActionOccurrence>
+        <ActionOccurrence uId="17174521503097265">
+          <Symbol language="English" value="UNKNOWN"/>
         </ActionOccurrence>
       </ActionOccurrences>
     </Action>
@@ -182,10 +201,12 @@
         <ActionOccurrence uId="17097397557358517">
           <Symbol language="English" value="HEAD"/>
           <Title language="English" value="head request"/>
+          <TestValue group="cucumber" type="tcpre" value="'${*LFET.Symbol}' request for&lt;br/&gt;| Schema | Hostname | Path | Status Code |&lt;br/&gt;| ${*GTD.BrokenHttpLinksChecker.Schema} | ${*GTD.BrokenHttpLinksChecker.Hostname} | ${*GTD.BrokenHttpLinksChecker.Path} | ${*GTD.BrokenHttpLinksChecker.Head_Status_Code} |"/>
         </ActionOccurrence>
         <ActionOccurrence uId="17097397728668521">
           <Symbol language="English" value="GET"/>
           <Title language="English" value="get request"/>
+          <TestValue group="cucumber" type="tcpre" value="'${*LFET.Symbol}' request for&lt;br/&gt;| Schema | Hostname | Path | Status Code |&lt;br/&gt;| ${*GTD.BrokenHttpLinksChecker.Schema} | ${*GTD.BrokenHttpLinksChecker.Hostname} | ${*GTD.BrokenHttpLinksChecker.Path} | ${*GTD.BrokenHttpLinksChecker.Get_Status_Code} |"/>
         </ActionOccurrence>
       </ActionOccurrences>
     </Action>
@@ -203,22 +224,22 @@
       </ActionOccurrences>
     </Action>
   </Actions>
-  <Rules lastId="47">
+  <Rules lastId="55">
     <Rule id="39">
       <ActionOccurrenceLink link="17097393384658014"/>
       <ConditionOccurrenceLink link="17097393067277856"/>
       <ConditionOccurrenceLink link="17101093180674220"/>
     </Rule>
-    <Rule id="40">
+    <Rule id="50">
       <ConditionOccurrenceLink link="17097388591077642"/>
-      <ActionOccurrenceLink link="17097393384658014"/>
+      <ActionOccurrenceLink link="17097393483508019"/>
       <ConditionOccurrenceLink link="17097393067277856"/>
       <ActionOccurrenceLink link="17097662705819794"/>
       <ConditionOccurrenceLink link="17101093182384222"/>
     </Rule>
-    <Rule id="41">
+    <Rule id="51">
       <ConditionOccurrenceLink link="17097388591097644"/>
-      <ActionOccurrenceLink link="17097393384658014"/>
+      <ActionOccurrenceLink link="17097393483508019"/>
       <ConditionOccurrenceLink link="17097393067277856"/>
       <ActionOccurrenceLink link="17097662705819794"/>
       <ConditionOccurrenceLink link="17101093182384222"/>
@@ -234,9 +255,9 @@
       <ActionOccurrenceLink link="17097393384658014"/>
       <ConditionOccurrenceLink link="17101093182474231"/>
     </Rule>
-    <Rule id="44">
+    <Rule id="52">
       <ConditionOccurrenceLink link="17097393067297858"/>
-      <ActionOccurrenceLink link="17097393384658014"/>
+      <ActionOccurrenceLink link="17097393483508019"/>
       <ActionOccurrenceLink link="17097663974570260"/>
       <ConditionOccurrenceLink link="17101093182494233"/>
       <ConditionOccurrenceLink link="17101093182574241"/>
@@ -284,25 +305,28 @@
       <ActionOccurrenceLink link="17097393483508019"/>
       <ConditionOccurrenceLink link="17097668201072111"/>
     </Rule>
-    <Rule id="36">
+    <Rule id="53">
       <ConditionOccurrenceLink link="17097664775431227"/>
       <ActionOccurrenceLink link="17097393483508019"/>
       <ConditionOccurrenceLink link="17097668201092113"/>
       <ConditionOccurrenceLink link="17097671996462325"/>
+      <ActionOccurrenceLink link="17174521282297261"/>
     </Rule>
-    <Rule id="37">
+    <Rule id="54">
       <ConditionOccurrenceLink link="17097664775431227"/>
       <ActionOccurrenceLink link="17097393483508019"/>
       <ConditionOccurrenceLink link="17097668201092113"/>
       <ConditionOccurrenceLink link="17097671996502329"/>
       <ConditionOccurrenceLink link="17097672178102335"/>
+      <ActionOccurrenceLink link="17174521408017263"/>
     </Rule>
-    <Rule id="38">
+    <Rule id="55">
       <ConditionOccurrenceLink link="17097664775431227"/>
       <ActionOccurrenceLink link="17097393483508019"/>
       <ConditionOccurrenceLink link="17097668201092113"/>
       <ConditionOccurrenceLink link="17097671996502329"/>
       <ConditionOccurrenceLink link="17097672178142339"/>
+      <ActionOccurrenceLink link="17174521503097265"/>
     </Rule>
   </Rules>
   <Title language="English" value="BrokenHttpLinksChecker"/>
@@ -314,11 +338,11 @@
     <TestValueGroup name="*ti.gtd.cucumber"/>
     <TestValueGroup name="*ti.att.cucumber"/>
     <TestValueGroup name="cucumber" tvgTiAtt="*ti.att.cucumber" tvgTiCheck="*ti.check.cucumber" tvgTiGTD="*ti.gtd.cucumber">
-      <Config name="cucmber" tags="cucumber" parms="-Group 'cucumber' -GtdDirectory '../../test/features/testdata/' -GtdFileNamePattern '*.txt; *.csv' -SwitchCoverage '1' -NonExecutableRules '50' -RecommendedTestCases -OutGherkin 'BrokenHttpLinksChecker.testcases.feature'"/>
+      <Config name="cucmber" tags="cucumber" parms="-Group 'cucumber' -GtdDirectory '../../test/features/testdata/' -GtdFileNamePattern '*.txt; *.csv' -SwitchCoverage '2' -NonExecutableRules '50' -NonExecutableRuleSeq '50' -RecommendedTestCases -Statistics -Protocol -OutGherkin 'BrokenHttpLinksChecker.testcases.feature'"/>
     </TestValueGroup>
   </TestValueGroups>
   <TestValue group="cucumber" type="tcpre" value="#language:en"/>
-  <TestValue group="cucumber" type="isi" value="checker '${*LFET.DT.Name}' with html page '${*Gtd.HtmlFile.path}' is called"/>
+  <TestValue group="cucumber" type="isi" value="checker '${*LFET.DT.Name}' with html page&lt;br/&gt;| Content |&lt;br/&gt;| &lt;html&gt;&lt;bod&gt;&lt;a href=&quot;${*GTD.BrokenHttpLinksChecker.Schema}://${*GTD.BrokenHttpLinksChecker.Hostname}${*GTD.BrokenHttpLinksChecker.Path}&quot;&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;|"/>
   <TestValue group="*ti.att.cucumber" type="isi" value="sid=100&lt;br/&gt;scope=global"/>
-  <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, HtmlFile, HtmlFiles"/>
+  <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenHttpLinksChecker, BrokenHttpLinksCheckers&lt;br/&gt;Table, HttpStatusCode, HttpStatusCodes"/>
 </LFET>

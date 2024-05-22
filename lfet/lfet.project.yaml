@@ -33,9 +33,13 @@ LFET:
         Stateless: true
 
         RulesClass:
+          constructor: |
+            constructor (/* LoggingFacade */ logger) {
+              this.logger = logger
+            }
           Name: ${dt.name}DecisionLogic
           Trace:
             BeforeRule: |
-              model.log(`$$dtName - $$Version - $$Rule / $$Rules - ${JSON.stringify(model)}`)
+              this.logger.log(`$$dtName - $$Version - $$Rule / $$Rules - ${JSON.stringify(model)}`)
             AfterRule: |
-              model.log(`$$dtName - $$Version - $$Rule / $$Rules - ${JSON.stringify(model)}`)
+              this.logger.log(`$$dtName - $$Version - $$Rule / $$Rules - ${JSON.stringify(model)}`)

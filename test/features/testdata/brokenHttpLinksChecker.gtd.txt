@@ -1,17 +1,20 @@
 Encoding = UTF-8
 
-*GTD.HtmlFiles
---------------------------------------------------------------------
-ID; Localhost;  path
---------------------------------------------------------------------
-1;  Y;          brokenHttpLinksChecker_localhost.html
-2;  Y;          brokenHttpLinksChecker_127_0_0_2.html
-3;  N;          brokenHttpLinksChecker_github.com.html
+*GTD.BrokenHttpLinksCheckers
+---------------------------------------------------------------------------------------------------------------------------------------------------
+ID; Type;      Schema; Hostname;              Path;                            Head_Status_Code; Get_Status_Code ; tags ; Redirect_Header_Location
+---------------------------------------------------------------------------------------------------------------------------------------------------
+1;  LOCAL;     https;  localhost;             /fail;                           400             ; -               ; "localhost" ; ""
+2;  LOCAL;     http;   localhost;             /success;                        200             ; -               ; "localhost" ; ""
+3;  NUMERIC;   http;   127.0.0.1;             /success;                        200             ; -               ; "localhost" ; ""
+4;  NORMAL;    https;  github.com;            /uniqueck/asciidoctor-liquibase; 200             ; 201             ; ""          ; ""
+5;  NORMAL;    https;  github.com;            /uniqueck/asciidoctor-liquibase; 307             ; -               ; ""          ; "https://github.com/uniqueck/htmlSanityCheck"
+5;  NORMAL;    https;  github.com;            /uniqueck/asciidoctor-liquibase; 307             ; -               ; ""          ; ""
 
 *Gtd.HttpStatusCodes
 --------------------------------------------------------------------
-Cat;        Status_Code ; Configure_Status_Code_Range
---------------------------------------------------------------------
-SUCCESS;    200         ; 200,201,203
-WARN;       300         ; 301,302
-ERROR;      404         ; 401,402,403
+Cat;         Configure_Status_Code_Range ; Filter
+-------------------------------------------------------
+SUCCESS;     200,201,203                 ; '\(200;201;203)'
+WARN;        301,302                     ; '\(301;302)'
+ERROR;       401,402,403                 ; '\(401;402;403)'

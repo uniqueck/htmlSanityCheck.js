@@ -26,3 +26,8 @@ LFET:
             - execute http request
           Symbol: ""
 
+        30:
+          IncludeTagsTitle:
+            - check http status code in redirect range
+          Title:
+            - Interval
