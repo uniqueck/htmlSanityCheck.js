@@ -43,7 +43,7 @@ Before(function () {
     }
 
     getResponseHeader (headerName) {
-
+      return global.routes[this.method].headers[headerName]
     }
   }
 })
@@ -51,6 +51,7 @@ Before(function () {
 After(function () {
   this.attach(this.loggerMock.messages.join('\n'))
   delete global.XMLHttpRequest
+  delete global.routes
 })
 
 When('checker {string} with html page', function (checkerName, dataTable) {
@@ -74,12 +75,12 @@ When('checker {string} with html page {string} is called', function (checkerName
 })
 
 Given('{string} request for', function (requestMethod, dataTable) {
-  const schema = dataTable.hashes()[0]['Schema']
-  const hostName = dataTable.hashes()[0]['Hostname']
-  const path = dataTable.hashes()[0]['Path']
+  const url = dataTable.hashes()[0].URL
   const statusCode = parseInt(dataTable.hashes()[0]['Status Code'])
-  global.routes[requestMethod.toLowerCase()].url = `${schema}://${hostName}${path}`
+  const redirectHeaderLocation = dataTable.hashes()[0]['Redirect Header Location']
+  global.routes[requestMethod.toLowerCase()].url = url
   global.routes[requestMethod.toLowerCase()].status = statusCode
+  global.routes[requestMethod.toLowerCase()].headers = { location: redirectHeaderLocation }
 })
 
 Given(/^config option (.*) is \[(.*)\]$/, function (optionName, optionValue) {
@@ -91,5 +92,5 @@ Given(/^config option (.*) is (enabled|disabled)$/, function (optionName, option
 })
 
 Then('check finding {string} is reported', function (finding) {
-  assert(this.singleCheckResult.findings.find(it => it === finding) === true)
+  assert.contains(this.singleCheckResult.findings, finding)
 })

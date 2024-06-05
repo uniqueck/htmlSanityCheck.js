@@ -2,14 +2,14 @@ Encoding = UTF-8
 
 *GTD.BrokenHttpLinksCheckers
 ---------------------------------------------------------------------------------------------------------------------------------------------------
-ID; Type;      Schema; Hostname;              Path;                            Head_Status_Code; Get_Status_Code ; tags ; Redirect_Header_Location
----------------------------------------------------------------------------------------------------------------------------------------------------
-1;  LOCAL;     https;  localhost;             /fail;                           400             ; -               ; "localhost" ; ""
-2;  LOCAL;     http;   localhost;             /success;                        200             ; -               ; "localhost" ; ""
-3;  NUMERIC;   http;   127.0.0.1;             /success;                        200             ; -               ; "localhost" ; ""
-4;  NORMAL;    https;  github.com;            /uniqueck/asciidoctor-liquibase; 200             ; 201             ; ""          ; ""
-5;  NORMAL;    https;  github.com;            /uniqueck/asciidoctor-liquibase; 307             ; -               ; ""          ; "https://github.com/uniqueck/htmlSanityCheck"
-5;  NORMAL;    https;  github.com;            /uniqueck/asciidoctor-liquibase; 307             ; -               ; ""          ; ""
+Type;      URL;                                               Head_Status_Code; Get_Status_Code ; Redirect_Header_Location
+-----------------------------------------------------------------------------------------------------------------------------------------------
+LOCAL;     https://localhost/fail;                            400             ; -               ; empty
+LOCAL;     http://localhost/success;                          200             ; -               ; empty
+NUMERIC;   http://127.0.0.1/success;                          200             ; -               ; empty
+NORMAL;    https://github.com/uniqueck/asciidoctor-liquibase; 200             ; 201             ; empty
+NORMAL;    https://github.com/uniqueck/asciidoctor-liquibase; 307             ; -               ; https://github.com/uniqueck/htmlSanityCheck
+NORMAL;    https://github.com/uniqueck/asciidoctor-liquibase; 307             ; -               ; empty
 
 *Gtd.HttpStatusCodes
 --------------------------------------------------------------------

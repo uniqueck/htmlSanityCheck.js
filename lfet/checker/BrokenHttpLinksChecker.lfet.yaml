@@ -18,6 +18,7 @@ LFET:
         10:
           IncludeTagsTitle:
             - check if localhost
+            - create finding
           Symbol: ""
           Title: ""
 
