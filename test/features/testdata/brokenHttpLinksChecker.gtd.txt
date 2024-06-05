@@ -7,6 +7,7 @@ Type;      URL;                                               Head_Status_Code; 
 LOCAL;     https://localhost/fail;                            400             ; -               ; empty
 LOCAL;     http://localhost/success;                          200             ; -               ; empty
 NUMERIC;   http://127.0.0.1/success;                          200             ; -               ; empty
+NUMERIC;   http://172.217.30.9/google;                        200             ; -               ; empty
 NORMAL;    https://github.com/uniqueck/asciidoctor-liquibase; 200             ; 201             ; empty
 NORMAL;    https://github.com/uniqueck/asciidoctor-liquibase; 307             ; -               ; https://github.com/uniqueck/htmlSanityCheck
 NORMAL;    https://github.com/uniqueck/asciidoctor-liquibase; 307             ; -               ; empty

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<LFET version="LF-ET 2.3.0 (240422a)" language="English" saveDate="2024.06.05 at 12:27:04 CEST" saveUser="shoelzle">
+<LFET version="LF-ET 2.3.0 (240603b)" language="English" saveDate="2024.06.05 at 15:49:06 CEST" saveUser="constantin">
   <Conditions>
     <Condition uId="17097392870007787">
       <Title language="English" value="step"/>
@@ -83,6 +83,7 @@
         <ConditionOccurrence uId="17101093182574241">
           <Symbol language="English" value="Y"/>
           <Title language="English" value="Yes"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenHttpLinksChecker, BrokenHttpLinksChecker, Type = NUMERIC"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="17101093182594243">
           <Symbol language="English" value="N"/>
@@ -182,7 +183,6 @@
         <ActionOccurrence uId="17097662705819794">
           <Symbol language="English" value="LOCALHOST"/>
           <TestValue group="cucumber" type="tse" value="check finding 'Warning: localhost urls indicates suspicious environment dependency: href=${*GTD.BrokenHttpLinksChecker.URL}' is reported"/>
-          <TestValue group="*ti.att.cucumber" type="tsi" value="tags=ignore"/>
           <Title language="English" value="Warning: localhost urls indicates suspicious environment dependency: href={href}"/>
         </ActionOccurrence>
         <ActionOccurrence uId="17174521282297261">
@@ -349,7 +349,7 @@
     </TestValueGroup>
   </TestValueGroups>
   <TestValue group="cucumber" type="tcpre" value="#language:en"/>
-  <TestValue group="cucumber" type="isi" value="checker '${*LFET.DT.Name}' with html page&lt;br/&gt;| Content |&lt;br/&gt;| &lt;html&gt;&lt;bod&gt;&lt;a href=&quot;${*GTD.BrokenHttpLinksChecker.URL}&quot;&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;|"/>
+  <TestValue group="cucumber" type="isi" value="checker '${*LFET.DT.Name}' with html page&lt;br/&gt;| Content |&lt;br/&gt;| &lt;html&gt;&lt;body&gt;&lt;a href=&quot;${*GTD.BrokenHttpLinksChecker.URL}&quot;&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;|"/>
   <TestValue group="*ti.att.cucumber" type="isi" value="sid=100&lt;br/&gt;scope=global"/>
   <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenHttpLinksChecker, BrokenHttpLinksCheckers&lt;br/&gt;Table, HttpStatusCode, HttpStatusCodes"/>
 </LFET>

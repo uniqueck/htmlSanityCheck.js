@@ -1,6 +1,7 @@
 const { When, Then, Given, Before, After } = require('@cucumber/cucumber')
 const HtmlPage = require('../../../lib/html/htmlPage')
 const { assert } = require('referee')
+const Finding = require('../../../lib/finding')
 
 Before(function () {
   this.config = {}
@@ -32,6 +33,7 @@ Before(function () {
     }
 
     addEventListener (event, callback) {
+      assert.equals('load', event)
       this.callback = callback
     }
 
@@ -92,5 +94,7 @@ Given(/^config option (.*) is (enabled|disabled)$/, function (optionName, option
 })
 
 Then('check finding {string} is reported', function (finding) {
-  assert.contains(this.singleCheckResult.findings, finding)
+  const Finding = require('../../../lib/finding')
+  assert.equals(1, this.singleCheckResult.findings.length)
+  assert.equals(new Finding(finding, 1, ''), this.singleCheckResult.findings[0])
 })
