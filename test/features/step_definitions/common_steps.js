@@ -1,7 +1,6 @@
 const { When, Then, Given, Before, After } = require('@cucumber/cucumber')
 const HtmlPage = require('../../../lib/html/htmlPage')
 const { assert } = require('referee')
-const { newServer } = require('mock-xmlhttprequest')
 
 Before(function () {
   this.config = {}
@@ -27,6 +26,7 @@ Before(function () {
     constructor () {}
 
     open (method, url, async) {
+      assert.equals(false, async)
       this.method = method.toLowerCase()
       this.url = url
     }
@@ -56,11 +56,14 @@ After(function () {
 When('checker {string} with html page', function (checkerName, dataTable) {
   const Checker = require(`../../../lib/checker/${checkerName}`)
   const HtmlPage = require('../../../lib/html/htmlPage')
-  const htmlFile = new HtmlPage({filePath : "", fileName: "", content: require('node-html-parser').parse(dataTable.hashes()[0]['Content'])})
+  const htmlFile = new HtmlPage({
+    filePath: '',
+    fileName: '',
+    content: require('node-html-parser').parse(dataTable.hashes()[0]['Content'])
+  })
   const checkerInstance = Checker.createChecker(this.config, this.loggerMock)
   this.singleCheckResult = checkerInstance.performCheck(htmlFile)
 })
-
 
 When('checker {string} with html page {string} is called', function (checkerName, htmlFilePath) {
   const Checker = require(`../../../lib/checker/${checkerName}`)
