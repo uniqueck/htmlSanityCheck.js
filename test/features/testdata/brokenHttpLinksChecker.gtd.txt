@@ -11,6 +11,8 @@ NUMERIC;   http://172.217.30.9/google;                        200             ; 
 NORMAL;    https://github.com/uniqueck/asciidoctor-liquibase; 200             ; 201             ; empty
 NORMAL;    https://github.com/uniqueck/asciidoctor-liquibase; 307             ; -               ; https://github.com/uniqueck/htmlSanityCheck
 NORMAL;    https://github.com/uniqueck/asciidoctor-liquibase; 307             ; -               ; empty
+NORMAL;    https://github.com/uniqueck/asciidoctor-liquibase; 404             ; 301             ; empty
+NORMAL;    https://github.com/uniqueck/asciidoctor-liquibase; 309             ; 402             ; empty
 NORMAL;    https://github.com/uniqueck/asciidoctor-liquibase; 403             ; 500             ; empty
 
 *Gtd.HttpStatusCodes
@@ -19,4 +21,5 @@ Cat;         Configure_Status_Code_Range ; Filter
 -------------------------------------------------------
 SUCCESS;     200,201,203                 ; '\(200;201;203)'
 WARN;        301,302                     ; '\(301;302)'
+WARN;        309,310                     ; '\(309;310)'
 ERROR;       401,402,403                 ; '\(401;402;403)'
