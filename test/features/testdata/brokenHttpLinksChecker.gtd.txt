@@ -11,6 +11,7 @@ NUMERIC;   http://172.217.30.9/google;                        200             ; 
 NORMAL;    https://github.com/uniqueck/asciidoctor-liquibase; 200             ; 201             ; empty
 NORMAL;    https://github.com/uniqueck/asciidoctor-liquibase; 307             ; -               ; https://github.com/uniqueck/htmlSanityCheck
 NORMAL;    https://github.com/uniqueck/asciidoctor-liquibase; 307             ; -               ; empty
+NORMAL;    https://github.com/uniqueck/asciidoctor-liquibase; 403             ; 500             ; empty
 
 *Gtd.HttpStatusCodes
 --------------------------------------------------------------------

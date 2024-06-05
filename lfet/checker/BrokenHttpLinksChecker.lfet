@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<LFET version="LF-ET 2.3.0 (240603b)" language="English" saveDate="2024.06.05 at 15:49:06 CEST" saveUser="constantin">
+<LFET version="LF-ET 2.3.0 (240422a)" language="English" saveDate="2024.06.05 at 17:25:33 CEST" saveUser="shoelzle">
   <Conditions>
     <Condition uId="17097392870007787">
       <Title language="English" value="step"/>
@@ -58,7 +58,7 @@
         <ConditionOccurrence uId="17097389043857651">
           <Symbol language="English" value="*"/>
           <Title language="English" value="other"/>
-          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenHttpLinksChecker, BrokenHttpLinksChecker, URL not in ('//127.0.0', '//localhost')"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenHttpLinksChecker, BrokenHttpLinksChecker, URL contains not &quot;//127.0.0&quot;&lt;br/&gt;Table, BrokenHttpLinksChecker, BrokenHttpLinksChecker, URL contains not &quot;//localhost&quot;"/>
         </ConditionOccurrence>
       </ConditionOccurrences>
     </Condition>
@@ -88,6 +88,7 @@
         <ConditionOccurrence uId="17101093182594243">
           <Symbol language="English" value="N"/>
           <Title language="English" value="No"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenHttpLinksChecker, BrokenHttpLinksChecker, TYPE != &quot;NUMERIC&quot;"/>
         </ConditionOccurrence>
       </ConditionOccurrences>
     </Condition>
@@ -103,6 +104,8 @@
         <ConditionOccurrence uId="17097668201092113">
           <Symbol language="English" value="*"/>
           <Title language="English" value="*"/>
+          <TestValue group="cucumber" type="tcpre" value="config option httpSuccessCodes is [${*GTD.HttpStatusCode_Success.Configure_Status_Code_Range}]"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, HttpStatusCode_Success, HttpStatusCodes, Cat = 'SUCCESS'&lt;br/&gt;Table, BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code not in HttpStatusCode_Success.Filter"/>
         </ConditionOccurrence>
       </ConditionOccurrences>
       <TestValue group="*ti.check.cucumber" type="tspre" value="clear dummyValue"/>
@@ -119,6 +122,8 @@
         <ConditionOccurrence uId="17097671996502329">
           <Symbol language="English" value="*"/>
           <Title language="English" value="*"/>
+          <TestValue group="cucumber" type="tcpre" value="config option httpWarningCodes is [${*GTD.HttpStatusCode_Warn.Configure_Status_Code_Range}]"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, HttpStatusCode_Warn, HttpStatusCodes, Cat = 'WARN'&lt;br/&gt;Table, BrokenHttpLinksChecker, BrokenHttpLinksChecker, Get_Status_Code not in HttpStatusCode_Warn.Filter"/>
         </ConditionOccurrence>
       </ConditionOccurrences>
     </Condition>
@@ -134,6 +139,8 @@
         <ConditionOccurrence uId="17097672178142339">
           <Symbol language="English" value="*"/>
           <Title language="English" value="*"/>
+          <TestValue group="cucumber" type="tcpre" value="config option httpErrorCodes is [${*GTD.HttpStatusCode_Error.Configure_Status_Code_Range}]"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, HttpStatusCode_Error, HttpStatusCodes, Cat = 'ERROR'&lt;br/&gt;Table, BrokenHttpLinksChecker, BrokenHttpLinksChecker, Get_Status_Code not in HttpStatusCode_Error.Filter"/>
         </ConditionOccurrence>
       </ConditionOccurrences>
     </Condition>
@@ -148,6 +155,7 @@
         <ConditionOccurrence uId="17097667732031747">
           <Symbol language="English" value="*"/>
           <Title language="English" value="*"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code not in [301 : 308]"/>
         </ConditionOccurrence>
       </ConditionOccurrences>
     </Condition>

@@ -1,18 +1,29 @@
 # Diese Datei wurde erzeugt durch LF-ET 2.3.0 (240603b) und Kommandozeile:
-# -GenTest "/opt/data/github/htmlSanityCheck.js/lfet/checker/BrokenHttpLinksChecker.lfet" -Group "cucumber" -Config "cucmber" -ContinueOnError -GtdDirectory "../../test/features/testdata/" -GtdFileNamePattern "*.txt; *.csv" -SwitchCoverage "2" -NonExecutableRules "50" -NonExecutableRuleSeq "50" -RecommendedTestCases -Statistics -Protocol -OutGherkin "BrokenHttpLinksChecker.testcases.feature" -InputRootfolder "/opt/data/github/htmlSanityCheck.js/lfet" -OutputRootfolder "/opt/data/github/htmlSanityCheck.js/test/features"
+# -GenTest "/Users/shoelzle/workspaces/github/htmlSanityCheck.js/lfet/checker/BrokenHttpLinksChecker.lfet" -Group "cucumber" -Config "cucmber" -ContinueOnError -GtdDirectory "../../test/features/testdata/" -GtdFileNamePattern "*.txt; *.csv" -SwitchCoverage "2" -NonExecutableRules "50" -NonExecutableRuleSeq "50" -RecommendedTestCases -Statistics -Protocol -OutGherkin "BrokenHttpLinksChecker.testcases.feature" -InputRootfolder "/Users/shoelzle/workspaces/github/htmlSanityCheck.js/lfet" -OutputRootfolder "/Users/shoelzle/workspaces/github/htmlSanityCheck.js/test/features"
 # 
-# Aktueller Benutzer: constantin
-# Aktuelles Verzeichnis (user.dir): "/opt/data/github/htmlSanityCheck.js"
-# Benötigte Zeit: 00:00:00.481 (05.06.2024 16:13:28.397 - 05.06.2024 16:13:28.878)
+# Aktueller Benutzer: shoelzle
+# Aktuelles Verzeichnis (user.dir): "/Users/shoelzle/workspaces/github/htmlSanityCheck.js"
+# Benötigte Zeit: 00:00:00.280 (05.06.2024 17:28:18.844 - 05.06.2024 17:28:19.124)
 # 
-# Entscheidungstabelle: /opt/data/github/htmlSanityCheck.js/lfet/checker/BrokenHttpLinksChecker.lfet
+# Entscheidungstabelle: /Users/shoelzle/workspaces/github/htmlSanityCheck.js/lfet/checker/BrokenHttpLinksChecker.lfet
 # 
 # TestValueGroups: cucumber, *ti.att.cucumber, *ti.gtd.cucumber, *ti.check.cucumber
 # Config: cucmber
 # 
-# Testfälle mit Fehlern: 2
+# Testfälle mit Fehlern: 3
 # 
-#     1. Fehler in Testfall 6
+#     1. Fehler in Testfall 2
+#         
+#         BrokenHttpLinksChecker
+#         | R01 | B02=Y
+#         | R05 | B04=Y
+#         | R08
+#         | R12 | B06=* | B09=*
+#         | R13 | B06=SUCCESS
+#         
+#         Die dynamisch erzeugte GTD Teilmenge 'BrokenHttpLinksChecker' enthält keine Datensätze. {(BrokenHttpLinksChecker, BrokenHttpLinksCheckers, *, 8 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code not in HttpStatusCode_Success.Filter=(200;201;203), 4 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code not in [301 : 308], 2 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code in HttpStatusCode_Success.Filter=(200;201;203), 0 Sätze)}  (05.06.2024 17:28:19.034)
+# 
+#     2. Fehler in Testfall 6
 #         
 #         BrokenHttpLinksChecker
 #         | R01 | B02=Y
@@ -21,9 +32,9 @@
 #         | R12 | B06=* | B09=*
 #         | R14 | B06=* | B07=WARN
 #         
-#         Die dynamisch erzeugte GTD Teilmenge 'BrokenHttpLinksChecker' enthält keine Datensätze. {(BrokenHttpLinksChecker, BrokenHttpLinksCheckers, *, 7 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Get_Status_Code in HttpStatusCode_Warn.Filter=(301;302), 0 Sätze)}  (05.06.2024 16:13:28.726)
+#         Die dynamisch erzeugte GTD Teilmenge 'BrokenHttpLinksChecker' enthält keine Datensätze. {(BrokenHttpLinksChecker, BrokenHttpLinksCheckers, *, 8 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, TYPE != "NUMERIC", 6 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code not in HttpStatusCode_Success.Filter=(200;201;203), 4 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code not in [301 : 308], 2 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code not in HttpStatusCode_Success.Filter=(200;201;203), 2 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Get_Status_Code in HttpStatusCode_Warn.Filter=(301;302), 0 Sätze)}  (05.06.2024 17:28:19.063)
 # 
-#     2. Fehler in Testfall 11
+#     3. Fehler in Testfall 11
 #         
 #         BrokenHttpLinksChecker
 #         | R04 | B02=N | B03=*
@@ -32,14 +43,14 @@
 #         | R12 | B06=* | B09=*
 #         | R15 | B06=* | B07=* | B08=ERROR
 #         
-#         Die dynamisch erzeugte GTD Teilmenge 'BrokenHttpLinksChecker' enthält keine Datensätze. {(BrokenHttpLinksChecker, BrokenHttpLinksCheckers, *, 7 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, "URL not in ('//127.0.0', '//localhost')", 7 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Get_Status_Code in HttpStatusCode_Error.Filter=(401;402;403), 0 Sätze)}  (05.06.2024 16:13:28.769)
+#         Die dynamisch erzeugte GTD Teilmenge 'BrokenHttpLinksChecker' enthält keine Datensätze. {(BrokenHttpLinksChecker, BrokenHttpLinksCheckers, *, 8 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, URL contains not "//127.0.0", 7 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, URL contains not "//localhost", 5 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code not in HttpStatusCode_Success.Filter=(200;201;203), 3 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code not in [301 : 308], 1 Satz), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code not in HttpStatusCode_Success.Filter=(200;201;203), 1 Satz), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Get_Status_Code not in HttpStatusCode_Warn.Filter=(301;302), 1 Satz), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Get_Status_Code in HttpStatusCode_Error.Filter=(401;402;403), 0 Sätze)}  (05.06.2024 17:28:19.092)
 # 
 # Testfälle mit Warnungen: 0
 # 
 # Informationen: 1
 # 
-#     1. /opt/data/github/htmlSanityCheck.js/test/features/testdata/brokenHttpLinksChecker.gtd.txt
-#            Erfolgreich eingelesen: BrokenHttpLinksCheckers, 7 Sätze, Encoding UTF-8
+#     1. /Users/shoelzle/workspaces/github/htmlSanityCheck.js/test/features/testdata/brokenHttpLinksChecker.gtd.txt
+#            Erfolgreich eingelesen: BrokenHttpLinksCheckers, 8 Sätze, Encoding UTF-8
 #            Erfolgreich eingelesen: HttpStatusCodes, 3 Sätze, Encoding UTF-8
 
 # language: en
@@ -58,31 +69,21 @@ Feature: BrokenHttpLinksChecker
     *     'HEAD' request for
       | URL                                               | Status Code | Redirect Header Location                    |
       | https://github.com/uniqueck/asciidoctor-liquibase |         307 | https://github.com/uniqueck/htmlSanityCheck |
+    *     config option httpSuccessCodes is [200,201,203]
     When  checker 'BrokenHttpLinksChecker' with html page
       | Content                                                                                    |
       | <html><body><a href="https://github.com/uniqueck/asciidoctor-liquibase"></a></body></html> |
     Then  check finding 'Warning: href=https://github.com/uniqueck/asciidoctor-liquibase returned statuscode 307, new location: https://github.com/uniqueck/htmlSanityCheck' is reported
 
-  @recommended
+  @incomplete @recommended
   Scenario: 0002 BrokenHttpLinksChecker
     BrokenHttpLinksChecker
     R01 : B02 ignore localhost check = Y
     R05 : B04 ignore ip address check = Y
     R08
     R12 : B06 check http status code in configured success range = * ; B09 check http status code in redirect range = *
-    R13 : B06 check http status code in configured success range = SUCCESS
-    Given config option ignoreLocalHost is enabled
-    *     config option ignoreIPAddresses is enabled
-    *     'HEAD' request for
-      | URL                        | Status Code | Redirect Header Location |
-      | http://172.217.30.9/google |         200 | empty                    |
-    *     'GET' request for
-      | URL                        | Status Code | Redirect Header Location |
-      | http://172.217.30.9/google | -           | empty                    |
-    *     config option httpSuccessCodes is [200,201,203]
-    When  checker 'BrokenHttpLinksChecker' with html page
-      | Content                                                             |
-      | <html><body><a href="http://172.217.30.9/google"></a></body></html> |
+    R13 : B06 check http status code in configured success range = SUCCESS    messages:
+    # Die dynamisch erzeugte GTD Teilmenge 'BrokenHttpLinksChecker' enthält keine Datensätze. {(BrokenHttpLinksChecker, BrokenHttpLinksCheckers, *, 8 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code not in HttpStatusCode_Success.Filter=(200;201;203), 4 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code not in [301 : 308], 2 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code in HttpStatusCode_Success.Filter=(200;201;203), 0 Sätze)}  (05.06.2024 17:28:19.034)
 
   @recommended
   Scenario: 0003 BrokenHttpLinksChecker
@@ -125,6 +126,7 @@ Feature: BrokenHttpLinksChecker
     *     'HEAD' request for
       | URL                                               | Status Code | Redirect Header Location |
       | https://github.com/uniqueck/asciidoctor-liquibase |         307 | empty                    |
+    *     config option httpSuccessCodes is [200,201,203]
     When  checker 'BrokenHttpLinksChecker' with html page
       | Content                                                                                    |
       | <html><body><a href="https://github.com/uniqueck/asciidoctor-liquibase"></a></body></html> |
@@ -137,7 +139,7 @@ Feature: BrokenHttpLinksChecker
     R08
     R12 : B06 check http status code in configured success range = * ; B09 check http status code in redirect range = *
     R14 : B06 check http status code in configured success range = * ; B07 check http status code in configured warning range = WARN    messages:
-    # Die dynamisch erzeugte GTD Teilmenge 'BrokenHttpLinksChecker' enthält keine Datensätze. {(BrokenHttpLinksChecker, BrokenHttpLinksCheckers, *, 7 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Get_Status_Code in HttpStatusCode_Warn.Filter=(301;302), 0 Sätze)}  (05.06.2024 16:13:28.726)
+    # Die dynamisch erzeugte GTD Teilmenge 'BrokenHttpLinksChecker' enthält keine Datensätze. {(BrokenHttpLinksChecker, BrokenHttpLinksCheckers, *, 8 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, TYPE != "NUMERIC", 6 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code not in HttpStatusCode_Success.Filter=(200;201;203), 4 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code not in [301 : 308], 2 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code not in HttpStatusCode_Success.Filter=(200;201;203), 2 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Get_Status_Code in HttpStatusCode_Warn.Filter=(301;302), 0 Sätze)}  (05.06.2024 17:28:19.063)
 
   @recommended
   Scenario: 0007 BrokenHttpLinksChecker
@@ -169,12 +171,12 @@ Feature: BrokenHttpLinksChecker
     Given config option ignoreLocalHost is disabled
     *     config option ignoreIPAddresses is enabled
     *     'HEAD' request for
-      | URL                      | Status Code | Redirect Header Location |
-      | http://localhost/success |         200 | empty                    |
+      | URL                        | Status Code | Redirect Header Location |
+      | http://172.217.30.9/google |         200 | empty                    |
     *     config option httpSuccessCodes is [200,201,203]
     When  checker 'BrokenHttpLinksChecker' with html page
-      | Content                                                           |
-      | <html><body><a href="http://localhost/success"></a></body></html> |
+      | Content                                                             |
+      | <html><body><a href="http://172.217.30.9/google"></a></body></html> |
 
   @recommended
   Scenario: 0010 BrokenHttpLinksChecker
@@ -188,6 +190,7 @@ Feature: BrokenHttpLinksChecker
     *     'HEAD' request for
       | URL                                               | Status Code | Redirect Header Location                    |
       | https://github.com/uniqueck/asciidoctor-liquibase |         307 | https://github.com/uniqueck/htmlSanityCheck |
+    *     config option httpSuccessCodes is [200,201,203]
     When  checker 'BrokenHttpLinksChecker' with html page
       | Content                                                                                    |
       | <html><body><a href="https://github.com/uniqueck/asciidoctor-liquibase"></a></body></html> |
@@ -200,7 +203,7 @@ Feature: BrokenHttpLinksChecker
     R08
     R12 : B06 check http status code in configured success range = * ; B09 check http status code in redirect range = *
     R15 : B06 check http status code in configured success range = * ; B07 check http status code in configured warning range = * ; B08 check http status code in configured error range = ERROR    messages:
-    # Die dynamisch erzeugte GTD Teilmenge 'BrokenHttpLinksChecker' enthält keine Datensätze. {(BrokenHttpLinksChecker, BrokenHttpLinksCheckers, *, 7 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, "URL not in ('//127.0.0', '//localhost')", 7 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Get_Status_Code in HttpStatusCode_Error.Filter=(401;402;403), 0 Sätze)}  (05.06.2024 16:13:28.769)
+    # Die dynamisch erzeugte GTD Teilmenge 'BrokenHttpLinksChecker' enthält keine Datensätze. {(BrokenHttpLinksChecker, BrokenHttpLinksCheckers, *, 8 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, URL contains not "//127.0.0", 7 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, URL contains not "//localhost", 5 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code not in HttpStatusCode_Success.Filter=(200;201;203), 3 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code not in [301 : 308], 1 Satz), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code not in HttpStatusCode_Success.Filter=(200;201;203), 1 Satz), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Get_Status_Code not in HttpStatusCode_Warn.Filter=(301;302), 1 Satz), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Get_Status_Code in HttpStatusCode_Error.Filter=(401;402;403), 0 Sätze)}  (05.06.2024 17:28:19.092)
 
   @recommended
   Scenario: 0012 BrokenHttpLinksChecker
@@ -226,6 +229,7 @@ Feature: BrokenHttpLinksChecker
     *     'HEAD' request for
       | URL                                               | Status Code | Redirect Header Location                    |
       | https://github.com/uniqueck/asciidoctor-liquibase |         307 | https://github.com/uniqueck/htmlSanityCheck |
+    *     config option httpSuccessCodes is [200,201,203]
     When  checker 'BrokenHttpLinksChecker' with html page
       | Content                                                                                    |
       | <html><body><a href="https://github.com/uniqueck/asciidoctor-liquibase"></a></body></html> |
@@ -242,14 +246,18 @@ Feature: BrokenHttpLinksChecker
     Given config option ignoreLocalHost is disabled
     *     config option ignoreIPAddresses is disabled
     *     'HEAD' request for
-      | URL                    | Status Code | Redirect Header Location |
-      | https://localhost/fail |         400 | empty                    |
+      | URL                                               | Status Code | Redirect Header Location |
+      | https://github.com/uniqueck/asciidoctor-liquibase |         403 | empty                    |
+    *     config option httpSuccessCodes is [200,201,203]
     *     'GET' request for
-      | URL                    | Status Code | Redirect Header Location |
-      | https://localhost/fail | -           | empty                    |
+      | URL                                               | Status Code | Redirect Header Location |
+      | https://github.com/uniqueck/asciidoctor-liquibase |         500 | empty                    |
+    *     config option httpSuccessCodes is [200,201,203]
+    *     config option httpWarningCodes is [301,302]
+    *     config option httpErrorCodes is [401,402,403]
     When  checker 'BrokenHttpLinksChecker' with html page
-      | Content                                                         |
-      | <html><body><a href="https://localhost/fail"></a></body></html> |
-    Then  check finding 'Error: Unknown or unclassified response code: href=https://localhost/fail returned statuscode -' is reported
+      | Content                                                                                    |
+      | <html><body><a href="https://github.com/uniqueck/asciidoctor-liquibase"></a></body></html> |
+    Then  check finding 'Error: Unknown or unclassified response code: href=https://github.com/uniqueck/asciidoctor-liquibase returned statuscode 500' is reported
 
 ### end of generated test cases ###
