@@ -40,6 +40,6 @@ LFET:
           Name: ${dt.name}DecisionLogic
           Trace:
             BeforeRule: |
-              this.logger.log(`$$dtName - $$Version - $$Rule / $$Rules - ${JSON.stringify(model)}`)
+              this.logger.trace(`$$dtName - $$Version - $$Rule / $$Rules - ${JSON.stringify(model)}`)
             AfterRule: |
-              this.logger.log(`$$dtName - $$Version - $$Rule / $$Rules - ${JSON.stringify(model)}`)
+              this.logger.trace(`$$dtName - $$Version - $$Rule / $$Rules - ${JSON.stringify(model)}`)

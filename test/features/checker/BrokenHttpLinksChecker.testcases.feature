@@ -1,11 +1,11 @@
 # Diese Datei wurde erzeugt durch LF-ET 2.3.0 (240629a) und Kommandozeile:
-# -GenTest "/Users/shoelzle/workspaces/github/htmlSanityCheck.js/lfet/checker/BrokenHttpLinksChecker.lfet" -Group "cucumber" -Config "cucmber" -ContinueOnError -GtdDirectory "../../test/features/testdata/" -GtdFileNamePattern "*.txt; *.csv" -SwitchCoverage "2" -NonExecutableRules "50" -NonExecutableRuleSeq "50" -RecommendedTestCases -Statistics -Protocol -OutGherkin "BrokenHttpLinksChecker.testcases.feature" -InputRootfolder "/Users/shoelzle/workspaces/github/htmlSanityCheck.js/lfet" -OutputRootfolder "/Users/shoelzle/workspaces/github/htmlSanityCheck.js/test/features"
+# -GenTest "/home/cokrueger/Development/github/htmlSanityCheck.js/lfet/checker/BrokenHttpLinksChecker.lfet" -Group "cucumber" -Config "cucmber" -ContinueOnError -GtdDirectory "../../test/features/testdata/" -GtdFileNamePattern "*.txt; *.csv" -SwitchCoverage "2" -NonExecutableRules "50" -NonExecutableRuleSeq "50" -RecommendedTestCases -Statistics -Protocol -OutGherkin "BrokenHttpLinksChecker.testcases.feature" -InputRootfolder "/home/cokrueger/Development/github/htmlSanityCheck.js/lfet" -OutputRootfolder "/home/cokrueger/Development/github/htmlSanityCheck.js/test/features"
 # 
-# Aktueller Benutzer: shoelzle
-# Aktuelles Verzeichnis (user.dir): "/Users/shoelzle/workspaces/github/htmlSanityCheck.js"
-# Benötigte Zeit: 00:00:01.439 (03.07.2024 11:53:30.543 - 03.07.2024 11:53:31.982)
+# Aktueller Benutzer: cokrueger
+# Aktuelles Verzeichnis (user.dir): "/home/cokrueger/Development/github/htmlSanityCheck.js"
+# Benötigte Zeit: 00:00:00.287 (03.07.2024 21:08:23.898 - 03.07.2024 21:08:24.185)
 # 
-# Entscheidungstabelle: /Users/shoelzle/workspaces/github/htmlSanityCheck.js/lfet/checker/BrokenHttpLinksChecker.lfet
+# Entscheidungstabelle: /home/cokrueger/Development/github/htmlSanityCheck.js/lfet/checker/BrokenHttpLinksChecker.lfet
 # 
 # TestValueGroups: cucumber, *ti.att.cucumber, *ti.gtd.cucumber, *ti.check.cucumber
 # Config: cucmber
@@ -16,7 +16,7 @@
 # 
 # Informationen: 1
 # 
-#     1. /Users/shoelzle/workspaces/github/htmlSanityCheck.js/test/features/testdata/brokenHttpLinksChecker.gtd.txt
+#     1. /home/cokrueger/Development/github/htmlSanityCheck.js/test/features/testdata/brokenHttpLinksChecker.gtd.txt
 #            Erfolgreich eingelesen: BrokenHttpLinksCheckers, 12 Sätze, Encoding UTF-8
 #            Erfolgreich eingelesen: HttpStatusCodes, 4 Sätze, Encoding UTF-8
 
@@ -30,7 +30,7 @@ Feature: BrokenHttpLinksChecker
     R01 : B02 ignore localhost check = Y
     R05 : B04 ignore ip address check = Y
     R08
-    R10 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = 30x ; B09 check if header contains location = Y
+    R10 : B06 check head http status code in configured success range = * ; B07 check head http status code in redirect range = 30x ; B09 check if header contains location = Y
     Given config option httpSuccessCodes is [200,201,203]
     *     config option httpWarningCodes is [301,302]
     *     config option httpErrorCodes is [401,402,403]
@@ -50,8 +50,8 @@ Feature: BrokenHttpLinksChecker
     R01 : B02 ignore localhost check = Y
     R05 : B04 ignore ip address check = Y
     R08
-    R12 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = *
-    R13 : B08 check GET http status code in configured ranges = SUCCESS
+    R12 : B06 check head http status code in configured success range = * ; B07 check head http status code in redirect range = *
+    R13 : B08 check get http status code in configured ranges = SUCCESS
     Given config option httpSuccessCodes is [200,201,203]
     *     config option httpWarningCodes is [309,310]
     *     config option httpErrorCodes is [401,402,403]
@@ -78,9 +78,9 @@ Feature: BrokenHttpLinksChecker
     *     config option ignoreLocalHost is enabled
     *     config option ignoreIPAddresses is disabled
     When  checker 'BrokenHttpLinksChecker' with html page
-      | Content                                                           |
-      | <html><body><a href="http://127.0.0.1/success"></a></body></html> |
-    Then  check finding 'Warning: numerical urls (ip address) indicates suspicious environment dependency: href=http://127.0.0.1/success' is reported
+      | Content                                                             |
+      | <html><body><a href="http://172.217.30.9/google"></a></body></html> |
+    Then  check finding 'Warning: numerical urls (ip address) indicates suspicious environment dependency: href=http://172.217.30.9/google' is reported
 
   @recommended
   Scenario: 0004 BrokenHttpLinksChecker
@@ -88,18 +88,18 @@ Feature: BrokenHttpLinksChecker
     R01 : B02 ignore localhost check = Y
     R07 : B04 ignore ip address check = N ; B05 check if ip address = N
     R08
-    R09 : B06 check HEAD http status code in configured success range = SUCCESS
+    R09 : B06 check head http status code in configured success range = SUCCESS
     Given config option httpSuccessCodes is [200,201,203]
     *     config option httpWarningCodes is [309,310]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is enabled
     *     config option ignoreIPAddresses is disabled
     *     'HEAD' request for
-      | URL                      | Status Code | Redirect Header Location |
-      | http://localhost/success |         200 | empty                    |
+      | URL                                               | Status Code | Redirect Header Location |
+      | https://github.com/uniqueck/asciidoctor-liquibase |         200 | empty                    |
     When  checker 'BrokenHttpLinksChecker' with html page
-      | Content                                                           |
-      | <html><body><a href="http://localhost/success"></a></body></html> |
+      | Content                                                                                    |
+      | <html><body><a href="https://github.com/uniqueck/asciidoctor-liquibase"></a></body></html> |
 
   @recommended
   Scenario: 0005 BrokenHttpLinksChecker
@@ -107,7 +107,7 @@ Feature: BrokenHttpLinksChecker
     R01 : B02 ignore localhost check = Y
     R07 : B04 ignore ip address check = N ; B05 check if ip address = N
     R08
-    R11 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = 30x ; B09 check if header contains location = N
+    R11 : B06 check head http status code in configured success range = * ; B07 check head http status code in redirect range = 30x ; B09 check if header contains location = N
     Given config option httpSuccessCodes is [200,201,203]
     *     config option httpWarningCodes is [301,302]
     *     config option httpErrorCodes is [401,402,403]
@@ -126,8 +126,8 @@ Feature: BrokenHttpLinksChecker
     R01 : B02 ignore localhost check = Y
     R07 : B04 ignore ip address check = N ; B05 check if ip address = N
     R08
-    R12 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = *
-    R14 : B08 check GET http status code in configured ranges = WARN
+    R12 : B06 check head http status code in configured success range = * ; B07 check head http status code in redirect range = *
+    R14 : B08 check get http status code in configured ranges = WARN
     Given config option httpSuccessCodes is [200,201,203]
     *     config option httpWarningCodes is [309,310]
     *     config option httpErrorCodes is [401,402,403]
@@ -176,18 +176,18 @@ Feature: BrokenHttpLinksChecker
     R04 : B02 ignore localhost check = N ; B03 check if localhost = *
     R05 : B04 ignore ip address check = Y
     R08
-    R09 : B06 check HEAD http status code in configured success range = SUCCESS
+    R09 : B06 check head http status code in configured success range = SUCCESS
     Given config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarningCodes is [309,310]
+    *     config option httpWarningCodes is [301,302]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is disabled
     *     config option ignoreIPAddresses is enabled
     *     'HEAD' request for
-      | URL                                               | Status Code | Redirect Header Location |
-      | https://github.com/uniqueck/asciidoctor-liquibase |         200 | empty                    |
+      | URL                        | Status Code | Redirect Header Location |
+      | http://172.217.30.9/google |         200 | empty                    |
     When  checker 'BrokenHttpLinksChecker' with html page
-      | Content                                                                                    |
-      | <html><body><a href="https://github.com/uniqueck/asciidoctor-liquibase"></a></body></html> |
+      | Content                                                             |
+      | <html><body><a href="http://172.217.30.9/google"></a></body></html> |
 
   @recommended
   Scenario: 0010 BrokenHttpLinksChecker
@@ -195,9 +195,9 @@ Feature: BrokenHttpLinksChecker
     R04 : B02 ignore localhost check = N ; B03 check if localhost = *
     R05 : B04 ignore ip address check = Y
     R08
-    R11 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = 30x ; B09 check if header contains location = N
+    R11 : B06 check head http status code in configured success range = * ; B07 check head http status code in redirect range = 30x ; B09 check if header contains location = N
     Given config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarningCodes is [301,302]
+    *     config option httpWarningCodes is [309,310]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is disabled
     *     config option ignoreIPAddresses is enabled
@@ -214,8 +214,8 @@ Feature: BrokenHttpLinksChecker
     R04 : B02 ignore localhost check = N ; B03 check if localhost = *
     R05 : B04 ignore ip address check = Y
     R08
-    R12 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = *
-    R15 : B08 check GET http status code in configured ranges = ERROR
+    R12 : B06 check head http status code in configured success range = * ; B07 check head http status code in redirect range = *
+    R15 : B08 check get http status code in configured ranges = ERROR
     Given config option httpSuccessCodes is [200,201,203]
     *     config option httpWarningCodes is [309,310]
     *     config option httpErrorCodes is [401,402,403]
@@ -253,7 +253,7 @@ Feature: BrokenHttpLinksChecker
     R04 : B02 ignore localhost check = N ; B03 check if localhost = *
     R07 : B04 ignore ip address check = N ; B05 check if ip address = N
     R08
-    R10 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = 30x ; B09 check if header contains location = Y
+    R10 : B06 check head http status code in configured success range = * ; B07 check head http status code in redirect range = 30x ; B09 check if header contains location = Y
     Given config option httpSuccessCodes is [200,201,203]
     *     config option httpWarningCodes is [301,302]
     *     config option httpErrorCodes is [401,402,403]
@@ -273,8 +273,8 @@ Feature: BrokenHttpLinksChecker
     R04 : B02 ignore localhost check = N ; B03 check if localhost = *
     R07 : B04 ignore ip address check = N ; B05 check if ip address = N
     R08
-    R12 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = *
-    R16 : B08 check GET http status code in configured ranges = *
+    R12 : B06 check head http status code in configured success range = * ; B07 check head http status code in redirect range = *
+    R16 : B08 check get http status code in configured ranges = *
     Given config option httpSuccessCodes is [200,201,203]
     *     config option httpWarningCodes is [309,310]
     *     config option httpErrorCodes is [401,402,403]

@@ -7,7 +7,7 @@ Before(function () {
   this.config = {}
   this.loggerMock = {
     messages: [],
-    log: function (message) {
+    trace: function (message) {
       this.messages.push(message)
     }
   }

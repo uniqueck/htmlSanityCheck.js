@@ -1,17 +1,22 @@
 {
-  "name": "htmlSanityCheck.js",
+  "name": "htmlsanitycheck.js",
   "description": "This module provides some basic sanity checks on html files",
   "version": "1.0.0",
   "main": "./lib/cli.js",
+  "type": "commonjs",
   "dependencies": {
-    "debug": "4.3.4",
+    "debug": "^4",
     "js-yaml": "4.1.0",
     "node-html-parser": "^6.1",
     "strip-json-comments": "3.1.1",
-    "yargs": "16.2.0",
-    "yargs-parser": "20.2.4",
-    "yargs-unparser": "2.0.0",
-    "unxhr": "^1"
+    "yargs": "^16.2.0",
+    "yargs-parser": "20.2.9",
+    "yargs-unparser": "^2.0.0",
+    "unxhr": "^1",
+    "ansi-colors": "^4",
+    "find-up": "^5",
+    "glob": "^8.1",
+    "log-symbols": "^4.1"
   },
   "repository": {
     "type": "git",
@@ -37,6 +42,7 @@
     "test": "npm run test:node && npm run test:features",
     "test:node": "mocha test/**/*.spec.js",
     "test:features": "cucumber-js",
+    "test:smoke": "node bin/htmlSanityCheck --sourceDir test",
     "lint": "eslint \"./lib/**/*.js\" \"./test/**/*.js\"",
     "lint:fix": "eslint \"./lib/**/*.js\" \"./test/**/*.js\" --fix",
     "lfet:UI": "exec java -classpath \"$INIT_CWD/.lfet/tool/*\" lohrfink.lfet.Application &",
@@ -52,7 +58,7 @@
   ],
   "license": "MIT",
   "bin": {
-    "htmlsanitycheck": "bin/htmlsanitycheck",
-    "htmlsanitycheck.js": "bin/htmlsanitycheck"
+    "htmlsanitycheck": "bin/htmlSanityCheck",
+    "htmlsanitycheck.js": "bin/htmlSanityCheck"
   }
 }

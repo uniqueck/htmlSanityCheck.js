@@ -1,9 +1,0 @@
-#!/usr/bin/env node
-
-'use strict'
-
-process.title = 'HtmlSanityCheck'
-const { Options, Invoker } = require('../lib/cli/cli.js')
-
-const options = new Options().parse(process.argv)
-new Invoker(options).invoke()
