@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<LFET version="LF-ET 2.3.0 (240629a)" language="English" saveDate="2024.07.03 at 11:29:45 CEST" saveUser="shoelzle">
+<LFET version="LF-ET 2.3.0 (240629a)" language="English" saveDate="2024.07.03 at 12:21:12 CEST" saveUser="shoelzle">
   <Conditions>
     <Condition uId="17097392870007787">
       <Title language="English" value="step"/>
@@ -93,7 +93,7 @@
       </ConditionOccurrences>
     </Condition>
     <Condition uId="17097666854991554">
-      <Title language="English" value="check HEAD http status code in configured success range"/>
+      <Title language="English" value="check head http status code in configured success range"/>
       <ConditionOccurrences>
         <ConditionOccurrence uId="17097668201072111">
           <Symbol language="English" value="SUCCESS"/>
@@ -108,7 +108,7 @@
       </ConditionOccurrences>
     </Condition>
     <Condition uId="17097667490661562">
-      <Title language="English" value="check HEAD http status code in redirect range"/>
+      <Title language="English" value="check head http status code in redirect range"/>
       <ConditionOccurrences>
         <ConditionOccurrence uId="17097667732011745">
           <Symbol language="English" value="30x"/>
@@ -123,7 +123,7 @@
       </ConditionOccurrences>
     </Condition>
     <Condition uId="17199975909862328">
-      <Title language="English" value="check GET http status code in configured ranges"/>
+      <Title language="English" value="check get http status code in configured ranges"/>
       <ConditionOccurrences>
         <ConditionOccurrence uId="17199976260442878">
           <Symbol language="English" value="SUCCESS"/>
@@ -339,7 +339,7 @@
       <Config name="cucmber" tags="cucumber" parms="-Group 'cucumber' -GtdDirectory '../../test/features/testdata/' -GtdFileNamePattern '*.txt; *.csv' -SwitchCoverage '2' -NonExecutableRules '50' -NonExecutableRuleSeq '50' -RecommendedTestCases -Statistics -Protocol -OutGherkin 'BrokenHttpLinksChecker.testcases.feature'"/>
     </TestValueGroup>
   </TestValueGroups>
-  <TestValue group="cucumber" type="tcpre" value="#language:en&lt;br/&gt;config option httpSuccessCodes is [${*GTD.HttpStatusCode_Success.Configure_Status_Code_Range}]&lt;br/&gt;config option httpWarnCodes is [${*GTD.HttpStatusCode_Warn.Configure_Status_Code_Range}]&lt;br/&gt;config option httpErrorCodes is [${*GTD.HttpStatusCode_Error.Configure_Status_Code_Range}]"/>
+  <TestValue group="cucumber" type="tcpre" value="#language:en&lt;br/&gt;config option httpSuccessCodes is [${*GTD.HttpStatusCode_Success.Configure_Status_Code_Range}]&lt;br/&gt;config option httpWarningCodes is [${*GTD.HttpStatusCode_Warn.Configure_Status_Code_Range}]&lt;br/&gt;config option httpErrorCodes is [${*GTD.HttpStatusCode_Error.Configure_Status_Code_Range}]"/>
   <TestValue group="cucumber" type="isi" value="checker '${*LFET.DT.Name}' with html page&lt;br/&gt;| Content |&lt;br/&gt;| &lt;html&gt;&lt;body&gt;&lt;a href=&quot;${*GTD.BrokenHttpLinksChecker.URL}&quot;&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;|"/>
   <TestValue group="*ti.att.cucumber" type="isi" value="sid=100&lt;br/&gt;scope=global"/>
   <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenHttpLinksChecker, BrokenHttpLinksCheckers&lt;br/&gt;Table, HttpStatusCode, HttpStatusCodes&lt;br/&gt;Table, HttpStatusCode_Success, HttpStatusCodes, Cat = &quot;SUCCESS&quot;&lt;br/&gt;Table, HttpStatusCode_Warn, HttpStatusCodes, Cat = &quot;WARN&quot;&lt;br/&gt;Table, HttpStatusCode_Error, HttpStatusCodes, Cat = &quot;ERROR&quot;"/>

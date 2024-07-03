@@ -3,7 +3,7 @@
 # 
 # Aktueller Benutzer: shoelzle
 # Aktuelles Verzeichnis (user.dir): "/Users/shoelzle/workspaces/github/htmlSanityCheck.js"
-# Benötigte Zeit: 00:00:01.365 (03.07.2024 11:37:33.617 - 03.07.2024 11:37:34.982)
+# Benötigte Zeit: 00:00:01.439 (03.07.2024 11:53:30.543 - 03.07.2024 11:53:31.982)
 # 
 # Entscheidungstabelle: /Users/shoelzle/workspaces/github/htmlSanityCheck.js/lfet/checker/BrokenHttpLinksChecker.lfet
 # 
@@ -32,7 +32,7 @@ Feature: BrokenHttpLinksChecker
     R08
     R10 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = 30x ; B09 check if header contains location = Y
     Given config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarnCodes is [301,302]
+    *     config option httpWarningCodes is [301,302]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is enabled
     *     config option ignoreIPAddresses is enabled
@@ -53,7 +53,7 @@ Feature: BrokenHttpLinksChecker
     R12 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = *
     R13 : B08 check GET http status code in configured ranges = SUCCESS
     Given config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarnCodes is [309,310]
+    *     config option httpWarningCodes is [309,310]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is enabled
     *     config option ignoreIPAddresses is enabled
@@ -73,14 +73,14 @@ Feature: BrokenHttpLinksChecker
     R01 : B02 ignore localhost check = Y
     R06 : B04 ignore ip address check = N ; B05 check if ip address = Y
     Given config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarnCodes is [301,302]
+    *     config option httpWarningCodes is [301,302]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is enabled
     *     config option ignoreIPAddresses is disabled
     When  checker 'BrokenHttpLinksChecker' with html page
-      | Content                                                             |
-      | <html><body><a href="http://172.217.30.9/google"></a></body></html> |
-    Then  check finding 'Warning: numerical urls (ip address) indicates suspicious environment dependency: href=http://172.217.30.9/google' is reported
+      | Content                                                           |
+      | <html><body><a href="http://127.0.0.1/success"></a></body></html> |
+    Then  check finding 'Warning: numerical urls (ip address) indicates suspicious environment dependency: href=http://127.0.0.1/success' is reported
 
   @recommended
   Scenario: 0004 BrokenHttpLinksChecker
@@ -90,7 +90,7 @@ Feature: BrokenHttpLinksChecker
     R08
     R09 : B06 check HEAD http status code in configured success range = SUCCESS
     Given config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarnCodes is [309,310]
+    *     config option httpWarningCodes is [309,310]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is enabled
     *     config option ignoreIPAddresses is disabled
@@ -109,7 +109,7 @@ Feature: BrokenHttpLinksChecker
     R08
     R11 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = 30x ; B09 check if header contains location = N
     Given config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarnCodes is [301,302]
+    *     config option httpWarningCodes is [301,302]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is enabled
     *     config option ignoreIPAddresses is disabled
@@ -129,7 +129,7 @@ Feature: BrokenHttpLinksChecker
     R12 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = *
     R14 : B08 check GET http status code in configured ranges = WARN
     Given config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarnCodes is [309,310]
+    *     config option httpWarningCodes is [309,310]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is enabled
     *     config option ignoreIPAddresses is disabled
@@ -149,7 +149,7 @@ Feature: BrokenHttpLinksChecker
     BrokenHttpLinksChecker
     R02 : B02 ignore localhost check = N ; B03 check if localhost = localhost
     Given config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarnCodes is [309,310]
+    *     config option httpWarningCodes is [309,310]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is disabled
     When  checker 'BrokenHttpLinksChecker' with html page
@@ -162,7 +162,7 @@ Feature: BrokenHttpLinksChecker
     BrokenHttpLinksChecker
     R03 : B02 ignore localhost check = N ; B03 check if localhost = 127.0.0.x
     Given config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarnCodes is [301,302]
+    *     config option httpWarningCodes is [301,302]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is disabled
     When  checker 'BrokenHttpLinksChecker' with html page
@@ -178,7 +178,7 @@ Feature: BrokenHttpLinksChecker
     R08
     R09 : B06 check HEAD http status code in configured success range = SUCCESS
     Given config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarnCodes is [301,302]
+    *     config option httpWarningCodes is [309,310]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is disabled
     *     config option ignoreIPAddresses is enabled
@@ -197,13 +197,13 @@ Feature: BrokenHttpLinksChecker
     R08
     R11 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = 30x ; B09 check if header contains location = N
     Given config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarnCodes is [309,310]
+    *     config option httpWarningCodes is [301,302]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is disabled
     *     config option ignoreIPAddresses is enabled
     *     'HEAD' request for
-      | URL                                               | Status Code | Redirect Header Location |
-      | https://github.com/uniqueck/asciidoctor-liquibase |         307 | empty                    |
+      | URL                                               | Status Code | Redirect Header Location                    |
+      | https://github.com/uniqueck/asciidoctor-liquibase |         307 | https://github.com/uniqueck/htmlSanityCheck |
     When  checker 'BrokenHttpLinksChecker' with html page
       | Content                                                                                    |
       | <html><body><a href="https://github.com/uniqueck/asciidoctor-liquibase"></a></body></html> |
@@ -217,7 +217,7 @@ Feature: BrokenHttpLinksChecker
     R12 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = *
     R15 : B08 check GET http status code in configured ranges = ERROR
     Given config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarnCodes is [301,302]
+    *     config option httpWarningCodes is [309,310]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is disabled
     *     config option ignoreIPAddresses is enabled
@@ -238,7 +238,7 @@ Feature: BrokenHttpLinksChecker
     R04 : B02 ignore localhost check = N ; B03 check if localhost = *
     R06 : B04 ignore ip address check = N ; B05 check if ip address = Y
     Given config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarnCodes is [309,310]
+    *     config option httpWarningCodes is [301,302]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is disabled
     *     config option ignoreIPAddresses is disabled
@@ -255,7 +255,7 @@ Feature: BrokenHttpLinksChecker
     R08
     R10 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = 30x ; B09 check if header contains location = Y
     Given config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarnCodes is [301,302]
+    *     config option httpWarningCodes is [301,302]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is disabled
     *     config option ignoreIPAddresses is disabled
@@ -276,7 +276,7 @@ Feature: BrokenHttpLinksChecker
     R12 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = *
     R16 : B08 check GET http status code in configured ranges = *
     Given config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarnCodes is [309,310]
+    *     config option httpWarningCodes is [309,310]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is disabled
     *     config option ignoreIPAddresses is disabled

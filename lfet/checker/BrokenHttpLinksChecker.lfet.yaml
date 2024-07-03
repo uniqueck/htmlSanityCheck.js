@@ -29,6 +29,6 @@ LFET:
 
         30:
           IncludeTagsTitle:
-            - check http status code in redirect range
+            - check head http status code in redirect range
           Title:
             - Interval
