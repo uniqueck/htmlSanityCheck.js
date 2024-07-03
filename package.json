@@ -1,0 +1,43 @@
+{
+  "name": "htmlsanitycheck",
+  "description": "This module provides some basic sanity checks on html files",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uniqueck/htmlSanityCheck.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uniqueck/htmlSanityCheck.js/issues/"
+  },
+  "devDependencies": {
+    "semantic-release": "^23.0.0",
+    "@semantic-release/changelog": "^6",
+    "@semantic-release/git": "^10",
+    "conventional-changelog-eslint": "^6",
+    "shx": "^0.3.4",
+    "eslint": "^8",
+    "eslint-config-standard": "^17",
+    "mocha": "^10",
+    "cucumber": "^6"
+  },
+  "scripts": {
+    "test": "npm run test:node && npm run test:features",
+    "test:node": "mocha test/**/*.spec.js",
+    "test:features": "cucumber-js",
+    "lint": "eslint \"./lib/**/*.js\" \"./test/**/*.js\"",
+    "lint:fix": "eslint \"./lib/**/*.js\" \"./test/**/*.js\" --fix",
+    "lfet:UI": "exec java -classpath \"$INIT_CWD/.lfet/tool/*\" lohrfink.lfet.Application &",
+    "prelfet:install": "cd \"$INIT_CWD/.lfet\" && rm -rf tool",
+    "lfet:install": "mkdir -p \"$INIT_CWD/.lfet/tool\" && curl -fsSLO https://www.lohrfink.de/lfet.latest.inst && unzip -qj lfet.latest.inst \"lib/*.jar\" -d \"$INIT_CWD/.lfet/tool\" && rm lfet.latest.inst",
+    "postlfet:install": "npm run lfet:update",
+    "lfet:update": "curl -fsSLO https://www.lohrfink.de/lfet.latest.upd && unzip -qjo lfet.latest.upd \"*.jar\" -d \"$INIT_CWD/.lfet/tool\" && rm lfet.latest.upd",
+    "lfet:GenSrc": "java -classpath \"$INIT_CWD/.lfet/tool/*\" lohrfink.lfet.Application -gs \"$INIT_CWD/lfet/\" -Recursive -FileNamePattern \"*.lfet\" -SkipUnchanged -SourceCode \"JavaScript\"",
+    "lfet:GenTest": "java -classpath \"$INIT_CWD/.lfet/tool/*\" lohrfink.lfet.Application -GenTest -Directory \"$INIT_CWD/lfet/\" -Recursive -FileNamePattern \"*.lfet\" -intags \"cucumber\" -OutputRootfolder \"$INIT_CWD/test/features\" -ContinueOnError",
+    "clean": "shx rm -rf dist/*",
+    "release": "semantic-release"
+  },
+  "authors": [
+    "Constantin Krüger (https://github.com/uniqueck)"
+  ],
+  "license": "MIT"
+}
