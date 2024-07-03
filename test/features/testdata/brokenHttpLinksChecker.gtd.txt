@@ -14,6 +14,8 @@ NORMAL;    https://github.com/uniqueck/asciidoctor-liquibase; 307             ; 
 NORMAL;    https://github.com/uniqueck/asciidoctor-liquibase; 404             ; 301             ; empty
 NORMAL;    https://github.com/uniqueck/asciidoctor-liquibase; 309             ; 402             ; empty
 NORMAL;    https://github.com/uniqueck/asciidoctor-liquibase; 403             ; 500             ; empty
+NORMAL;    https://github.com/uniqueck/asciidoctor-liquibase; 403             ; 200             ; empty
+NORMAL;    https://github.com/uniqueck/asciidoctor-liquibase; 403             ; 309             ; empty
 
 *Gtd.HttpStatusCodes
 --------------------------------------------------------------------

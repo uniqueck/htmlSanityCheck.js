@@ -1,34 +1,23 @@
-# Diese Datei wurde erzeugt durch LF-ET 2.3.0 (240603b) und Kommandozeile:
+# Diese Datei wurde erzeugt durch LF-ET 2.3.0 (240629a) und Kommandozeile:
 # -GenTest "/Users/shoelzle/workspaces/github/htmlSanityCheck.js/lfet/checker/BrokenHttpLinksChecker.lfet" -Group "cucumber" -Config "cucmber" -ContinueOnError -GtdDirectory "../../test/features/testdata/" -GtdFileNamePattern "*.txt; *.csv" -SwitchCoverage "2" -NonExecutableRules "50" -NonExecutableRuleSeq "50" -RecommendedTestCases -Statistics -Protocol -OutGherkin "BrokenHttpLinksChecker.testcases.feature" -InputRootfolder "/Users/shoelzle/workspaces/github/htmlSanityCheck.js/lfet" -OutputRootfolder "/Users/shoelzle/workspaces/github/htmlSanityCheck.js/test/features"
 # 
 # Aktueller Benutzer: shoelzle
 # Aktuelles Verzeichnis (user.dir): "/Users/shoelzle/workspaces/github/htmlSanityCheck.js"
-# Benötigte Zeit: 00:00:00.311 (05.06.2024 17:42:24.769 - 05.06.2024 17:42:25.080)
+# Benötigte Zeit: 00:00:01.365 (03.07.2024 11:37:33.617 - 03.07.2024 11:37:34.982)
 # 
 # Entscheidungstabelle: /Users/shoelzle/workspaces/github/htmlSanityCheck.js/lfet/checker/BrokenHttpLinksChecker.lfet
 # 
 # TestValueGroups: cucumber, *ti.att.cucumber, *ti.gtd.cucumber, *ti.check.cucumber
 # Config: cucmber
 # 
-# Testfälle mit Fehlern: 1
-# 
-#     1. Fehler in Testfall 2
-#         
-#         BrokenHttpLinksChecker
-#         | R01 | B02=Y
-#         | R05 | B04=Y
-#         | R08
-#         | R12 | B06=* | B09=*
-#         | R13 | B06=SUCCESS
-#         
-#         Die dynamisch erzeugte GTD Teilmenge 'BrokenHttpLinksChecker' enthält keine Datensätze. {(BrokenHttpLinksChecker, BrokenHttpLinksCheckers, *, 10 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code not in HttpStatusCode_Success.Filter=(200;201;203), 6 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code not in [301 : 308], 4 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code in HttpStatusCode_Success.Filter=(200;201;203), 0 Sätze)}  (05.06.2024 17:42:24.974)
+# Testfälle mit Fehlern: 0
 # 
 # Testfälle mit Warnungen: 0
 # 
 # Informationen: 1
 # 
 #     1. /Users/shoelzle/workspaces/github/htmlSanityCheck.js/test/features/testdata/brokenHttpLinksChecker.gtd.txt
-#            Erfolgreich eingelesen: BrokenHttpLinksCheckers, 10 Sätze, Encoding UTF-8
+#            Erfolgreich eingelesen: BrokenHttpLinksCheckers, 12 Sätze, Encoding UTF-8
 #            Erfolgreich eingelesen: HttpStatusCodes, 4 Sätze, Encoding UTF-8
 
 # language: en
@@ -41,39 +30,57 @@ Feature: BrokenHttpLinksChecker
     R01 : B02 ignore localhost check = Y
     R05 : B04 ignore ip address check = Y
     R08
-    R10 : B06 check http status code in configured success range = * ; B09 check http status code in redirect range = 30x ; B10 check if header contains location = Y
-    Given config option ignoreLocalHost is enabled
+    R10 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = 30x ; B09 check if header contains location = Y
+    Given config option httpSuccessCodes is [200,201,203]
+    *     config option httpWarnCodes is [301,302]
+    *     config option httpErrorCodes is [401,402,403]
+    *     config option ignoreLocalHost is enabled
     *     config option ignoreIPAddresses is enabled
     *     'HEAD' request for
       | URL                                               | Status Code | Redirect Header Location                    |
       | https://github.com/uniqueck/asciidoctor-liquibase |         307 | https://github.com/uniqueck/htmlSanityCheck |
-    *     config option httpSuccessCodes is [200,201,203]
     When  checker 'BrokenHttpLinksChecker' with html page
       | Content                                                                                    |
       | <html><body><a href="https://github.com/uniqueck/asciidoctor-liquibase"></a></body></html> |
     Then  check finding 'Warning: href=https://github.com/uniqueck/asciidoctor-liquibase returned statuscode 307, new location: https://github.com/uniqueck/htmlSanityCheck' is reported
 
-  @incomplete @recommended
+  @recommended
   Scenario: 0002 BrokenHttpLinksChecker
     BrokenHttpLinksChecker
     R01 : B02 ignore localhost check = Y
     R05 : B04 ignore ip address check = Y
     R08
-    R12 : B06 check http status code in configured success range = * ; B09 check http status code in redirect range = *
-    R13 : B06 check http status code in configured success range = SUCCESS    messages:
-    # Die dynamisch erzeugte GTD Teilmenge 'BrokenHttpLinksChecker' enthält keine Datensätze. {(BrokenHttpLinksChecker, BrokenHttpLinksCheckers, *, 10 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code not in HttpStatusCode_Success.Filter=(200;201;203), 6 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code not in [301 : 308], 4 Sätze), (BrokenHttpLinksChecker, BrokenHttpLinksChecker, Head_Status_Code in HttpStatusCode_Success.Filter=(200;201;203), 0 Sätze)}  (05.06.2024 17:42:24.974)
+    R12 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = *
+    R13 : B08 check GET http status code in configured ranges = SUCCESS
+    Given config option httpSuccessCodes is [200,201,203]
+    *     config option httpWarnCodes is [309,310]
+    *     config option httpErrorCodes is [401,402,403]
+    *     config option ignoreLocalHost is enabled
+    *     config option ignoreIPAddresses is enabled
+    *     'HEAD' request for
+      | URL                                               | Status Code | Redirect Header Location |
+      | https://github.com/uniqueck/asciidoctor-liquibase |         403 | empty                    |
+    *     'GET' request for
+      | URL                                               | Status Code | Redirect Header Location |
+      | https://github.com/uniqueck/asciidoctor-liquibase |         200 | empty                    |
+    When  checker 'BrokenHttpLinksChecker' with html page
+      | Content                                                                                    |
+      | <html><body><a href="https://github.com/uniqueck/asciidoctor-liquibase"></a></body></html> |
 
   @recommended
   Scenario: 0003 BrokenHttpLinksChecker
     BrokenHttpLinksChecker
     R01 : B02 ignore localhost check = Y
     R06 : B04 ignore ip address check = N ; B05 check if ip address = Y
-    Given config option ignoreLocalHost is enabled
+    Given config option httpSuccessCodes is [200,201,203]
+    *     config option httpWarnCodes is [301,302]
+    *     config option httpErrorCodes is [401,402,403]
+    *     config option ignoreLocalHost is enabled
     *     config option ignoreIPAddresses is disabled
     When  checker 'BrokenHttpLinksChecker' with html page
-      | Content                                                           |
-      | <html><body><a href="http://127.0.0.1/success"></a></body></html> |
-    Then  check finding 'Warning: numerical urls (ip address) indicates suspicious environment dependency: href=http://127.0.0.1/success' is reported
+      | Content                                                             |
+      | <html><body><a href="http://172.217.30.9/google"></a></body></html> |
+    Then  check finding 'Warning: numerical urls (ip address) indicates suspicious environment dependency: href=http://172.217.30.9/google' is reported
 
   @recommended
   Scenario: 0004 BrokenHttpLinksChecker
@@ -81,16 +88,18 @@ Feature: BrokenHttpLinksChecker
     R01 : B02 ignore localhost check = Y
     R07 : B04 ignore ip address check = N ; B05 check if ip address = N
     R08
-    R09 : B06 check http status code in configured success range = SUCCESS
-    Given config option ignoreLocalHost is enabled
+    R09 : B06 check HEAD http status code in configured success range = SUCCESS
+    Given config option httpSuccessCodes is [200,201,203]
+    *     config option httpWarnCodes is [309,310]
+    *     config option httpErrorCodes is [401,402,403]
+    *     config option ignoreLocalHost is enabled
     *     config option ignoreIPAddresses is disabled
     *     'HEAD' request for
-      | URL                                               | Status Code | Redirect Header Location |
-      | https://github.com/uniqueck/asciidoctor-liquibase |         200 | empty                    |
-    *     config option httpSuccessCodes is [200,201,203]
+      | URL                      | Status Code | Redirect Header Location |
+      | http://localhost/success |         200 | empty                    |
     When  checker 'BrokenHttpLinksChecker' with html page
-      | Content                                                                                    |
-      | <html><body><a href="https://github.com/uniqueck/asciidoctor-liquibase"></a></body></html> |
+      | Content                                                           |
+      | <html><body><a href="http://localhost/success"></a></body></html> |
 
   @recommended
   Scenario: 0005 BrokenHttpLinksChecker
@@ -98,13 +107,15 @@ Feature: BrokenHttpLinksChecker
     R01 : B02 ignore localhost check = Y
     R07 : B04 ignore ip address check = N ; B05 check if ip address = N
     R08
-    R11 : B06 check http status code in configured success range = * ; B09 check http status code in redirect range = 30x ; B10 check if header contains location = N
-    Given config option ignoreLocalHost is enabled
+    R11 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = 30x ; B09 check if header contains location = N
+    Given config option httpSuccessCodes is [200,201,203]
+    *     config option httpWarnCodes is [301,302]
+    *     config option httpErrorCodes is [401,402,403]
+    *     config option ignoreLocalHost is enabled
     *     config option ignoreIPAddresses is disabled
     *     'HEAD' request for
       | URL                                               | Status Code | Redirect Header Location |
       | https://github.com/uniqueck/asciidoctor-liquibase |         307 | empty                    |
-    *     config option httpSuccessCodes is [200,201,203]
     When  checker 'BrokenHttpLinksChecker' with html page
       | Content                                                                                    |
       | <html><body><a href="https://github.com/uniqueck/asciidoctor-liquibase"></a></body></html> |
@@ -115,39 +126,45 @@ Feature: BrokenHttpLinksChecker
     R01 : B02 ignore localhost check = Y
     R07 : B04 ignore ip address check = N ; B05 check if ip address = N
     R08
-    R12 : B06 check http status code in configured success range = * ; B09 check http status code in redirect range = *
-    R14 : B06 check http status code in configured success range = * ; B07 check http status code in configured warning range = WARN
-    Given config option ignoreLocalHost is enabled
+    R12 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = *
+    R14 : B08 check GET http status code in configured ranges = WARN
+    Given config option httpSuccessCodes is [200,201,203]
+    *     config option httpWarnCodes is [309,310]
+    *     config option httpErrorCodes is [401,402,403]
+    *     config option ignoreLocalHost is enabled
     *     config option ignoreIPAddresses is disabled
     *     'HEAD' request for
       | URL                                               | Status Code | Redirect Header Location |
-      | https://github.com/uniqueck/asciidoctor-liquibase |         404 | empty                    |
-    *     config option httpSuccessCodes is [200,201,203]
+      | https://github.com/uniqueck/asciidoctor-liquibase |         403 | empty                    |
     *     'GET' request for
       | URL                                               | Status Code | Redirect Header Location |
-      | https://github.com/uniqueck/asciidoctor-liquibase |         301 | empty                    |
-    *     config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarningCodes is [301,302]
+      | https://github.com/uniqueck/asciidoctor-liquibase |         309 | empty                    |
     When  checker 'BrokenHttpLinksChecker' with html page
       | Content                                                                                    |
       | <html><body><a href="https://github.com/uniqueck/asciidoctor-liquibase"></a></body></html> |
-    Then  check finding 'Warning: href=https://github.com/uniqueck/asciidoctor-liquibase returned statuscode 301' is reported
+    Then  check finding 'Warning: href=https://github.com/uniqueck/asciidoctor-liquibase returned statuscode 309' is reported
 
   @recommended
   Scenario: 0007 BrokenHttpLinksChecker
     BrokenHttpLinksChecker
     R02 : B02 ignore localhost check = N ; B03 check if localhost = localhost
-    Given config option ignoreLocalHost is disabled
+    Given config option httpSuccessCodes is [200,201,203]
+    *     config option httpWarnCodes is [309,310]
+    *     config option httpErrorCodes is [401,402,403]
+    *     config option ignoreLocalHost is disabled
     When  checker 'BrokenHttpLinksChecker' with html page
-      | Content                                                           |
-      | <html><body><a href="http://localhost/success"></a></body></html> |
-    Then  check finding 'Warning: localhost urls indicates suspicious environment dependency: href=http://localhost/success' is reported
+      | Content                                                         |
+      | <html><body><a href="https://localhost/fail"></a></body></html> |
+    Then  check finding 'Warning: localhost urls indicates suspicious environment dependency: href=https://localhost/fail' is reported
 
   @recommended
   Scenario: 0008 BrokenHttpLinksChecker
     BrokenHttpLinksChecker
     R03 : B02 ignore localhost check = N ; B03 check if localhost = 127.0.0.x
-    Given config option ignoreLocalHost is disabled
+    Given config option httpSuccessCodes is [200,201,203]
+    *     config option httpWarnCodes is [301,302]
+    *     config option httpErrorCodes is [401,402,403]
+    *     config option ignoreLocalHost is disabled
     When  checker 'BrokenHttpLinksChecker' with html page
       | Content                                                           |
       | <html><body><a href="http://127.0.0.1/success"></a></body></html> |
@@ -159,16 +176,18 @@ Feature: BrokenHttpLinksChecker
     R04 : B02 ignore localhost check = N ; B03 check if localhost = *
     R05 : B04 ignore ip address check = Y
     R08
-    R09 : B06 check http status code in configured success range = SUCCESS
-    Given config option ignoreLocalHost is disabled
+    R09 : B06 check HEAD http status code in configured success range = SUCCESS
+    Given config option httpSuccessCodes is [200,201,203]
+    *     config option httpWarnCodes is [301,302]
+    *     config option httpErrorCodes is [401,402,403]
+    *     config option ignoreLocalHost is disabled
     *     config option ignoreIPAddresses is enabled
     *     'HEAD' request for
-      | URL                        | Status Code | Redirect Header Location |
-      | http://172.217.30.9/google |         200 | empty                    |
-    *     config option httpSuccessCodes is [200,201,203]
+      | URL                                               | Status Code | Redirect Header Location |
+      | https://github.com/uniqueck/asciidoctor-liquibase |         200 | empty                    |
     When  checker 'BrokenHttpLinksChecker' with html page
-      | Content                                                             |
-      | <html><body><a href="http://172.217.30.9/google"></a></body></html> |
+      | Content                                                                                    |
+      | <html><body><a href="https://github.com/uniqueck/asciidoctor-liquibase"></a></body></html> |
 
   @recommended
   Scenario: 0010 BrokenHttpLinksChecker
@@ -176,13 +195,15 @@ Feature: BrokenHttpLinksChecker
     R04 : B02 ignore localhost check = N ; B03 check if localhost = *
     R05 : B04 ignore ip address check = Y
     R08
-    R11 : B06 check http status code in configured success range = * ; B09 check http status code in redirect range = 30x ; B10 check if header contains location = N
-    Given config option ignoreLocalHost is disabled
+    R11 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = 30x ; B09 check if header contains location = N
+    Given config option httpSuccessCodes is [200,201,203]
+    *     config option httpWarnCodes is [309,310]
+    *     config option httpErrorCodes is [401,402,403]
+    *     config option ignoreLocalHost is disabled
     *     config option ignoreIPAddresses is enabled
     *     'HEAD' request for
-      | URL                                               | Status Code | Redirect Header Location                    |
-      | https://github.com/uniqueck/asciidoctor-liquibase |         307 | https://github.com/uniqueck/htmlSanityCheck |
-    *     config option httpSuccessCodes is [200,201,203]
+      | URL                                               | Status Code | Redirect Header Location |
+      | https://github.com/uniqueck/asciidoctor-liquibase |         307 | empty                    |
     When  checker 'BrokenHttpLinksChecker' with html page
       | Content                                                                                    |
       | <html><body><a href="https://github.com/uniqueck/asciidoctor-liquibase"></a></body></html> |
@@ -193,20 +214,19 @@ Feature: BrokenHttpLinksChecker
     R04 : B02 ignore localhost check = N ; B03 check if localhost = *
     R05 : B04 ignore ip address check = Y
     R08
-    R12 : B06 check http status code in configured success range = * ; B09 check http status code in redirect range = *
-    R15 : B06 check http status code in configured success range = * ; B07 check http status code in configured warning range = * ; B08 check http status code in configured error range = ERROR
-    Given config option ignoreLocalHost is disabled
+    R12 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = *
+    R15 : B08 check GET http status code in configured ranges = ERROR
+    Given config option httpSuccessCodes is [200,201,203]
+    *     config option httpWarnCodes is [301,302]
+    *     config option httpErrorCodes is [401,402,403]
+    *     config option ignoreLocalHost is disabled
     *     config option ignoreIPAddresses is enabled
     *     'HEAD' request for
       | URL                                               | Status Code | Redirect Header Location |
       | https://github.com/uniqueck/asciidoctor-liquibase |         309 | empty                    |
-    *     config option httpSuccessCodes is [200,201,203]
     *     'GET' request for
       | URL                                               | Status Code | Redirect Header Location |
       | https://github.com/uniqueck/asciidoctor-liquibase |         402 | empty                    |
-    *     config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarningCodes is [309,310]
-    *     config option httpErrorCodes is [401,402,403]
     When  checker 'BrokenHttpLinksChecker' with html page
       | Content                                                                                    |
       | <html><body><a href="https://github.com/uniqueck/asciidoctor-liquibase"></a></body></html> |
@@ -217,7 +237,10 @@ Feature: BrokenHttpLinksChecker
     BrokenHttpLinksChecker
     R04 : B02 ignore localhost check = N ; B03 check if localhost = *
     R06 : B04 ignore ip address check = N ; B05 check if ip address = Y
-    Given config option ignoreLocalHost is disabled
+    Given config option httpSuccessCodes is [200,201,203]
+    *     config option httpWarnCodes is [309,310]
+    *     config option httpErrorCodes is [401,402,403]
+    *     config option ignoreLocalHost is disabled
     *     config option ignoreIPAddresses is disabled
     When  checker 'BrokenHttpLinksChecker' with html page
       | Content                                                             |
@@ -230,13 +253,15 @@ Feature: BrokenHttpLinksChecker
     R04 : B02 ignore localhost check = N ; B03 check if localhost = *
     R07 : B04 ignore ip address check = N ; B05 check if ip address = N
     R08
-    R10 : B06 check http status code in configured success range = * ; B09 check http status code in redirect range = 30x ; B10 check if header contains location = Y
-    Given config option ignoreLocalHost is disabled
+    R10 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = 30x ; B09 check if header contains location = Y
+    Given config option httpSuccessCodes is [200,201,203]
+    *     config option httpWarnCodes is [301,302]
+    *     config option httpErrorCodes is [401,402,403]
+    *     config option ignoreLocalHost is disabled
     *     config option ignoreIPAddresses is disabled
     *     'HEAD' request for
       | URL                                               | Status Code | Redirect Header Location                    |
       | https://github.com/uniqueck/asciidoctor-liquibase |         307 | https://github.com/uniqueck/htmlSanityCheck |
-    *     config option httpSuccessCodes is [200,201,203]
     When  checker 'BrokenHttpLinksChecker' with html page
       | Content                                                                                    |
       | <html><body><a href="https://github.com/uniqueck/asciidoctor-liquibase"></a></body></html> |
@@ -248,23 +273,22 @@ Feature: BrokenHttpLinksChecker
     R04 : B02 ignore localhost check = N ; B03 check if localhost = *
     R07 : B04 ignore ip address check = N ; B05 check if ip address = N
     R08
-    R12 : B06 check http status code in configured success range = * ; B09 check http status code in redirect range = *
-    R16 : B06 check http status code in configured success range = * ; B07 check http status code in configured warning range = * ; B08 check http status code in configured error range = *
-    Given config option ignoreLocalHost is disabled
+    R12 : B06 check HEAD http status code in configured success range = * ; B07 check HEAD http status code in redirect range = *
+    R16 : B08 check GET http status code in configured ranges = *
+    Given config option httpSuccessCodes is [200,201,203]
+    *     config option httpWarnCodes is [309,310]
+    *     config option httpErrorCodes is [401,402,403]
+    *     config option ignoreLocalHost is disabled
     *     config option ignoreIPAddresses is disabled
     *     'HEAD' request for
       | URL                                               | Status Code | Redirect Header Location |
-      | https://github.com/uniqueck/asciidoctor-liquibase |         403 | empty                    |
-    *     config option httpSuccessCodes is [200,201,203]
+      | https://github.com/uniqueck/asciidoctor-liquibase |         404 | empty                    |
     *     'GET' request for
       | URL                                               | Status Code | Redirect Header Location |
-      | https://github.com/uniqueck/asciidoctor-liquibase |         500 | empty                    |
-    *     config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarningCodes is [301,302]
-    *     config option httpErrorCodes is [401,402,403]
+      | https://github.com/uniqueck/asciidoctor-liquibase |         301 | empty                    |
     When  checker 'BrokenHttpLinksChecker' with html page
       | Content                                                                                    |
       | <html><body><a href="https://github.com/uniqueck/asciidoctor-liquibase"></a></body></html> |
-    Then  check finding 'Error: Unknown or unclassified response code: href=https://github.com/uniqueck/asciidoctor-liquibase returned statuscode 500' is reported
+    Then  check finding 'Error: Unknown or unclassified response code: href=https://github.com/uniqueck/asciidoctor-liquibase returned statuscode 301' is reported
 
 ### end of generated test cases ###
