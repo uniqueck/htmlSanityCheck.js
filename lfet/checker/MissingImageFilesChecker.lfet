@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<LFET version="LF-ET 2.3.0 (240626a)" language="English" saveDate="2024.07.14 at 00:13:06 CEST" saveUser="constantin">
+  <Conditions>
+    <Condition uId="17082129871143184">
+      <Title language="English" value="image src is data uri"/>
+      <ConditionOccurrences>
+        <ConditionOccurrence uId="17203084602766952">
+          <Symbol language="English" value="Y"/>
+          <Title language="English" value="Yes"/>
+          <TestValue group="*ti.gtd" type="tcpre" value="Table, MissingImageFilesChecker, MissingImageFilesChecker, Type = 'DATA'"/>
+        </ConditionOccurrence>
+        <ConditionOccurrence uId="17203084604956954">
+          <Symbol language="English" value="N"/>
+          <Title language="English" value="No"/>
+        </ConditionOccurrence>
+      </ConditionOccurrences>
+    </Condition>
+    <Condition uId="17082130718933195">
+      <Title language="English" value="image src is remote uri"/>
+      <ConditionOccurrences>
+        <ConditionOccurrence uId="17203084605056964">
+          <Symbol language="English" value="Y"/>
+          <Title language="English" value="Yes"/>
+          <TestValue group="*ti.gtd" type="tcpre" value="Table, MissingImageFilesChecker, MissingImageFilesChecker, Type = 'REMOTE'"/>
+        </ConditionOccurrence>
+        <ConditionOccurrence uId="17203084605076966">
+          <Symbol language="English" value="N"/>
+          <Title language="English" value="No"/>
+        </ConditionOccurrence>
+      </ConditionOccurrences>
+    </Condition>
+    <Condition uId="17082131927203809">
+      <Title language="English" value="image src contains data"/>
+      <ConditionOccurrences>
+        <ConditionOccurrence uId="17203084605156974">
+          <Symbol language="English" value="Y"/>
+          <Title language="English" value="Yes"/>
+          <TestValue group="*ti.gtd" type="tcpre" value="Table, MissingImageFilesChecker, MissingImageFilesChecker, Empty = false"/>
+        </ConditionOccurrence>
+        <ConditionOccurrence uId="17203084605176976">
+          <Symbol language="English" value="N"/>
+          <Title language="English" value="No"/>
+        </ConditionOccurrence>
+      </ConditionOccurrences>
+    </Condition>
+    <Condition uId="17082132544823810">
+      <Title language="English" value="local image file exists"/>
+      <ConditionOccurrences>
+        <ConditionOccurrence uId="17203084605246983">
+          <Symbol language="English" value="Y"/>
+          <Title language="English" value="Yes"/>
+        </ConditionOccurrence>
+        <ConditionOccurrence uId="17203084605266985">
+          <Symbol language="English" value="N"/>
+          <Title language="English" value="No"/>
+        </ConditionOccurrence>
+      </ConditionOccurrences>
+    </Condition>
+  </Conditions>
+  <Actions>
+    <Action uId="17082519831533059">
+      <Title language="English" value="create finding"/>
+      <ActionOccurrences>
+        <ActionOccurrence uId="17082931666803327">
+          <Symbol language="English" value="DATA"/>
+          <Title language="English" value="data-uri image missing"/>
+          <TestValue group="cucumber" type="tse" value="check count findings 1 are reported&lt;br/&gt;check finding 'data-uri image missing' is reported"/>
+        </ActionOccurrence>
+        <ActionOccurrence uId="17082932301833333">
+          <Symbol language="English" value="FILE"/>
+          <Title language="English" value="image &quot;$relativePathToImageFile&quot; missing"/>
+          <TestValue group="cucumber" type="tse" value="check count findings 1 are reported&lt;br/&gt;check finding '${*GTD.MissingImageFilesChecker.FindingMessage}' is reported"/>
+        </ActionOccurrence>
+        <TestValue group="cucumber" type="tse" value="check count findings 0 are reported"/>
+      </ActionOccurrences>
+    </Action>
+    <Action uId="17082131412313206">
+      <Title language="English" value="inc number of checks"/>
+      <ActionOccurrences>
+        <ActionOccurrence uId="17082900044953125">
+          <Symbol language="English" value="+1"/>
+          <Title language="English" value="one check"/>
+          <TestValue group="cucumber" type="tse" value="check number of items checked is 1"/>
+        </ActionOccurrence>
+        <ActionOccurrence uId="17082900264723134">
+          <Symbol language="English" value="0"/>
+          <Title language="English" value="0 checks"/>
+          <TestValue group="cucumber" type="tse" value="check number of items checked is 0"/>
+        </ActionOccurrence>
+      </ActionOccurrences>
+    </Action>
+  </Actions>
+  <Rules lastId="40">
+    <Rule id="36">
+      <ActionOccurrenceLink link="17082900044953125"/>
+      <ConditionOccurrenceLink link="17203084602766952"/>
+      <ConditionOccurrenceLink link="17203084605156974"/>
+    </Rule>
+    <Rule id="37">
+      <ActionOccurrenceLink link="17082900044953125"/>
+      <ActionOccurrenceLink link="17082931666803327"/>
+      <ConditionOccurrenceLink link="17203084602766952"/>
+      <ConditionOccurrenceLink link="17203084605176976"/>
+    </Rule>
+    <Rule id="38">
+      <ActionOccurrenceLink link="17082900264723134"/>
+      <ConditionOccurrenceLink link="17203084604956954"/>
+      <ConditionOccurrenceLink link="17203084605056964"/>
+    </Rule>
+    <Rule id="39">
+      <ActionOccurrenceLink link="17082900044953125"/>
+      <ConditionOccurrenceLink link="17203084604956954"/>
+      <ConditionOccurrenceLink link="17203084605076966"/>
+      <ConditionOccurrenceLink link="17203084605246983"/>
+    </Rule>
+    <Rule id="40">
+      <ActionOccurrenceLink link="17082900044953125"/>
+      <ActionOccurrenceLink link="17082932301833333"/>
+      <ConditionOccurrenceLink link="17203084604956954"/>
+      <ConditionOccurrenceLink link="17203084605076966"/>
+      <ConditionOccurrenceLink link="17203084605266985"/>
+    </Rule>
+  </Rules>
+  <Title language="English" value="MissingImageFilesChecker"/>
+  <UrlsOut>
+    <Url title="Ordner" url="file:///./"/>
+  </UrlsOut>
+  <TestValueGroups selectedGroup="cucumber">
+    <TestValueGroup name="*ti.check"/>
+    <TestValueGroup name="*ti.gtd"/>
+    <TestValueGroup name="*ti.att"/>
+    <TestValueGroup name="cucumber" tvgTiAtt="*ti.att" tvgTiCheck="*ti.check" tvgTiGTD="*ti.gtd">
+      <Config name="cucumber" tags="cucumber" parms="-Group 'cucumber' -GtdDirectory '../../test/features/testdata/' -GtdRecursive -NonExecutableRules '50' -RecommendedTestCases -Statistics -Protocol -OutGherkin 'MissingImageFilesChecker.testcases.feature'"/>
+    </TestValueGroup>
+  </TestValueGroups>
+  <TestValue group="cucumber" type="tcpre" value="#language:en"/>
+  <TestValue group="*ti.gtd" type="tcpre" value="Table, MissingImageFilesChecker, MissingImageFilesCheckers"/>
+  <TestValue group="cucumber" type="isi" value="checker '${*LFET.DT.Name}' with html page&lt;br/&gt;| Content | filePath |&lt;br/&gt;| &lt;html&gt;&lt;body&gt;&lt;img src=&quot;${*GTD.MissingImageFilesChecker.Src}&quot;/&gt;&lt;/body&gt;&lt;/html&gt;| ./test/fixtures/ |"/>
+  <TestValue group="*ti.att" type="isi" value="sid=100&lt;br/&gt;scope=global"/>
+</LFET>

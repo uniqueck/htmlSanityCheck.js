@@ -1,0 +1,34 @@
+# Zusätzliche Einstellungen für alle ET's in dieser Unter-Ordnerstruktur
+# Überschreiben/Übersteuern ggf. Parameter von übergeordneten Project.ini-Dateien
+
+LFET:
+
+  NestedProjectIni: true
+
+  IDE:
+    JavaScript:
+
+      InterfaceEnum:
+        Default:
+          MethodName: Prefix
+          EnumValueName:
+            - Symbol
+            - UpperCase
+
+        10:
+          IncludeTagsTitle:
+            - check if localhost
+            - create finding
+          Symbol: ""
+          Title: ""
+
+        20:
+          IncludeTagsTitle:
+            - execute http request
+          Symbol: ""
+
+        30:
+          IncludeTagsTitle:
+            - check head http status code in redirect range
+          Title:
+            - Interval

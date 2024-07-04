@@ -1,0 +1,45 @@
+LFET:
+
+  BackupHistory:
+    Version: V02
+    Length: 10
+    Zip: true
+
+  IDE:
+
+    Default: JavaScript
+
+    JavaScript:
+      Enabled: true
+      Comments:
+        FilePaths:
+          RemoveAllBefore: /htmlSanityCheck.js/
+
+      Source:
+        Encoding: UTF-8
+        CreateMissingFolders: false
+        Path: ${project.root}../lib/checker/lfet
+
+      Interface:
+        Enabled: true
+        Language: en
+        Name: I${dt.name}
+        VarName: iface
+        RuleGroups: true
+        #RuleID: true
+        Trace:
+          AfterRule: false
+          BeforeRule: false
+        Stateless: true
+
+        RulesClass:
+          constructor: |
+            constructor (/* LoggingFacade */ logger) {
+              this.logger = logger
+            }
+          Name: ${dt.name}DecisionLogic
+          Trace:
+            BeforeRule: |
+              this.logger.trace(`$$dtName - $$Version - $$Rule / $$Rules - ${JSON.stringify(model)}`)
+            AfterRule: |
+              this.logger.trace(`$$dtName - $$Version - $$Rule / $$Rules - ${JSON.stringify(model)}`)

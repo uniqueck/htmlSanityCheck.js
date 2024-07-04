@@ -1,4 +1,9 @@
 .idea/
 node_modules/
+*.iml
+.lfet/tool/
+lfet/checker/*.$bak
+lfet/checker/*.lfet_$temp
+*.tgz
 reports/
-.lfet/tool
+test/features/checker/*_log_*.txt
