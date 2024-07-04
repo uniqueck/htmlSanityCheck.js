@@ -11,6 +11,9 @@
   },
   "devDependencies": {
     "semantic-release": "^23.0.0",
+    "@semantic-release/changelog": "^6",
+    "@semantic-release/git": "^10",
+    "conventional-changelog-eslint": "^6",
     "shx": "^0.3.4",
     "eslint": "^8",
     "eslint-config-standard": "^17",
