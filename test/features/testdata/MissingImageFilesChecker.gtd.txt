@@ -1,0 +1,11 @@
+Encoding = UTF-8
+
+*GTD.MissingImageFilesCheckers
+-----------------------------------------------------------------------------------------------------
+Type   ; Empty ; Exists ; Src ; FindingMessage
+-----------------------------------------------------------------------------------------------------
+DATA   ; true  ; -      ; "data:image/jpg;base64," ; ""
+DATA   ; false ; -      ; "data:image/png;base64,iVBORw0KGgoAAAANSUhEU=" ; ""
+REMOTE ; -     ; -      ; "https://docs.asciidoctor.org/_/img/asciidoctor-logo.svg" ; ""
+LOCAL  ; -     ; true   ; "./images/aim42.png" ; ""
+LOCAL  ; -     ; false  ; "./images/aim42_missing.png" ; "image \"test/fixtures/images/aim42_missing.png\" missing"

@@ -42,3 +42,11 @@ jobs:
 
       - name: test
         run: npm test
+
+      - name: Archive test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-report-${{ matrix.os }}-${{ matrix.node-version }}
+          path: reports/cucumber.html
+          retention-days: 5
