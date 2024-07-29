@@ -23,8 +23,10 @@
     "url": "https://github.com/uniqueck/htmlSanityCheck.js/issues/"
   },
   "devDependencies": {
-    "semantic-release": "^23.0.0",
+    "semantic-release": "^24",
+    "@semantic-release/release-notes-generator": "^14",
     "@semantic-release/changelog": "^6",
+    "@semantic-release/commit-analyzer": "^13",
     "@semantic-release/git": "^10",
     "conventional-changelog-eslint": "^6",
     "shx": "^0.3.4",
