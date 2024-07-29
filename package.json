@@ -1,7 +1,7 @@
 {
   "name": "htmlsanitycheck",
   "description": "This module provides some basic sanity checks on html files",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "dependencies": {
     "js-yaml": "4.1.0",
     "node-html-parser": "^6.1",
