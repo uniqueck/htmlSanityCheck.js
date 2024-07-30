@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/uniqueck/htmlSanityCheck.js/compare/v1.0.0...v1.0.1) (2024-07-30)
+
+
+### Fix
+
+* Rename binary script and add extension *.js (fixes #2) ([67c6b04](https://github.com/uniqueck/htmlSanityCheck.js/commit/67c6b04a67caa17c0ecfff26c1b2637141c03dbf)), closes [#2](https://github.com/uniqueck/htmlSanityCheck.js/issues/2)
+
 # 1.0.0 (2024-07-29)
 
 
