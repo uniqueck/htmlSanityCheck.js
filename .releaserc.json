@@ -8,6 +8,10 @@
           {
             "type": "New",
             "release": "minor"
+          },
+          {
+            "type": "Fix",
+            "release": "patch"
           }
         ]
       }
