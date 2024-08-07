@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/uniqueck/htmlSanityCheck.js/compare/v1.0.1...v1.0.2) (2024-08-07)
+
+
+### Fix
+
+* find all files in a directory (#14) ([51b43ff](https://github.com/uniqueck/htmlSanityCheck.js/commit/51b43ff89c00fd0b60d47afb1efb22322b438761)), closes [#14](https://github.com/uniqueck/htmlSanityCheck.js/issues/14)
+
 ## [1.0.1](https://github.com/uniqueck/htmlSanityCheck.js/compare/v1.0.0...v1.0.1) (2024-07-30)
 
 
