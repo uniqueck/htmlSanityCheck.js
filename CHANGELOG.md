@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/uniqueck/htmlSanityCheck.js/compare/v1.0.3...v1.0.4) (2024-08-07)
+
+
+### Fix
+
+* Pass httpConnectionTimeout option to XmlHttpRequest ([f736f3b](https://github.com/uniqueck/htmlSanityCheck.js/commit/f736f3b2b8c84f02abf2b12bb3135033eca8b61b))
+
 ## [1.0.3](https://github.com/uniqueck/htmlSanityCheck.js/compare/v1.0.2...v1.0.3) (2024-08-07)
 
 
