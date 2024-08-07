@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/uniqueck/htmlSanityCheck.js/compare/v1.0.2...v1.0.3) (2024-08-07)
+
+
+### Fix
+
+* return empty title if no head title element is found (#16) ([f6c34e4](https://github.com/uniqueck/htmlSanityCheck.js/commit/f6c34e4a2c1a037fc21bccb19008351159d97de1)), closes [#16](https://github.com/uniqueck/htmlSanityCheck.js/issues/16)
+
 ## [1.0.2](https://github.com/uniqueck/htmlSanityCheck.js/compare/v1.0.1...v1.0.2) (2024-08-07)
 
 
