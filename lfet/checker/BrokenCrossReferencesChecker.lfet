@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<LFET version="LF-ET 2.3.0 (240629a)" language="English" saveDate="2024.08.16 at 01:19:56 CEST" saveUser="constantin">
+  <Conditions>
+    <Condition uId="17236721420427206">
+      <Title language="English" value="href contains invalid chars"/>
+      <ConditionOccurrences>
+        <ConditionOccurrence uId="17236733158498664">
+          <Symbol language="English" value="\*"/>
+          <Title language="English" value="Star character"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenCrossReferencesChecker, BrokenCrossReferencesChecker, InvalidChars = &quot;*&quot;"/>
+        </ConditionOccurrence>
+        <ConditionOccurrence uId="17237310225471143">
+          <Symbol language="English" value="\$"/>
+          <Title language="English" value="Dollar character"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenCrossReferencesChecker, BrokenCrossReferencesChecker, InvalidChars = &quot;$&quot;"/>
+        </ConditionOccurrence>
+        <ConditionOccurrence uId="17237310308981146">
+          <Symbol language="English" value="\s"/>
+          <Title language="English" value="Whitespace"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenCrossReferencesChecker, BrokenCrossReferencesChecker, InvalidChars = ${*LFET.Symbol}"/>
+        </ConditionOccurrence>
+        <ConditionOccurrence uId="17236733158518666">
+          <Symbol language="English" value="*"/>
+          <Title language="English" value="No invalid characters"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenCrossReferencesChecker, BrokenCrossReferencesChecker, InvalidChars != \s&lt;br/&gt;Table, BrokenCrossReferencesChecker, BrokenCrossReferencesChecker, InvalidChars != \$&lt;br/&gt;Table, BrokenCrossReferencesChecker, BrokenCrossReferencesChecker, InvalidChars != \*"/>
+        </ConditionOccurrence>
+      </ConditionOccurrences>
+    </Condition>
+    <Condition uId="17236382575295963">
+      <Title language="English" value="href starts with"/>
+      <ConditionOccurrences>
+        <ConditionOccurrence uId="17236720958437105">
+          <Symbol language="English" value="#"/>
+          <Title language="English" value="href starts with a #"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenCrossReferencesChecker, BrokenCrossReferencesChecker, HTML_HREFs contains &quot;&lt;a href=\&quot;#&quot;"/>
+        </ConditionOccurrence>
+        <ConditionOccurrence uId="17236720958457107">
+          <Symbol language="English" value="*"/>
+          <Title language="English" value="starts with a other char"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenCrossReferencesChecker, BrokenCrossReferencesChecker, HTML_HREFs contains not &quot;&lt;a href=\&quot;#&quot;"/>
+        </ConditionOccurrence>
+      </ConditionOccurrences>
+    </Condition>
+    <Condition uId="17236726269587837">
+      <Title language="English" value="href equal"/>
+      <ConditionOccurrences>
+        <ConditionOccurrence uId="17236726271117840">
+          <Symbol language="English" value="#"/>
+          <Title language="English" value="href starts with a #"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenCrossReferencesChecker, BrokenCrossReferencesChecker, HTML_HREFs contains &quot;&lt;a href=\&quot;#\&quot;&quot;"/>
+        </ConditionOccurrence>
+        <ConditionOccurrence uId="17236726271157844">
+          <Symbol language="English" value="*"/>
+          <Title language="English" value="starts with a other char"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenCrossReferencesChecker, BrokenCrossReferencesChecker, HTML_HREFs contains not &quot;&lt;a href=\&quot;#\&quot;&quot;"/>
+        </ConditionOccurrence>
+      </ConditionOccurrences>
+    </Condition>
+    <Condition uId="17236383283935971">
+      <Title language="English" value="exists link target"/>
+      <ConditionOccurrences>
+        <ConditionOccurrence uId="17236740782339854">
+          <Symbol language="English" value="Y"/>
+          <Title language="English" value="Yes"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenCrossReferencesChecker, BrokenCrossReferencesChecker, ExistsAnchor = true"/>
+        </ConditionOccurrence>
+        <ConditionOccurrence uId="17236740783859856">
+          <Symbol language="English" value="N"/>
+          <Title language="English" value="No"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenCrossReferencesChecker, BrokenCrossReferencesChecker, ExistsAnchor = false"/>
+        </ConditionOccurrence>
+      </ConditionOccurrences>
+    </Condition>
+    <Condition uId="17236380328395368">
+      <Title language="English" value="count reference occurrences"/>
+      <ConditionOccurrences>
+        <ConditionOccurrence uId="17236380660845420">
+          <Symbol language="English" value="&gt;1"/>
+          <Title language="English" value="more than once referenced"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenCrossReferencesChecker, BrokenCrossReferencesChecker, CountReferences &gt; 1"/>
+        </ConditionOccurrence>
+        <ConditionOccurrence uId="17236380660865422">
+          <Symbol language="English" value="*"/>
+          <Title language="English" value="zero or one referenced"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenCrossReferencesChecker, BrokenCrossReferencesChecker, CountReferences &lt;= 1"/>
+        </ConditionOccurrence>
+      </ConditionOccurrences>
+    </Condition>
+  </Conditions>
+  <Actions>
+    <Action uId="11446800829627977">
+      <Title language="English" value="create finding"/>
+      <ActionOccurrences>
+        <ActionOccurrence uId="17235692465485332">
+          <Symbol language="English" value="ILC"/>
+          <Title language="English" value="link &quot;$href&quot; contains illegal characters"/>
+          <TestValue group="cucumber" type="tse" value="check count findings 1 are reported&lt;br/&gt;check finding '${*GTD.BrokenCrossReferencesChecker.FindingMessage}' is reported"/>
+        </ActionOccurrence>
+        <ActionOccurrence uId="17236381330705538">
+          <Symbol language="English" value="ILCRC"/>
+          <Title language="English" value="link &quot;$href&quot; contains illegal characters, reference count: $refCount"/>
+          <TestValue group="cucumber" type="tse" value="check count findings 1 are reported&lt;br/&gt;check finding '${*GTD.BrokenCrossReferencesChecker.FindingMessage}' is reported"/>
+        </ActionOccurrence>
+        <ActionOccurrence uId="17236383669946063">
+          <Symbol language="English" value="BLT"/>
+          <Title language="English" value="link target &quot;$href&quot; missing"/>
+          <TestValue group="cucumber" type="tse" value="check count findings 1 are reported&lt;br/&gt;check finding '${*GTD.BrokenCrossReferencesChecker.FindingMessage}' is reported"/>
+        </ActionOccurrence>
+        <ActionOccurrence uId="17236390374326066">
+          <Symbol language="English" value="BLTRC"/>
+          <Title language="English" value="link target &quot;$href&quot; missing, reference count: $refCount"/>
+          <TestValue group="cucumber" type="tse" value="check count findings 1 are reported&lt;br/&gt;check finding '${*GTD.BrokenCrossReferencesChecker.FindingMessage}' is reported"/>
+        </ActionOccurrence>
+        <TestValue group="cucumber" type="tse" value="check count findings 0 are reported"/>
+      </ActionOccurrences>
+    </Action>
+    <Action uId="11446800828767967">
+      <Title language="English" value="inc number of checks"/>
+      <ActionOccurrences>
+        <ActionOccurrence uId="17235685858754794">
+          <Symbol language="English" value="+1"/>
+          <Title language="English" value="one check"/>
+          <TestValue group="cucumber" type="tse" value="check number of items checked is 1"/>
+        </ActionOccurrence>
+        <ActionOccurrence uId="17236391736976336">
+          <Symbol language="English" value="+2"/>
+          <Title language="English" value="two checks"/>
+          <TestValue group="cucumber" type="tse" value="check number of items checked is 2"/>
+        </ActionOccurrence>
+      </ActionOccurrences>
+    </Action>
+  </Actions>
+  <Rules lastId="38">
+    <Rule id="25">
+      <ActionOccurrenceLink link="17235685858754794"/>
+      <ConditionOccurrenceLink link="17236380660845420"/>
+      <ActionOccurrenceLink link="17236381330705538"/>
+      <ConditionOccurrenceLink link="17236733158498664"/>
+    </Rule>
+    <Rule id="26">
+      <ActionOccurrenceLink link="17235685858754794"/>
+      <ConditionOccurrenceLink link="17236380660865422"/>
+      <ActionOccurrenceLink link="17235692465485332"/>
+      <ConditionOccurrenceLink link="17236733158498664"/>
+    </Rule>
+    <Rule id="37">
+      <ConditionOccurrenceLink link="17237310225471143"/>
+      <ConditionOccurrenceLink link="17236380660845420"/>
+      <ActionOccurrenceLink link="17236381330705538"/>
+      <ActionOccurrenceLink link="17235685858754794"/>
+    </Rule>
+    <Rule id="38">
+      <ConditionOccurrenceLink link="17237310225471143"/>
+      <ConditionOccurrenceLink link="17236380660865422"/>
+      <ActionOccurrenceLink link="17235692465485332"/>
+      <ActionOccurrenceLink link="17235685858754794"/>
+    </Rule>
+    <Rule id="35">
+      <ConditionOccurrenceLink link="17237310308981146"/>
+      <ConditionOccurrenceLink link="17236380660845420"/>
+      <ActionOccurrenceLink link="17236381330705538"/>
+      <ActionOccurrenceLink link="17235685858754794"/>
+    </Rule>
+    <Rule id="36">
+      <ConditionOccurrenceLink link="17237310308981146"/>
+      <ConditionOccurrenceLink link="17236380660865422"/>
+      <ActionOccurrenceLink link="17235692465485332"/>
+      <ActionOccurrenceLink link="17235685858754794"/>
+    </Rule>
+    <Rule id="27">
+      <ActionOccurrenceLink link="17235685858754794"/>
+      <ConditionOccurrenceLink link="17236720958437105"/>
+      <ConditionOccurrenceLink link="17236726271117840"/>
+      <ConditionOccurrenceLink link="17236733158518666"/>
+    </Rule>
+    <Rule id="32">
+      <ActionOccurrenceLink link="17236391736976336"/>
+      <ConditionOccurrenceLink link="17236720958437105"/>
+      <ConditionOccurrenceLink link="17236726271157844"/>
+      <ConditionOccurrenceLink link="17236733158518666"/>
+      <ConditionOccurrenceLink link="17236740782339854"/>
+    </Rule>
+    <Rule id="33">
+      <ActionOccurrenceLink link="17236391736976336"/>
+      <ConditionOccurrenceLink link="17236720958437105"/>
+      <ConditionOccurrenceLink link="17236726271157844"/>
+      <ConditionOccurrenceLink link="17236380660845420"/>
+      <ActionOccurrenceLink link="17236390374326066"/>
+      <ConditionOccurrenceLink link="17236733158518666"/>
+      <ConditionOccurrenceLink link="17236740783859856"/>
+    </Rule>
+    <Rule id="34">
+      <ActionOccurrenceLink link="17236391736976336"/>
+      <ConditionOccurrenceLink link="17236720958437105"/>
+      <ConditionOccurrenceLink link="17236726271157844"/>
+      <ConditionOccurrenceLink link="17236380660865422"/>
+      <ActionOccurrenceLink link="17236383669946063"/>
+      <ConditionOccurrenceLink link="17236733158518666"/>
+      <ConditionOccurrenceLink link="17236740783859856"/>
+    </Rule>
+    <Rule id="31">
+      <ActionOccurrenceLink link="17235685858754794"/>
+      <ConditionOccurrenceLink link="17236720958457107"/>
+      <ConditionOccurrenceLink link="17236733158518666"/>
+    </Rule>
+  </Rules>
+  <Title language="English" value="BrokenCrossReferencesChecker"/>
+  <UrlsOut>
+    <Url title="Ordner" url="file:///./"/>
+  </UrlsOut>
+  <TestValueGroups selectedGroup="cucumber">
+    <TestValueGroup name="*ti.check.cucumber"/>
+    <TestValueGroup name="*ti.gtd.cucumber"/>
+    <TestValueGroup name="*ti.att.cucumber"/>
+    <TestValueGroup name="cucumber" tvgTiAtt="*ti.att.cucumber" tvgTiCheck="*ti.check.cucumber" tvgTiGTD="*ti.gtd.cucumber">
+      <Config name="cucumber" tags="cucumber" parms="-Group 'cucumber' -GtdDirectory '../../test/features/testdata/' -GtdFileNamePattern '*.txt; *.csv' -DDTableName 'BrokenCrossReferencesCheckers' -NonExecutableRules '50' -RecommendedTestCases -Statistics -Protocol -OutGherkin 'BrokenCrossReferencesChecker.testcases.feature'"/>
+    </TestValueGroup>
+  </TestValueGroups>
+  <TestValue group="cucumber" type="tcpre" value="#language:en"/>
+  <TestValue group="cucumber" type="isi" value="checker '${*LFET.DT.Name}' with html page&lt;br/&gt;| Content |&lt;br/&gt;| &quot;&lt;html&gt;&lt;body&gt;${*GTD.BrokenCrossReferencesChecker.HTML_HREFs}${*GTD.BrokenCrossReferencesChecker.HTML_ANCHORs}&lt;/body&gt;&lt;/html&gt;&quot; |"/>
+  <TestValue group="*ti.att.cucumber" type="isi" value="sid=100&lt;br/&gt;scope=global"/>
+  <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenCrossReferencesChecker, BrokenCrossReferencesCheckers"/>
+</LFET>

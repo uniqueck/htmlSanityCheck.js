@@ -38,13 +38,18 @@
     "dirty-chai": "2.0.1",
     "rewiremock": "^3.14.3",
     "sinon": "^16",
-    "referee": "^1"
+    "referee": "^1",
+    "nyc": "^17"
   },
   "scripts": {
     "test": "npm run test:node && npm run test:features && npm run test:smoke",
     "test:node": "mocha test/**/*.spec.js",
     "test:features": "cucumber-js",
     "test:smoke": "node bin/htmlSanityCheck.js --sourceDir test",
+    "cover:unit": "nyc --silent npm run test:node",
+    "cover:features": "nyc --silent --no-clean npm run test:features",
+    "cover:report": "nyc report --reporter=lcov --reporter=text",
+    "cover": "npm run cover:unit && npm run cover:features && npm run cover:report",
     "lint": "eslint \"./lib/**/*.js\" \"./test/**/*.js\"",
     "lint:fix": "eslint \"./lib/**/*.js\" \"./test/**/*.js\" --fix",
     "lfet:UI": "exec java -classpath \"$INIT_CWD/.lfet/tool/*\" lohrfink.lfet.Application &",

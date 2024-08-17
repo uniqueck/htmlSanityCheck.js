@@ -1,11 +1,11 @@
 # Diese Datei wurde erzeugt durch LF-ET 2.3.0 (240629a) und Kommandozeile:
-# -GenTest "/opt/data/github/htmlSanityCheck.js/lfet/checker/MissingImageFilesChecker.lfet" -Group "cucumber" -Config "cucumber" -ContinueOnError -GtdDirectory "../../test/features/testdata/" -GtdRecursive -NonExecutableRules "50" -RecommendedTestCases -Statistics -Protocol -OutGherkin "MissingImageFilesChecker.testcases.feature" -InputRootfolder "/opt/data/github/htmlSanityCheck.js/lfet" -OutputRootfolder "/opt/data/github/htmlSanityCheck.js/test/features"
+# -GenTest "/home/constantin/Development/github/uniqueck/htmlSanityCheck.js/lfet/checker/MissingImageFilesChecker.lfet" -Group "cucumber" -Config "cucumber" -ContinueOnError -GtdDirectory "../../test/features/testdata/" -GtdRecursive -NonExecutableRules "50" -RecommendedTestCases -Statistics -Protocol -OutGherkin "MissingImageFilesChecker.testcases.feature" -InputRootfolder "/home/constantin/Development/github/uniqueck/htmlSanityCheck.js/lfet" -OutputRootfolder "/home/constantin/Development/github/uniqueck/htmlSanityCheck.js/test/features"
 # 
 # Aktueller Benutzer: constantin
-# Aktuelles Verzeichnis (user.dir): "/opt/data/github/htmlSanityCheck.js"
-# Benötigte Zeit: 00:00:00.061 (14.07.2024 00:13:16.645 - 14.07.2024 00:13:16.706)
+# Aktuelles Verzeichnis (user.dir): "/home/constantin/Development/github/uniqueck/htmlSanityCheck.js"
+# Benötigte Zeit: 00:00:00.057 (16.08.2024 01:22:58.540 - 16.08.2024 01:22:58.597)
 # 
-# Entscheidungstabelle: /opt/data/github/htmlSanityCheck.js/lfet/checker/MissingImageFilesChecker.lfet
+# Entscheidungstabelle: /home/constantin/Development/github/uniqueck/htmlSanityCheck.js/lfet/checker/MissingImageFilesChecker.lfet
 # 
 # Regelauswahl und Regelsortierung: Alle Regeln, Standardsortierung
 # 
@@ -18,9 +18,11 @@
 # 
 # Informationen: 1
 # 
-#     1. /opt/data/github/htmlSanityCheck.js/test/features/testdata/MissingImageFilesChecker.gtd.txt
+#     1. /home/constantin/Development/github/uniqueck/htmlSanityCheck.js/test/features/testdata/BrokenCrossReferencesChecker.gtd.txt
+#            Erfolgreich eingelesen: BrokenCrossReferencesCheckers, 12 Sätze, Encoding UTF-8
+#         /home/constantin/Development/github/uniqueck/htmlSanityCheck.js/test/features/testdata/MissingImageFilesChecker.gtd.txt
 #            Erfolgreich eingelesen: MissingImageFilesCheckers, 5 Sätze, Encoding UTF-8
-#         /opt/data/github/htmlSanityCheck.js/test/features/testdata/brokenHttpLinksChecker.gtd.txt
+#         /home/constantin/Development/github/uniqueck/htmlSanityCheck.js/test/features/testdata/brokenHttpLinksChecker.gtd.txt
 #            Erfolgreich eingelesen: BrokenHttpLinksCheckers, 12 Sätze, Encoding UTF-8
 #            Erfolgreich eingelesen: HttpStatusCodes, 4 Sätze, Encoding UTF-8
 

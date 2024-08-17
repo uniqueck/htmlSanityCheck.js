@@ -1,0 +1,37 @@
+LFET:
+
+  NestedProjectIni: true
+
+  IDE:
+    JavaScript:
+
+      InterfaceEnum:
+        Default:
+          MethodName: Prefix
+          EnumValueName:
+            - UpperCase
+
+        10:
+          IncludeTagsTitle:
+            - inc number of checks
+          Symbol: Integer
+
+        20:
+          IncludeTagsTitle:
+            - create finding
+          Symbol: ""
+          Title: ""
+
+        30:
+          IncludeTagsTitle:
+            - count reference occurrences
+          Symbol: Interval
+          Title: ""
+
+        40:
+          IncludeTagsTitle:
+            - href contains invalid chars
+            - href starts with
+            - href equal
+          Symbol: ""
+          Title: ""
