@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/uniqueck/htmlSanityCheck.js/compare/v1.0.4...v1.1.0) (2024-08-17)
+
+
+### New
+
+* Implement BrokenCrossReferencesChecker (fixes #20) ([7259ebe](https://github.com/uniqueck/htmlSanityCheck.js/commit/7259ebeab3170b4793a074e324acd8b1072c2676)), closes [#20](https://github.com/uniqueck/htmlSanityCheck.js/issues/20)
+
 ## [1.0.4](https://github.com/uniqueck/htmlSanityCheck.js/compare/v1.0.3...v1.0.4) (2024-08-07)
 
 
