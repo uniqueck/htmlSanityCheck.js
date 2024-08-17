@@ -1,3 +1,7 @@
 module.exports = {
-  reportDir: 'reports/coverage'
+  reportDir: 'reports/coverage',
+  exclude: [
+      'cucumber.js',
+      'test/**/*.js'
+  ]
 }
