@@ -15,15 +15,15 @@
           },
           {
             "type": "Build",
-            "release": "false"
+            "release": false
           },
           {
             "type": "Docs",
-            "release": "false"
+            "release": false
           },
           {
             "type": "Upgrade",
-            "release": "false"
+            "release": false
           }
         ]
       }
