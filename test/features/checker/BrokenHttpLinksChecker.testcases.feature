@@ -1,11 +1,11 @@
 # Diese Datei wurde erzeugt durch LF-ET 2.3.0 (240629a) und Kommandozeile:
-# -GenTest "/opt/data/github/htmlSanityCheck.js/lfet/checker/BrokenHttpLinksChecker.lfet" -Group "cucumber" -Config "cucmber" -ContinueOnError -GtdDirectory "../../test/features/testdata/" -GtdFileNamePattern "*.txt; *.csv" -SwitchCoverage "2" -NonExecutableRules "50" -NonExecutableRuleSeq "50" -RecommendedTestCases -Statistics -Protocol -OutGherkin "BrokenHttpLinksChecker.testcases.feature" -InputRootfolder "/opt/data/github/htmlSanityCheck.js/lfet" -OutputRootfolder "/opt/data/github/htmlSanityCheck.js/test/features"
+# -GenTest "/home/constantin/Development/github/uniqueck/htmlSanityCheck.js/lfet/checker/BrokenHttpLinksChecker.lfet" -Group "cucumber" -Config "cucmber" -ContinueOnError -GtdDirectory "../../test/features/testdata/" -GtdFileNamePattern "*.txt; *.csv" -SwitchCoverage "2" -NonExecutableRules "50" -NonExecutableRuleSeq "50" -RecommendedTestCases -Statistics -Protocol -OutGherkin "BrokenHttpLinksChecker.testcases.feature" -InputRootfolder "/home/constantin/Development/github/uniqueck/htmlSanityCheck.js/lfet" -OutputRootfolder "/home/constantin/Development/github/uniqueck/htmlSanityCheck.js/test/features"
 # 
 # Aktueller Benutzer: constantin
-# Aktuelles Verzeichnis (user.dir): "/opt/data/github/htmlSanityCheck.js"
-# Benötigte Zeit: 00:00:00.878 (14.07.2024 00:13:15.745 - 14.07.2024 00:13:16.623)
+# Aktuelles Verzeichnis (user.dir): "/home/constantin/Development/github/uniqueck/htmlSanityCheck.js"
+# Benötigte Zeit: 00:00:00.455 (16.08.2024 01:22:58.061 - 16.08.2024 01:22:58.516)
 # 
-# Entscheidungstabelle: /opt/data/github/htmlSanityCheck.js/lfet/checker/BrokenHttpLinksChecker.lfet
+# Entscheidungstabelle: /home/constantin/Development/github/uniqueck/htmlSanityCheck.js/lfet/checker/BrokenHttpLinksChecker.lfet
 # 
 # TestValueGroups: cucumber, *ti.att.cucumber, *ti.gtd.cucumber, *ti.check.cucumber
 # Config: cucmber
@@ -16,9 +16,11 @@
 # 
 # Informationen: 1
 # 
-#     1. /opt/data/github/htmlSanityCheck.js/test/features/testdata/MissingImageFilesChecker.gtd.txt
+#     1. /home/constantin/Development/github/uniqueck/htmlSanityCheck.js/test/features/testdata/BrokenCrossReferencesChecker.gtd.txt
+#            Erfolgreich eingelesen: BrokenCrossReferencesCheckers, 12 Sätze, Encoding UTF-8
+#         /home/constantin/Development/github/uniqueck/htmlSanityCheck.js/test/features/testdata/MissingImageFilesChecker.gtd.txt
 #            Erfolgreich eingelesen: MissingImageFilesCheckers, 5 Sätze, Encoding UTF-8
-#         /opt/data/github/htmlSanityCheck.js/test/features/testdata/brokenHttpLinksChecker.gtd.txt
+#         /home/constantin/Development/github/uniqueck/htmlSanityCheck.js/test/features/testdata/brokenHttpLinksChecker.gtd.txt
 #            Erfolgreich eingelesen: BrokenHttpLinksCheckers, 12 Sätze, Encoding UTF-8
 #            Erfolgreich eingelesen: HttpStatusCodes, 4 Sätze, Encoding UTF-8
 
@@ -34,7 +36,7 @@ Feature: BrokenHttpLinksChecker
     R08
     R10 : B06 check head http status code in configured success range = * ; B07 check head http status code in redirect range = 30x ; B09 check if header contains location = Y
     Given config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarningCodes is [301,302]
+    *     config option httpWarningCodes is [309,310]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is enabled
     *     config option ignoreIPAddresses is enabled
@@ -56,7 +58,7 @@ Feature: BrokenHttpLinksChecker
     R12 : B06 check head http status code in configured success range = * ; B07 check head http status code in redirect range = *
     R13 : B08 check get http status code in configured ranges = SUCCESS
     Given config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarningCodes is [309,310]
+    *     config option httpWarningCodes is [301,302]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is enabled
     *     config option ignoreIPAddresses is enabled
@@ -77,14 +79,14 @@ Feature: BrokenHttpLinksChecker
     R01 : B02 ignore localhost check = Y
     R06 : B04 ignore ip address check = N ; B05 check if ip address = Y
     Given config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarningCodes is [301,302]
+    *     config option httpWarningCodes is [309,310]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is enabled
     *     config option ignoreIPAddresses is disabled
     When  checker 'BrokenHttpLinksChecker' with html page
-      | Content                                                             |
-      | <html><body><a href="http://172.217.30.9/google"></a></body></html> |
-    Then  check finding 'Warning: numerical urls (ip address) indicates suspicious environment dependency: href=http://172.217.30.9/google' is reported
+      | Content                                                           |
+      | <html><body><a href="http://127.0.0.1/success"></a></body></html> |
+    Then  check finding 'Warning: numerical urls (ip address) indicates suspicious environment dependency: href=http://127.0.0.1/success' is reported
     *     check count findings 1.0 are reported
 
   @recommended
@@ -95,7 +97,7 @@ Feature: BrokenHttpLinksChecker
     R08
     R09 : B06 check head http status code in configured success range = SUCCESS
     Given config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarningCodes is [309,310]
+    *     config option httpWarningCodes is [301,302]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is enabled
     *     config option ignoreIPAddresses is disabled
@@ -115,7 +117,7 @@ Feature: BrokenHttpLinksChecker
     R08
     R11 : B06 check head http status code in configured success range = * ; B07 check head http status code in redirect range = 30x ; B09 check if header contains location = N
     Given config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarningCodes is [309,310]
+    *     config option httpWarningCodes is [301,302]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is enabled
     *     config option ignoreIPAddresses is disabled
@@ -136,20 +138,20 @@ Feature: BrokenHttpLinksChecker
     R12 : B06 check head http status code in configured success range = * ; B07 check head http status code in redirect range = *
     R14 : B08 check get http status code in configured ranges = WARN
     Given config option httpSuccessCodes is [200,201,203]
-    *     config option httpWarningCodes is [301,302]
+    *     config option httpWarningCodes is [309,310]
     *     config option httpErrorCodes is [401,402,403]
     *     config option ignoreLocalHost is enabled
     *     config option ignoreIPAddresses is disabled
     *     'HEAD' request for
       | URL                                               | Status Code | Redirect Header Location |
-      | https://github.com/uniqueck/asciidoctor-liquibase |         404 | -                        |
+      | https://github.com/uniqueck/asciidoctor-liquibase |         403 | -                        |
     *     'GET' request for
       | URL                                               | Status Code | Redirect Header Location |
-      | https://github.com/uniqueck/asciidoctor-liquibase |         301 | -                        |
+      | https://github.com/uniqueck/asciidoctor-liquibase |         309 | -                        |
     When  checker 'BrokenHttpLinksChecker' with html page
       | Content                                                                                    |
       | <html><body><a href="https://github.com/uniqueck/asciidoctor-liquibase"></a></body></html> |
-    Then  check finding 'Warning: href=https://github.com/uniqueck/asciidoctor-liquibase returned statuscode 301' is reported
+    Then  check finding 'Warning: href=https://github.com/uniqueck/asciidoctor-liquibase returned statuscode 309' is reported
     *     check count findings 1.0 are reported
 
   @recommended
@@ -300,11 +302,11 @@ Feature: BrokenHttpLinksChecker
       | https://github.com/uniqueck/asciidoctor-liquibase |         403 | -                        |
     *     'GET' request for
       | URL                                               | Status Code | Redirect Header Location |
-      | https://github.com/uniqueck/asciidoctor-liquibase |         309 | -                        |
+      | https://github.com/uniqueck/asciidoctor-liquibase |         500 | -                        |
     When  checker 'BrokenHttpLinksChecker' with html page
       | Content                                                                                    |
       | <html><body><a href="https://github.com/uniqueck/asciidoctor-liquibase"></a></body></html> |
-    Then  check finding 'Error: Unknown or unclassified response code: href=https://github.com/uniqueck/asciidoctor-liquibase returned statuscode 309' is reported
+    Then  check finding 'Error: Unknown or unclassified response code: href=https://github.com/uniqueck/asciidoctor-liquibase returned statuscode 500' is reported
     *     check count findings 1.0 are reported
 
 ### end of generated test cases ###

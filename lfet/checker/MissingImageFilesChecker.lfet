@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<LFET version="LF-ET 2.3.0 (240626a)" language="English" saveDate="2024.07.14 at 00:13:06 CEST" saveUser="constantin">
+<LFET version="LF-ET 2.3.0 (240629a)" language="English" saveDate="2024.08.15 at 01:12:49 CEST" saveUser="constantin">
   <Conditions>
     <Condition uId="17082129871143184">
       <Title language="English" value="image src is data uri"/>
@@ -50,10 +50,12 @@
         <ConditionOccurrence uId="17203084605246983">
           <Symbol language="English" value="Y"/>
           <Title language="English" value="Yes"/>
+          <TestValue group="*ti.gtd" type="tcpre" value="Table, MissingImageFilesChecker, MissingImageFilesChecker, Exists = true"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="17203084605266985">
           <Symbol language="English" value="N"/>
           <Title language="English" value="No"/>
+          <TestValue group="*ti.gtd" type="tcpre" value="Table, MissingImageFilesChecker, MissingImageFilesChecker, Exists = false"/>
         </ConditionOccurrence>
       </ConditionOccurrences>
     </Condition>

@@ -7,3 +7,4 @@ lfet/checker/*.lfet_$temp
 *.tgz
 reports/
 test/features/checker/*_log_*.txt
+.nyc_output/

@@ -48,5 +48,5 @@ jobs:
         if: always()
         with:
           name: test-report-${{ matrix.os }}-${{ matrix.node-version }}
-          path: reports/cucumber.html
+          path: reports/cucumber/cucumber.html
           retention-days: 5

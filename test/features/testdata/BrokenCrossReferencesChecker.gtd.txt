@@ -1,0 +1,18 @@
+Encoding = UTF-8
+
+*GTD.BrokenCrossReferencesCheckers
+---------------------------------------------------------------------------------------------------------------------------------------------------
+InvalidChars; CountReferences ; ExistsAnchor; HTML_HREFs                                ; HTML_ANCHORs          ; FindingMessage
+---------------------------------------------------------------------------------------------------------------------------------------------------
+$           ; 1               ; false       ; <a href="$"/>                             ;                       ; link "$" contains illegal characters
+*           ; 1               ; false       ; <a href="*"/>                             ;                       ; link "*" contains illegal characters
+*           ; 2               ; false       ; <a href="*"/><a href="*"/>                ;                       ; link "*" contains illegal characters, reference count: 2
+\s          ; 1               ; false       ; <a href=" "/>                             ;                       ; link " " contains illegal characters
+\s          ; 3               ; false       ; <a href=" "/><a href=" "/><a href=" "/>   ;                       ; link " " contains illegal characters, reference count: 3
+$           ; 2               ; false       ; <a href="$"/><a href="$"/>                ;                       ; link "$" contains illegal characters, reference count: 2
+""          ; 1               ; false       ; <a href="#"/>                             ;                       ;
+""          ; 1               ; false       ; <a href="#anchor"/>                       ;                       ; link target "#anchor" missing
+""          ; 1               ; true        ; <a href="#anchor"/>                       ; <div id="anchor"/>    ;
+""          ; 2               ; false       ; <a href="#anchor"/><a href="#anchor"/>    ;                       ; link target "#anchor" missing, reference count: 2
+""          ; 1               ; false       ; <a href="https://"/>                      ;                       ;
+""          ; 2               ; false       ; <a href="https://"/><a href="https://"/>  ;                       ;
