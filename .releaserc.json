@@ -12,6 +12,18 @@
           {
             "type": "Fix",
             "release": "patch"
+          },
+          {
+            "type": "Build",
+            "release": "false"
+          },
+          {
+            "type": "Docs",
+            "release": "false"
+          },
+          {
+            "type": "Upgrade",
+            "release": "false"
           }
         ]
       }
