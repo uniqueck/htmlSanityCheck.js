@@ -37,7 +37,7 @@
     "chai": "4.5.0",
     "dirty-chai": "2.0.1",
     "rewiremock": "^3.14.3",
-    "sinon": "^16",
+    "sinon": "^18",
     "referee": "^1",
     "nyc": "^17"
   },
