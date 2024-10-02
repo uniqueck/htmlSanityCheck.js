@@ -19,8 +19,16 @@ jobs:
       id-token: write # to enable use of OIDC for npm provenance
 
     steps:
+      - name: 'Generate GitHub Token'
+        id: generate_token
+        uses: tibdex/github-app-token@v2
+        with:
+          app_id: ${{ secrets.SEMANTIC_RELEASE_BOT_APP_ID }}
+          private_key: ${{ secrets.SEMANTIC_RELEASE_BOT_PRIVATE_KEY }}
       - name: Checkout 🛎️
         uses: actions/checkout@v3
+        with:
+          token: ${{ steps.generate_token.outputs.token }}
       - name: Set up NodeJs ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
@@ -32,5 +40,5 @@ jobs:
       - name: Release 🚀
         run: npm run release --debug
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.generate_token.outputs.token }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
