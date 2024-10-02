@@ -1,7 +1,7 @@
 {
   "name": "htmlsanitycheck",
   "description": "This module provides some basic sanity checks on html files",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "dependencies": {
     "ansi-colors": "^4",
     "debug": "^4.3.6",

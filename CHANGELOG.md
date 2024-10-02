@@ -1,3 +1,31 @@
+# [1.2.0](https://github.com/uniqueck/htmlSanityCheck.js/compare/v1.1.0...v1.2.0) (2024-10-02)
+
+
+### Build
+
+* Add SonarCloud analyze (fixes #23) ([d1347e3](https://github.com/uniqueck/htmlSanityCheck.js/commit/d1347e3e11edf3e5f02c2aff02c31fca6dbbb499)), closes [#23](https://github.com/uniqueck/htmlSanityCheck.js/issues/23)
+* Allow to bypass branch protection rules for semantic release process ([6103b7c](https://github.com/uniqueck/htmlSanityCheck.js/commit/6103b7c3c92a31d59104d16c5eeae5ca7f979af8))
+* Bump @cucumber/cucumber from 10.8.0 to 10.9.0 ([06d3c9e](https://github.com/uniqueck/htmlSanityCheck.js/commit/06d3c9e0bb9671aacdb3b0a2a08f358cb7d1af14))
+* Bump chai from 4.2.0 to 4.5.0 ([6a18130](https://github.com/uniqueck/htmlSanityCheck.js/commit/6a18130564bdde2aaa466b277833c2d4cbe679d6))
+* Bump elliptic from 6.5.5 to 6.5.7 ([734b043](https://github.com/uniqueck/htmlSanityCheck.js/commit/734b0430cb2918b1424a8e01071d02bb166df13a))
+* Bump mocha from 10.6.0 to 10.7.3 ([90ec549](https://github.com/uniqueck/htmlSanityCheck.js/commit/90ec5491eaca1e389154f25ce333341b60b3e91c))
+* Bump semantic-release from 24.0.0 to 24.1.0 ([970c47d](https://github.com/uniqueck/htmlSanityCheck.js/commit/970c47dfb002eba2fe358022d7c27496b6b1109f))
+* Fix semantic release configuration ([2e03790](https://github.com/uniqueck/htmlSanityCheck.js/commit/2e03790f30b0a9444ae3ba5ed18e2ca37f903669))
+
+### Docs
+
+* Add Badge for OpenSSF ScoreCard ([e441642](https://github.com/uniqueck/htmlSanityCheck.js/commit/e4416420cb6316f0a7b0fb7d3b6a25f1fd4f1c36)), closes [#27](https://github.com/uniqueck/htmlSanityCheck.js/issues/27)
+* Add License ([3031ed2](https://github.com/uniqueck/htmlSanityCheck.js/commit/3031ed2a68e3c777ffd1f85f266a37ea4cd6a76c)), closes [#26](https://github.com/uniqueck/htmlSanityCheck.js/issues/26)
+* Add OpenSSF Best Practice Badge ([6178b08](https://github.com/uniqueck/htmlSanityCheck.js/commit/6178b0875e151318acc93b728eb2753f0b2cb2a3)), closes [#37](https://github.com/uniqueck/htmlSanityCheck.js/issues/37)
+
+### New
+
+* Implement JUnitXMLReporter ([f3e5705](https://github.com/uniqueck/htmlSanityCheck.js/commit/f3e5705bc68b05788beb6021a5931c77e2424a86)), closes [#1](https://github.com/uniqueck/htmlSanityCheck.js/issues/1)
+
+### Upgrade
+
+* Bump yargs-parser from 20.2.9 to 21.1.1 ([59c50a7](https://github.com/uniqueck/htmlSanityCheck.js/commit/59c50a7ac5ded4a6030a268c0a25d3bb4ab12507))
+
 # [1.1.0](https://github.com/uniqueck/htmlSanityCheck.js/compare/v1.0.4...v1.1.0) (2024-08-17)
 
 
