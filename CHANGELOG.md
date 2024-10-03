@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/uniqueck/htmlSanityCheck.js/compare/v1.2.0...v1.2.1) (2024-10-03)
+
+
+### Fix
+
+* Pass configFile to loadConfig method for config rc files ([2def7da](https://github.com/uniqueck/htmlSanityCheck.js/commit/2def7da7891f3b839490603aafea4d56a657cb7f))
+
 # [1.2.0](https://github.com/uniqueck/htmlSanityCheck.js/compare/v1.1.0...v1.2.0) (2024-10-02)
 
 
