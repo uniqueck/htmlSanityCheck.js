@@ -47,8 +47,8 @@ describe('createReporters', () => {
 
   beforeEach(() => {
     tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'JUnitXmlReporter-test-'))
-    logger = new Logger({ traceLogging: 'false' })
-    logger.info('Temporary output directory: ' + fs.realpathSync(tempDir))
+    logger = new Logger({ traceLogging: false })
+    logger.trace('Temporary output directory: ' + fs.realpathSync(tempDir))
   })
 
   it('withJUnitXmlReporter enabled', function () {
@@ -74,7 +74,7 @@ describe('createReporters', () => {
     createdReporters.forEach(/* Reporter */ reporter => reporter.reportFindings(resultsForAllPages))
 
     const reports = findFiles(tempDir, true, ['xml'])
-    logger.info('Reports: ' + JSON.stringify(reports))
+    logger.trace('Reports: ' + JSON.stringify(reports))
     expect(reports).has.lengthOf(1)
   })
 

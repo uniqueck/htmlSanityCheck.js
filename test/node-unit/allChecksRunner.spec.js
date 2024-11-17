@@ -9,7 +9,7 @@ describe('allChecksRunner', () => {
   it('happyPath', () => {
     const config = {
       sourceDir: `${cwd()}/test/fixtures`,
-      traceLogging: 'false'
+      traceLogging: false
     }
     const logger = new Logger(config)
     const allChecksRunner = new AllChecksRunner(config, logger)
