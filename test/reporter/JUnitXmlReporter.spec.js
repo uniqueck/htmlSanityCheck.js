@@ -40,11 +40,11 @@ describe('JUnitXmlReporter', () => {
     underTest.reportFindings(resultsForAllPages)
 
     const reports = findFiles(tempDir, true, ['xml'])
-    logger.info('Reports: ' + JSON.stringify(reports))
+    logger.trace('Reports: ' + JSON.stringify(reports))
     expect(reports).has.lengthOf(1)
 
     const xmlContent = fs.readFileSync(path.join(reports[0].filePath, reports[0].fileName), 'utf-8')
-    logger.info('Report content: ' + xmlContent)
+    logger.trace('Report content: ' + xmlContent)
     return xmlParser.parse(xmlContent)
   }
 
@@ -53,8 +53,8 @@ describe('JUnitXmlReporter', () => {
     reporterConfig = {
       outputPath: tempDir
     }
-    logger = new Logger({ traceLogging: 'false' })
-    logger.info('Temporary output directory: ' + fs.realpathSync(tempDir))
+    logger = new Logger({ traceLogging: false })
+    logger.trace('Temporary output directory: ' + fs.realpathSync(tempDir))
     xmlParser = new XMLParser({ ignoreAttributes: false })
     underTest = createReporter(reporterConfig, logger)
   })
