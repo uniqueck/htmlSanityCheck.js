@@ -37,6 +37,5 @@
     }
   },
   "traceLogging": false,
-  "junitResultsDir": "./test-results/htmlSanityCheck",
   "checkingResultDir": "./reports/htmlSanityCheck"
 }
