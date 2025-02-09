@@ -8,3 +8,5 @@ lfet/checker/*.lfet_$temp
 reports/
 test/features/checker/*_log_*.txt
 .nyc_output/
+
+test-results/

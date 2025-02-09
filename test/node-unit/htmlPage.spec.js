@@ -68,4 +68,25 @@ describe('htmlPage', () => {
       expect(htmlPage.getTitle()).eq('Long Title with spaces around')
     })
   })
+  it('metaData', () => {
+    const htmlPage = new HtmlPage({
+      content: HTMLParser.parse(`<!DOCTYPE html>
+              <html lang="en">
+                <head>
+                  <meta charset="utf-8">
+                  <meta name="viewport" content="width=device-width,initial-scale=1">
+                  <title>Long Title with spaces</title>
+                  <meta name="generator" content="Antora 3.1.9">
+                  <link rel="stylesheet" href="../../antora/css/site.css">
+                  <link rel="stylesheet" href="../../antora/css/custom.css">
+                  <link rel="stylesheet" href="../../antora/css/font-awesome.min.css">
+                  <link rel="stylesheet" href="../../antora/css/extra.css">
+                  <script>var uiRootPath = '../../antora'</script>
+                </head>
+                <body></body>
+              </html>`.trim())
+    })
+    expect(htmlPage.getSize()).eq(775)
+    expect(htmlPage.getTitle()).eq('Long Title with spaces')
+  })
 })
