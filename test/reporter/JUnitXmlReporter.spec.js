@@ -11,6 +11,7 @@ const os = require('os')
 const SingleCheckResult = require('../../lib/singleCheckResult')
 const SinglePageResult = require('../../lib/singlePageResult')
 const HtmlPage = require('../../lib/html/htmlPage')
+const HTMLParser = require('node-html-parser')
 const path = require('path')
 const { XMLParser } = require('fast-xml-parser')
 const Finding = require('../../lib/finding')
@@ -63,7 +64,42 @@ describe('JUnitXmlReporter', () => {
     const resultsForAllPages = []
     underTest = createReporter(reporterConfig, logger)
     underTest.reportFindings(resultsForAllPages)
+
     expect(findFiles(tempDir, true, ['xml']).length).to.equal(0)
+  })
+
+  it('PageResultFilePath is null', function () {
+    const singlePageResult = new SinglePageResult(new HtmlPage({
+      filePath: null,
+      fileName: 'file-to-test.html',
+      content: HTMLParser.parse('<html><head><title>testTitle</title></head><body></body></html>')
+    }))
+    singlePageResult.addResultsForSingleCheck(new SingleCheckResult())
+    const resultsForAllPages = [singlePageResult]
+
+    underTest = createReporter(reporterConfig, logger)
+    underTest.reportFindings(resultsForAllPages)
+
+    const expectedFiles = findFiles(tempDir, true, ['xml'])
+    expect(expectedFiles.length).to.equal(1)
+    expect(expectedFiles[0].fileName).to.equal('TEST-unit-html-testTitle.xml')
+  })
+
+  it('PageResultFilePath is null and html title is not given', function () {
+    const singlePageResult = new SinglePageResult(new HtmlPage({
+      filePath: null,
+      fileName: 'file-to-test.html',
+      content: HTMLParser.parse('<html><head></head><body></body></html>')
+    }))
+    singlePageResult.addResultsForSingleCheck(new SingleCheckResult())
+    const resultsForAllPages = [singlePageResult]
+
+    underTest = createReporter(reporterConfig, logger)
+    underTest.reportFindings(resultsForAllPages)
+
+    const expectedFiles = findFiles(tempDir, true, ['xml'])
+    expect(expectedFiles.length).to.equal(1)
+    expect(/^TEST-unit-html-[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}.xml$/i.test(expectedFiles[0].fileName)).to.equal(true)
   })
 
   it('zeroChecks', function () {
