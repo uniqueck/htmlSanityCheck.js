@@ -3,7 +3,7 @@
 
 const chai = require('chai')
 const expect = chai.expect
-const { loadOptions } = require('../../lib/cli/options')
+const { loadOptions } = require('../../../lib/cli/options')
 
 describe('options', () => {
   it('load default options', function () {
@@ -21,7 +21,7 @@ describe('options', () => {
           enabled: true
         }
       },
-      checker: {
+      checkers: {
         BrokenHttpLinksChecker: {
           ignoreLocalHost: false,
           ignoreIPAddresses: false,

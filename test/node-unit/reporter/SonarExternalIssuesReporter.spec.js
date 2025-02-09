@@ -3,7 +3,7 @@
 
 const SonarExternalIssuesReporter = require('../../../lib/reporter/SonarExternalIssuesReporter.js')
 const { cwd } = require('../../../lib/utils')
-const LoggingFacade = require('../../../lib/logging/LoggingFacacde')
+const LoggingFacade = require('../../../lib/logging/LoggingFacade')
 const fs = require('fs')
 const path = require('path')
 const os = require('os')

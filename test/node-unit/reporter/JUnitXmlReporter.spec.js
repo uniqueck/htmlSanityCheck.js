@@ -4,17 +4,17 @@
 const chai = require('chai')
 const expect = chai.expect
 
-const Logger = require('../../lib/logging/LoggingFacade')
+const Logger = require('../../../lib/logging/LoggingFacade')
 const fs = require('fs')
-const { findFiles, cwd } = require('../../lib/utils')
+const { findFiles, cwd } = require('../../../lib/utils')
 const os = require('os')
-const SingleCheckResult = require('../../lib/singleCheckResult')
-const SinglePageResult = require('../../lib/singlePageResult')
-const HtmlPage = require('../../lib/html/htmlPage')
+const SingleCheckResult = require('../../../lib/singleCheckResult')
+const SinglePageResult = require('../../../lib/singlePageResult')
+const HtmlPage = require('../../../lib/html/htmlPage')
 const path = require('path')
 const { XMLParser } = require('fast-xml-parser')
-const Finding = require('../../lib/finding')
-const { createReporter } = require('../../lib/reporter/JUnitXmlReporter')
+const Finding = require('../../../lib/finding')
+const { createReporter } = require('../../../lib/reporter/JUnitXmlReporter')
 
 describe('JUnitXmlReporter', () => {
   let underTest

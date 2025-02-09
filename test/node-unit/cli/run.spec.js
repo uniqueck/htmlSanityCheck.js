@@ -5,6 +5,7 @@ const sinon = require('sinon')
 const proxyquire = require('proxyquire').noCallThru()
 const referee = require('@sinonjs/referee')
 const assert = referee.assert
+const fs = require('fs')
 
 describe('run handler', () => {
   let handler
@@ -22,22 +23,27 @@ describe('run handler', () => {
     JUnitXmlReporterMock = sinon.stub().returns(jUnitXmlReporterInstance)
     createReportersMock = sinon.stub().returns([jUnitXmlReporterInstance])
 
-    handler = proxyquire('../../lib/cli/run', {
-      '../logging/LoggingFacade': LoggerMock,
-      '../allChecksRunner': HtmlSanityCheckMock,
-      '../reporters/JUnitXmlReporter': JUnitXmlReporterMock,
-      '../utils': { createReporters: createReportersMock },
+    handler = proxyquire('../../../lib/cli/run', {
+      '../../../logging/LoggingFacade': LoggerMock,
+      '../../../allChecksRunner': HtmlSanityCheckMock,
+      '../../../reporters/JUnitXmlReporter': JUnitXmlReporterMock,
+      '../../../utils': { createReporters: createReportersMock },
       debug: () => sinon.stub()
     }).handler
   })
 
   it('should run all checks and create a report', async () => {
+    const sourceDir = fs.mkdtempSync('run')
     const argv = {
       reporter: {
         junit: {
           outputPath: './test-results/htmlSanityCheck'
         }
-      }
+      },
+      checkers: {
+        DuplicatedIdChecker: {}
+      },
+      sourceDir: sourceDir
     }
 
     await handler(argv)
