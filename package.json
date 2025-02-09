@@ -45,7 +45,7 @@
     "rewiremock": "^3.14.3",
     "semantic-release": "^24",
     "shx": "^0.3.4",
-    "sinon": "^16"
+    "sinon": "^19"
   },
   "scripts": {
     "test": "npm run test:node && npm run test:features && npm run test:smoke",
