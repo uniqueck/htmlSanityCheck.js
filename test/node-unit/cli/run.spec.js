@@ -2,18 +2,23 @@
 'use strict'
 
 const sinon = require('sinon')
-const proxyquire = require('proxyquire').noCallThru()
+const proxyquire = require('proxyquire')
 const referee = require('@sinonjs/referee')
 const assert = referee.assert
 const fs = require('fs')
+const path = require('path')
+const os = require('os')
 
 describe('run handler', () => {
   let handler
   let createReportersMock
   let LoggerMock, HtmlSanityCheckMock, JUnitXmlReporterMock
   let loggerInstance, htmlSanityCheckInstance, jUnitXmlReporterInstance
+  let tempDir
 
   beforeEach(() => {
+    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'run-'))    
+
     loggerInstance = { info: sinon.stub() }
     htmlSanityCheckInstance = { performAllChecks: sinon.stub().resolves('results') }
     jUnitXmlReporterInstance = { reportFindings: sinon.stub().resolves() }
@@ -24,16 +29,13 @@ describe('run handler', () => {
     createReportersMock = sinon.stub().returns([jUnitXmlReporterInstance])
 
     handler = proxyquire('../../../lib/cli/run', {
-      '../../../logging/LoggingFacade': LoggerMock,
-      '../../../allChecksRunner': HtmlSanityCheckMock,
-      '../../../reporters/JUnitXmlReporter': JUnitXmlReporterMock,
-      '../../../utils': { createReporters: createReportersMock },
-      debug: () => sinon.stub()
+      '../logging/LoggingFacade': LoggerMock,
+      '../allChecksRunner': HtmlSanityCheckMock,      
+      '../utils': { createReporters: createReportersMock }
     }).handler
   })
 
-  it('should run all checks and create a report', async () => {
-    const sourceDir = fs.mkdtempSync('run')
+  it('should run all checks and create a report', async () => {    
     const argv = {
       reporter: {
         junit: {
@@ -43,10 +45,11 @@ describe('run handler', () => {
       checkers: {
         DuplicatedIdChecker: {}
       },
-      sourceDir: sourceDir
+      sourceDir: tempDir,
+      traceLogging: true
     }
-
-    await handler(argv)
+    
+    await handler(argv)    
 
     assert(LoggerMock.calledWith(argv))
     assert(HtmlSanityCheckMock.calledWith(argv, loggerInstance))

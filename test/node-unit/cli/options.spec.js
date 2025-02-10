@@ -19,6 +19,10 @@ describe('options', () => {
         junit: {
           outputPath: './test-results/htmlSanityCheck',
           enabled: true
+        },
+        sonar: {
+          outputPath: './test-results/htmlSanityCheck',
+          enabled: false
         }
       },
       checkers: {
