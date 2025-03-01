@@ -1,3 +1,19 @@
+## [1.2.2](https://github.com/uniqueck/htmlSanityCheck.js/compare/v1.2.1...v1.2.2) (2025-03-01)
+
+
+### Build
+
+* Bump elliptic from 6.5.7 to 6.6.1 ([2e114da](https://github.com/uniqueck/htmlSanityCheck.js/commit/2e114da760cfbc59ea1957c237f560476ead0aee))
+* Bump sinon from 16.1.3 to 19.0.2 ([10ef8fa](https://github.com/uniqueck/htmlSanityCheck.js/commit/10ef8faf73dcff2f7dfee4d6e556a0ffc32ef74c))
+
+### fix
+
+* reduce info logs ([9133503](https://github.com/uniqueck/htmlSanityCheck.js/commit/91335035422750869aa1411c3582194fbb4cc28e)), closes [#46](https://github.com/uniqueck/htmlSanityCheck.js/issues/46)
+
+### Fix
+
+* file name for JunitXmlReporter #50 ([d01843d](https://github.com/uniqueck/htmlSanityCheck.js/commit/d01843da00e922739efad0a0d167628be1de5380)), closes [#50](https://github.com/uniqueck/htmlSanityCheck.js/issues/50)
+
 ## [1.2.1](https://github.com/uniqueck/htmlSanityCheck.js/compare/v1.2.0...v1.2.1) (2024-10-03)
 
 
