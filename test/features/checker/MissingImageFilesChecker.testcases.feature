@@ -1,9 +1,9 @@
-# Diese Datei wurde erzeugt durch LF-ET 2.3.0 (240629a) und Kommandozeile:
+# Diese Datei wurde erzeugt durch LF-ET 2.4.0 (250815a) und Kommandozeile:
 # -GenTest "/home/constantin/Development/github/uniqueck/htmlSanityCheck.js/lfet/checker/MissingImageFilesChecker.lfet" -Group "cucumber" -Config "cucumber" -ContinueOnError -GtdDirectory "../../test/features/testdata/" -GtdRecursive -NonExecutableRules "50" -RecommendedTestCases -Statistics -Protocol -OutGherkin "MissingImageFilesChecker.testcases.feature" -InputRootfolder "/home/constantin/Development/github/uniqueck/htmlSanityCheck.js/lfet" -OutputRootfolder "/home/constantin/Development/github/uniqueck/htmlSanityCheck.js/test/features"
 # 
 # Aktueller Benutzer: constantin
 # Aktuelles Verzeichnis (user.dir): "/home/constantin/Development/github/uniqueck/htmlSanityCheck.js"
-# Benötigte Zeit: 00:00:00.057 (16.08.2024 01:22:58.540 - 16.08.2024 01:22:58.597)
+# Benötigte Zeit: 00:00:00.060 (25.08.2025 08:52:18.633 - 25.08.2025 08:52:18.693)
 # 
 # Entscheidungstabelle: /home/constantin/Development/github/uniqueck/htmlSanityCheck.js/lfet/checker/MissingImageFilesChecker.lfet
 # 

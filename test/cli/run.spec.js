@@ -3,8 +3,10 @@
 
 const sinon = require('sinon')
 const proxyquire = require('proxyquire').noCallThru()
-const referee = require('@sinonjs/referee')
-const assert = referee.assert
+const chai = require('chai')
+const dirtyChai = require('dirty-chai')
+chai.use(dirtyChai)
+const { expect } = chai
 
 describe('run handler', () => {
   let handler
@@ -42,11 +44,11 @@ describe('run handler', () => {
 
     await handler(argv)
 
-    assert(LoggerMock.calledWith(argv))
-    assert(HtmlSanityCheckMock.calledWith(argv, loggerInstance))
-    assert(htmlSanityCheckInstance.performAllChecks.calledOnce)
-    assert(createReportersMock.calledWith(argv.reporter, loggerInstance))
-    assert(jUnitXmlReporterInstance.reportFindings.calledWith('results'))
+    expect(LoggerMock.calledWith(argv)).to.be.true()
+    expect(HtmlSanityCheckMock.calledWith(argv, loggerInstance)).to.be.true()
+    expect(htmlSanityCheckInstance.performAllChecks.calledOnce).to.be.true()
+    expect(createReportersMock.calledWith(argv.reporter, loggerInstance)).to.be.true()
+    expect(jUnitXmlReporterInstance.reportFindings.calledWith('results')).to.be.true()
   })
 
   it('should handle errors', async () => {
@@ -59,8 +61,8 @@ describe('run handler', () => {
 
     await handler(argv)
 
-    assert(consoleErrorStub.calledWith('\n Exception during run:', error))
-    assert(exitStub.calledWith(1))
+    expect(consoleErrorStub.calledWith('\n Exception during run:', error)).to.be.true()
+    expect(exitStub.calledWith(1)).to.be.true()
 
     exitStub.restore()
     consoleErrorStub.restore()

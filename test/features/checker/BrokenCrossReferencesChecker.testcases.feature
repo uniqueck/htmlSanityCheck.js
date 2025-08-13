@@ -1,9 +1,9 @@
-# Diese Datei wurde erzeugt durch LF-ET 2.3.0 (240629a) und Kommandozeile:
+# Diese Datei wurde erzeugt durch LF-ET 2.4.0 (250815a) und Kommandozeile:
 # -GenTest "/home/constantin/Development/github/uniqueck/htmlSanityCheck.js/lfet/checker/BrokenCrossReferencesChecker.lfet" -Group "cucumber" -Config "cucumber" -ContinueOnError -GtdDirectory "../../test/features/testdata/" -GtdFileNamePattern "*.txt; *.csv" -DDTableName "BrokenCrossReferencesCheckers" -NonExecutableRules "50" -RecommendedTestCases -Statistics -Protocol -OutGherkin "BrokenCrossReferencesChecker.testcases.feature" -InputRootfolder "/home/constantin/Development/github/uniqueck/htmlSanityCheck.js/lfet" -OutputRootfolder "/home/constantin/Development/github/uniqueck/htmlSanityCheck.js/test/features"
 # 
 # Aktueller Benutzer: constantin
 # Aktuelles Verzeichnis (user.dir): "/home/constantin/Development/github/uniqueck/htmlSanityCheck.js"
-# Benötigte Zeit: 00:00:00.455 (16.08.2024 01:22:57.582 - 16.08.2024 01:22:58.037)
+# Benötigte Zeit: 00:00:00.676 (25.08.2025 08:52:17.429 - 25.08.2025 08:52:18.105)
 # 
 # Entscheidungstabelle: /home/constantin/Development/github/uniqueck/htmlSanityCheck.js/lfet/checker/BrokenCrossReferencesChecker.lfet
 # 
@@ -143,8 +143,8 @@ Feature: BrokenCrossReferencesChecker
     BrokenCrossReferencesChecker
     R11 : B01 href contains invalid chars = * ; B02 href starts with = *
     When  checker 'BrokenCrossReferencesChecker' with html page
-      | Content                                          |
-      | "<html><body><a href="https://"/></body></html>" |
+      | Content                                                              |
+      | "<html><body><a href="https://"/><a href="https://"/></body></html>" |
     But   check count findings 0 are reported
     Then  check number of items checked is 1
 
