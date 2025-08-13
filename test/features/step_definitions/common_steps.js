@@ -2,10 +2,17 @@ const { When, Then, Given, Before, After } = require('@cucumber/cucumber')
 const { assert } = require('referee')
 
 Before(function () {
+  // Clear the HTTP cache before each test to avoid interference
+  const BrokenHttpLinksChecker = require('../../../lib/checker/BrokenHttpLinksChecker')
+  BrokenHttpLinksChecker.cache.clear()
+
   this.config = {}
   this.loggerMock = {
     messages: [],
     trace: function (message) {
+      this.messages.push(message)
+    },
+    debug: function (message) {
       this.messages.push(message)
     }
   }
@@ -36,7 +43,11 @@ Before(function () {
     send () {
       const route = global.routes[this.method]
       this.status = route.status
+      // Only assert URL match if URL was set for this method
+
+      assert(route.url !== undefined, `Test setup error: route.url is undefined for method "${this.method}". This may mask test failures. Please ensure route.url is set.`)
       assert.equals(route.url, this.url)
+
       this.callback()
     }
 
@@ -48,6 +59,8 @@ Before(function () {
 
 After(function () {
   this.attach(this.loggerMock.messages.join('\n'))
+
+  // Clean up global mocks and cache
   delete global.XMLHttpRequest
   delete global.routes
 })
@@ -89,14 +102,6 @@ Given('{string} request for', function (requestMethod, dataTable) {
   }
 })
 
-Given(/^config option (.*) is \[(.*)\]$/, function (optionName, optionValue) {
-  this.config[optionName] = optionValue.split(',').map(it => parseInt(it))
-})
-
-Given(/^config option (.*) is (enabled|disabled)$/, function (optionName, optionValue) {
-  this.config[optionName] = optionValue === 'enabled'
-})
-
 Then('check finding {string} is reported', function (finding) {
   const Finding = require('../../../lib/finding')
   assert.equals(1, this.singleCheckResult.findings.length)
@@ -109,4 +114,16 @@ Then('check count findings {float} are reported', function (countFindings) {
 
 Then('check number of items checked is {int}', function (nrOfItemsChecked) {
   assert.equals(nrOfItemsChecked, this.singleCheckResult.nrOfItemsChecked)
+})
+
+When(/^HtmlSanityCheck processes the html file$/, async function () {
+  this.startTime = Date.now()
+  const AllChecksRunner = require('../../../lib/allChecksRunner')
+  await new AllChecksRunner(this.config, this.loggerMock).performAllChecks()
+  this.endTime = Date.now()
+})
+
+Then(/^the processing should complete within (\d+) seconds$/, function (maxDuration) {
+  const duration = (this.endTime - this.startTime) / 1000
+  assert.equals(duration <= maxDuration, true)
 })

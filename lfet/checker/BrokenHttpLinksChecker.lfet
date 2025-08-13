@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<LFET version="LF-ET 2.3.0 (240626a)" language="English" saveDate="2024.07.06 at 19:50:24 CEST" saveUser="constantin">
+<LFET version="LF-ET 2.4.0 (250801a)" language="English" saveDate="2025.08.13 at 00:09:57 CEST" saveUser="constantin">
   <Conditions>
     <Condition uId="17097392870007787">
       <Title language="English" value="step"/>
@@ -113,7 +113,7 @@
         <ConditionOccurrence uId="17097667732011745">
           <Symbol language="English" value="30x"/>
           <Title language="English" value="[301:308]"/>
-          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenHttpLinksChecker, BrokenHttpLinksCheckers, Head_Status_Code in ${*LFET.Title}"/>
+          <TestValue group="*ti.gtd.cucumber" type="tcpre" value="Table, BrokenHttpLinksChecker, BrokenHttpLinksCheckers, Head_Status_Code in '${*LFET.Title}'"/>
         </ConditionOccurrence>
         <ConditionOccurrence uId="17097667732031747">
           <Symbol language="English" value="*"/>
@@ -230,7 +230,7 @@
         <ActionOccurrence uId="17097393483508019">
           <Symbol language="English" value="Ex"/>
           <Title language="English" value="exit"/>
-          <TestValue group="cucumber" type="tse" value="check count findings ${*LFET.calc.countFindings} are reported"/>
+          <TestValue group="cucumber" type="tse" value="check count findings ${*LFET.calc.countFindings: 0} are reported"/>
         </ActionOccurrence>
       </ActionOccurrences>
     </Action>

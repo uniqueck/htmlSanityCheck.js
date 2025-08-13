@@ -58,7 +58,7 @@
     "cover": "npm run cover:unit && npm run cover:features && npm run cover:report",
     "lint": "eslint \"./lib/**/*.js\" \"./test/**/*.js\"",
     "lint:fix": "eslint \"./lib/**/*.js\" \"./test/**/*.js\" --fix",
-    "lfet:UI": "exec java -classpath \"$INIT_CWD/.lfet/tool/*\" lohrfink.lfet.Application &",
+    "lfet:UI": "exec java -classpath \"$INIT_CWD/.lfet/tool/*\" lohrfink.lfet.Application",
     "prelfet:install": "cd \"$INIT_CWD/.lfet\" && rm -rf tool",
     "lfet:install": "mkdir -p \"$INIT_CWD/.lfet/tool\" && curl -fsSLO https://www.lohrfink.de/lfet.latest.inst && unzip -qj lfet.latest.inst \"lib/*.jar\" -d \"$INIT_CWD/.lfet/tool\" && rm lfet.latest.inst",
     "postlfet:install": "npm run lfet:update",
