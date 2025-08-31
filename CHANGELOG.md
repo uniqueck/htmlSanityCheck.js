@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/uniqueck/htmlSanityCheck.js/compare/v1.2.2...v1.3.0) (2025-08-31)
+
+
+### Build
+
+* add checker for conventional commits ([9fe8346](https://github.com/uniqueck/htmlSanityCheck.js/commit/9fe83461fdebe5465df62d7a14e04115b91e72fb))
+* replace sonarcloud-github-action with sonarqube-scan-action ([95ffeba](https://github.com/uniqueck/htmlSanityCheck.js/commit/95ffebaf0f9fe34f5627ff0077f1f224081f813f))
+
+### New
+
+* add cache for BrokenHttpLinksChecker ([c74654f](https://github.com/uniqueck/htmlSanityCheck.js/commit/c74654f08f18552c97c142d35a9053d6a461ad17))
+
 ## [1.2.2](https://github.com/uniqueck/htmlSanityCheck.js/compare/v1.2.1...v1.2.2) (2025-03-01)
 
 
