@@ -1,0 +1,63 @@
+name: Get Dependabot Metadata
+
+on:
+  workflow_call:
+    inputs:
+      github-token:
+        description: 'GitHub token for authentication'
+        required: false
+        type: string
+        default: ${{ github.token }}
+    outputs:
+      dependency-names:
+        description: 'Dependency names from metadata'
+        value: ${{ jobs.metadata.outputs.dependency-names }}
+      dependency-type:
+        description: 'Dependency type from metadata'
+        value: ${{ jobs.metadata.outputs.dependency-type }}
+      update-type:
+        description: 'Update type from metadata'
+        value: ${{ jobs.metadata.outputs.update-type }}
+      package-ecosystem:
+        description: 'Package ecosystem from metadata'
+        value: ${{ jobs.metadata.outputs.package-ecosystem }}
+      target-branch:
+        description: 'Target branch from metadata'
+        value: ${{ jobs.metadata.outputs.target-branch }}
+      previous-version:
+        description: 'Previous version from metadata'
+        value: ${{ jobs.metadata.outputs.previous-version }}
+      new-version:
+        description: 'New version from metadata'
+        value: ${{ jobs.metadata.outputs.new-version }}
+      alert-state:
+        description: 'Alert state from metadata'
+        value: ${{ jobs.metadata.outputs.alert-state }}
+      ghsa-id:
+        description: 'GHSA ID from metadata'
+        value: ${{ jobs.metadata.outputs.ghsa-id }}
+      cvss:
+        description: 'CVSS score from metadata'
+        value: ${{ jobs.metadata.outputs.cvss }}
+
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    outputs:
+      dependency-names: ${{ steps.metadata.outputs.dependency-names }}
+      dependency-type: ${{ steps.metadata.outputs.dependency-type }}
+      update-type: ${{ steps.metadata.outputs.update-type }}
+      package-ecosystem: ${{ steps.metadata.outputs.package-ecosystem }}
+      target-branch: ${{ steps.metadata.outputs.target-branch }}
+      previous-version: ${{ steps.metadata.outputs.previous-version }}
+      new-version: ${{ steps.metadata.outputs.new-version }}
+      alert-state: ${{ steps.metadata.outputs.alert-state }}
+      ghsa-id: ${{ steps.metadata.outputs.ghsa-id }}
+      cvss: ${{ steps.metadata.outputs.cvss }}
+    steps:
+      - name: Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v1
+        with:
+          github-token: ${{ inputs.github-token }}
